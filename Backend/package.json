@@ -12,7 +12,7 @@
     "tainer",
     "admin"
   ],
-  "author": "Ananth Krishnan A, Athul c k, Maya P, Nadira PT",
+  "author": "Ananth Krishnan A, Athul c k, Maya P, Nadira PT, Nesla MS",
   "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",

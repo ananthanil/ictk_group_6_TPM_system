@@ -12,30 +12,30 @@
   <!-- signup -->
 
   <div class="container mb-2 pt-5 pb-5">
-    <form class="row g-3" (ngSubmit)="AddUser()">
+    <form class="row g-3" form> <!--(ngSubmit)="AddUser()"-->
       <div class="col-md-6">
         <label for="firstName" class="form-label">First Name</label>
-        <input type="uFname" class="form-control"  name="uFname" [(ngModel)]="loginItem.uFname" id="signup_firstName">
+        <input type="uFname" class="form-control"  name="uFname"  id="signup_firstName">  <!--[(ngModel)]="loginItem.uFname" -->
       </div>
       <div class="col-md-6">
         <label for="lastName" class="form-label">Last Name</label>
-        <input type="uLname" class="form-control" name="uLname" [(ngModel)]="loginItem.uLname" id="signup_lastName">
+         <input type="uLname" class="form-control" name="uLname"  id="signup_lastName"> <!--[(ngModel)]="loginItem.uLname" -->
         <span class="error" id="lastname_message"></span>
       </div>
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Email</label>
-        <input type="email" class="form-control" name="uEmail" [(ngModel)]="loginItem.uEmail" id="signup_inputEmail4" placeholder="Eg : xyz@gmail.com">  
+       <input type="email" class="form-control" name="uEmail"  id="signup_inputEmail4" placeholder="Eg : xyz@gmail.com">  <!-- [(ngModel)]="loginItem.uEmail"  -->
       </div>
       
       <div class="col-md-6">
       <label for="mobile4" class="form-label">Mobile</label>
-      <input type="tel" class="form-control" name="uPhone" [(ngModel)]="loginItem.uPhone" placeholder="Eg : XXX-XXX-XXXX">
+      <input type="tel" class="form-control" name="uPhone"  placeholder="Eg : XXX-XXX-XXXX">  <!--[(ngModel)]="loginItem.uPhone" -->
       <span class="error" id="mobile_message"></span>
       </div>
 
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Password</label>
-        <input type="password" class="form-control" name="uPassword" [(ngModel)]="loginItem.uPassword">
+        <input type="password" class="form-control" name="uPassword" > <!-- [(ngModel)]="loginItem.uPassword" -->
      </div>
 
     <div class="col-md-6">

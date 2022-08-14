@@ -19,6 +19,7 @@ import { ProgramtypeComponent } from './programtype/programtype.component';
 import { TModeComponent } from './t-mode/t-mode.component';
 import { ApproveComponent } from './approve/approve.component';
 import { TDetailsComponent } from './t-details/t-details.component';
+import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { TDetailsComponent } from './t-details/t-details.component';
     ProgramtypeComponent,
     TModeComponent,
     ApproveComponent,
-    TDetailsComponent
+    TDetailsComponent,
+    TrainerHomeComponent
   ],
   imports: [
     BrowserModule,

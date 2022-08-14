@@ -12,6 +12,13 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { HomeComponent } from './home/home.component';
+import { AdminHomeComponent } from './admin-home/admin-home.component';
+import { TTypeComponent } from './t-type/t-type.component';
+import { PackagetypeComponent } from './packagetype/packagetype.component';
+import { ProgramtypeComponent } from './programtype/programtype.component';
+import { TModeComponent } from './t-mode/t-mode.component';
+import { ApproveComponent } from './approve/approve.component';
+import { TDetailsComponent } from './t-details/t-details.component';
 
 
 @NgModule({
@@ -23,7 +30,14 @@ import { HomeComponent } from './home/home.component';
     ForgotPasswordComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
+    AdminHomeComponent,
+    TTypeComponent,
+    PackagetypeComponent,
+    ProgramtypeComponent,
+    TModeComponent,
+    ApproveComponent,
+    TDetailsComponent
   ],
   imports: [
     BrowserModule,

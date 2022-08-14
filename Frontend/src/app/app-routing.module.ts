@@ -26,10 +26,11 @@ const routes: Routes = [
    {path:'packagetype',component:PackagetypeComponent},
    {path:'programtype',component:ProgramtypeComponent},
    {path:'approve',component:ApproveComponent},
-   {path:'t-details',component:TDetailsComponent},
-   {path:'trainer-home',component:TrainerHomeComponent}
+   {path:'t-details',component:TDetailsComponent}
+   
 
-  ]}
+  ]},
+  {path:'trainer-home',component:TrainerHomeComponent}
 ];
 
 @NgModule({

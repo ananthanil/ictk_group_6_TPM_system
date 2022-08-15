@@ -3,23 +3,25 @@
     flex-direction: row;
     width:100%;
     align-content:center;
+    text-decoration: none;
 }
 .leftdiv{
     background-color: rgb(61, 240, 180);
     width:20%;
-    height:450px;
+    height:480px;
     border-radius:10px;
     padding:20px;
-    margin:10px;
+    margin-left:2%;
+    
 }
 .rightdiv{
     
     background-color: rgb(61, 240, 180);
-    width:50%;
-    height:450px;
+    width:65%;
+    height:480px;
     border-radius:10px;
     padding:20px;
-    margin-left:30%;
-    
+    margin-left:13%;
+    transform: translate(29%,-100%);
   
 }

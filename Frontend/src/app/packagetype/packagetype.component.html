@@ -1,1 +1,27 @@
-<p>package type </p>
+<div class="container mb-2 pt-5 pb-5">
+    <form class="row g-3" form> <!--(ngSubmit)="AddUser()"-->
+
+      <div class="col-md-6">
+            <label for="firstName" class="form-label">Trainer Category</label>
+            <select class="form-control">
+                <option>Select Trainer Category</option>
+            </select>  <!--[(ngModel)]="loginItem.uFname" -->
+      </div>
+
+      <div class="col-md-6">
+            <label for="lastName" class="form-label">Training Mode</label>
+            <select class="form-control">
+                <option>Select Training Mode</option>
+            </select> <!--[(ngModel)]="loginItem.uLname" -->
+      </div>
+      
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Per Hour Amount</label>
+        <input type="number" class="form-control" name="uEmail"  id="signup_inputEmail4" placeholder="Eg : Rs.1000">  <!-- [(ngModel)]="loginItem.uEmail"  -->
+      </div>
+
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>

@@ -11,7 +11,7 @@ import { PackagetypeComponent } from './packagetype/packagetype.component';
 import { ProgramtypeComponent } from './programtype/programtype.component';
 import { ApproveComponent } from './approve/approve.component';
 import { TDetailsComponent } from './t-details/t-details.component';
-//import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},

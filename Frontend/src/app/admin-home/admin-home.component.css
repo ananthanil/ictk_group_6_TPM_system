@@ -3,6 +3,7 @@
     flex-direction: row;
     width:100%;
     align-content:center;
+
 }
 .leftdiv{
     background-color: rgb(61, 240, 180);
@@ -10,16 +11,16 @@
     height:450px;
     border-radius:10px;
     padding:20px;
-    margin:10px;
+    margin-left:2%;
 }
 .rightdiv{
     
     background-color: rgb(61, 240, 180);
-    width:50%;
+    width:65%;
     height:450px;
     border-radius:10px;
     padding:20px;
-    margin-left:30%;
-    
+    margin-left:13%;
+    transform: translate(29%,-100%);
   
 }

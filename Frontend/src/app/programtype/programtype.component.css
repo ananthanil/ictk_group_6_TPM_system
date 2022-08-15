@@ -1,0 +1,28 @@
+.form-control{
+    width: 60%;
+    display: inline-block;
+    padding-block: 1%;
+    margin-block: 1%;
+}
+.btn-primary{
+    width: 14%;
+}
+#programtype{
+    margin-left: 8%;  
+}
+#studentsNum{
+    margin-left:2%;
+}
+#startDt{
+    margin-left:13%;
+}
+#endDt{
+    margin-left:14%;
+}
+#btn{
+    margin-left: 38%;
+}
+h4{
+    color:indigo;
+    text-align: center;
+}

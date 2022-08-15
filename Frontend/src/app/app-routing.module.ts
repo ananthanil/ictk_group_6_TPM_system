@@ -29,7 +29,9 @@ const routes: Routes = [
    {path:'t-details',component:TDetailsComponent}
   ]},
   {path:'trainer-home',component:TrainerHomeComponent}
-];
+   
+
+  ]
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

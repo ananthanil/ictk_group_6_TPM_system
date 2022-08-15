@@ -7,6 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProgramtypeComponent implements OnInit {
 
+  heading='';
+  program=[{
+    name:'',
+    number:'',
+    strtDate:'',
+    endDate:''
+  }]
+
   constructor() { }
 
   ngOnInit(): void {

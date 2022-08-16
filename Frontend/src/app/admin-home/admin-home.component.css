@@ -1,0 +1,27 @@
+.mainclass{
+    display:flex;
+    flex-direction: row;
+    width:100%;
+    align-content:center;
+    text-decoration: none;
+}
+.leftdiv{
+    background-color: rgb(61, 240, 180);
+    width:20%;
+    height:480px;
+    border-radius:10px;
+    padding:20px;
+    margin-left:2%;
+    
+}
+.rightdiv{
+    
+    background-color: rgb(61, 240, 180);
+    width:65%;
+    height:480px;
+    border-radius:10px;
+    padding:20px;
+    margin-left:13%;
+    transform: translate(29%,-100%);
+  
+}

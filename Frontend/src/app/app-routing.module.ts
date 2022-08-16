@@ -12,6 +12,7 @@ import { ProgramtypeComponent } from './programtype/programtype.component';
 import { ApproveComponent } from './approve/approve.component';
 import { TDetailsComponent } from './t-details/t-details.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+import { FinanceHomepageComponent } from './finance-homepage/finance-homepage.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -28,7 +29,8 @@ const routes: Routes = [
    {path:'approve',component:ApproveComponent},
    {path:'t-details',component:TDetailsComponent}
   ]},
-  {path:'trainer-home',component:TrainerHomeComponent}
+  {path:'trainer-home',component:TrainerHomeComponent},
+  {path:'finance-home',component:FinanceHomepageComponent}
    
 
   ]

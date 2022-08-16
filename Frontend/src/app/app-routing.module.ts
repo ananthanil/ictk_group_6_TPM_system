@@ -13,6 +13,7 @@ import { ApproveComponent } from './approve/approve.component';
 import { TDetailsComponent } from './t-details/t-details.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { FinanceHomepageComponent } from './finance-homepage/finance-homepage.component';
+import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.component';
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -30,7 +31,10 @@ const routes: Routes = [
    {path:'t-details',component:TDetailsComponent}
   ]},
   {path:'trainer-home',component:TrainerHomeComponent},
-  {path:'finance-home',component:FinanceHomepageComponent}
+  {path:'finance-home',component:FinanceHomepageComponent,
+  children:[
+    {path:'f-timesheet-view',component:FTimesheetViewComponent}
+  ]}
    
 
   ]

@@ -1,13 +1,35 @@
-<div>
-    <p><label> Available Time sheets</label></p>
-    
-    <p><label>Trainer Name: </label><input type="text" placeholder="Trainer Name"></p>
-    <p><label>Date: </label><input type="text" placeholder="Date"></p>
-    <p><label>Time: </label><input type="text" placeholder="Time"></p>
-    <p><label>Mode of Training: </label><input type="text" placeholder="Mode of training"></p>
-    <p>
-        <label>Tick for approve</label> <input type="checkbox">
-         <button id="approve">Approve</button>
-     </p>
-    
+<h3>{{title}}</h3>
+<div class="timesheetlist">
+    <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+                <th> Date</th>
+                <th> Trainer Name</th>
+                <th> Time</th>
+                <th>Mode of Training</th>
+                <th> Approve</th>
+            </tr>
+
+          </thead>
+          <tbody>
+           
+          
+          <tr>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th></th>
+            <th>
+                
+                  <input type="checkbox" id="approve" >
+            </th>
+          </tr>
+          <button class="btn btn-primary">
+            Approve
+        </button>
+    </tbody>
+        </table>
+    </div>
+
 </div>

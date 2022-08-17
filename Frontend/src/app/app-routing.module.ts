@@ -15,6 +15,7 @@ import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { FinanceHomepageComponent } from './finance-homepage/finance-homepage.component';
 import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.component';
 
+
 const routes: Routes = [
   {path:'',component: HomeComponent},
   {path:'signin',component:SigninComponent},
@@ -27,6 +28,7 @@ const routes: Routes = [
    {path:'t-mode',component:TModeComponent},
    {path:'packagetype',component:PackagetypeComponent},
    {path:'programtype',component:ProgramtypeComponent},
+   {path:'activitytype',component:ActivitytypeComponent},
    {path:'approve',component:ApproveComponent},
    {path:'t-details',component:TDetailsComponent}
   ]},

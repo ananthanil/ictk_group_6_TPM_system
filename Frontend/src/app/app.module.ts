@@ -22,6 +22,7 @@ import { ApproveComponent } from './approve/approve.component';
 import { TDetailsComponent } from './t-details/t-details.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.component';
+import { ActivitytypeComponent } from './activitytype/activitytype.component';
 
 
 @NgModule({
@@ -42,7 +43,9 @@ import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.com
     ApproveComponent,
     TDetailsComponent,
     TrainerHomeComponent,
-    FTimesheetViewComponent
+    FTimesheetViewComponent,
+    ActivitytypeComponent
+
   ],
   imports: [
     BrowserModule,

@@ -23,6 +23,7 @@ import { TDetailsComponent } from './t-details/t-details.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.component';
 import { ActivitytypeComponent } from './activitytype/activitytype.component';
+import { TrainerAddTimesheetComponent } from './trainer-add-timesheet/trainer-add-timesheet.component';
 
 
 @NgModule({
@@ -44,7 +45,8 @@ import { ActivitytypeComponent } from './activitytype/activitytype.component';
     TDetailsComponent,
     TrainerHomeComponent,
     FTimesheetViewComponent,
-    ActivitytypeComponent
+    ActivitytypeComponent,
+    TrainerAddTimesheetComponent
 
   ],
   imports: [

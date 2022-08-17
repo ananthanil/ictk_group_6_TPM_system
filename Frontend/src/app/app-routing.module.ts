@@ -14,6 +14,7 @@ import { TDetailsComponent } from './t-details/t-details.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 import { FinanceHomepageComponent } from './finance-homepage/finance-homepage.component';
 import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.component';
+import { ActivitytypeComponent } from './activitytype/activitytype.component';
 
 
 const routes: Routes = [

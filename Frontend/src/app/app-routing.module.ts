@@ -12,6 +12,11 @@ import { ProgramtypeComponent } from './programtype/programtype.component';
 import { ApproveComponent } from './approve/approve.component';
 import { TDetailsComponent } from './t-details/t-details.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+import { FinanceHomepageComponent } from './finance-homepage/finance-homepage.component';
+import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.component';
+import { ActivitytypeComponent } from './activitytype/activitytype.component';
+import { TrainerAddTimesheetComponent } from './trainer-add-timesheet/trainer-add-timesheet.component';
+
 
 const routes: Routes = [
   {path:'',component: HomeComponent},
@@ -25,10 +30,19 @@ const routes: Routes = [
    {path:'t-mode',component:TModeComponent},
    {path:'packagetype',component:PackagetypeComponent},
    {path:'programtype',component:ProgramtypeComponent},
+   {path:'activitytype',component:ActivitytypeComponent},
    {path:'approve',component:ApproveComponent},
    {path:'t-details',component:TDetailsComponent}
   ]},
-  {path:'trainer-home',component:TrainerHomeComponent}
+  {path:'trainer-home',component:TrainerHomeComponent,
+  children:[
+    {path:'trainer-add-timesheet',component:TrainerAddTimesheetComponent}
+  ]},
+  {path:'finance-home',component:FinanceHomepageComponent,
+  children:[
+    {path:'f-timesheet-view',component:FTimesheetViewComponent}
+  ]}
+  
    
 
   ]

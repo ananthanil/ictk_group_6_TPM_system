@@ -21,7 +21,12 @@ import { TModeComponent } from './t-mode/t-mode.component';
 import { ApproveComponent } from './approve/approve.component';
 import { TDetailsComponent } from './t-details/t-details.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+
 import { FinanceExpenseComponent } from './finance-expense/finance-expense.component';
+import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.component';
+import { ActivitytypeComponent } from './activitytype/activitytype.component';
+import { TrainerAddTimesheetComponent } from './trainer-add-timesheet/trainer-add-timesheet.component';
+
 
 
 @NgModule({
@@ -42,7 +47,14 @@ import { FinanceExpenseComponent } from './finance-expense/finance-expense.compo
     ApproveComponent,
     TDetailsComponent,
     TrainerHomeComponent,
-    FinanceExpenseComponent
+
+    FinanceExpenseComponent,
+
+    FTimesheetViewComponent,
+    ActivitytypeComponent,
+    TrainerAddTimesheetComponent
+
+
   ],
   imports: [
     BrowserModule,

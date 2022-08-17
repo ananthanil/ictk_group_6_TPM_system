@@ -21,6 +21,7 @@ import { TModeComponent } from './t-mode/t-mode.component';
 import { ApproveComponent } from './approve/approve.component';
 import { TDetailsComponent } from './t-details/t-details.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
+import { FinanceExpenseComponent } from './finance-expense/finance-expense.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
     TModeComponent,
     ApproveComponent,
     TDetailsComponent,
-    TrainerHomeComponent
+    TrainerHomeComponent,
+    FinanceExpenseComponent
   ],
   imports: [
     BrowserModule,

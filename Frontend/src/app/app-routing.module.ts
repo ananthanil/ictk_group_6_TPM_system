@@ -16,6 +16,7 @@ import { FinanceHomepageComponent } from './finance-homepage/finance-homepage.co
 import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.component';
 import { ActivitytypeComponent } from './activitytype/activitytype.component';
 import { TrainerAddTimesheetComponent } from './trainer-add-timesheet/trainer-add-timesheet.component';
+import { AddExpenseComponent } from './add-expense/add-expense.component';
 
 
 const routes: Routes = [
@@ -36,7 +37,8 @@ const routes: Routes = [
   ]},
   {path:'trainer-home',component:TrainerHomeComponent,
   children:[
-    {path:'trainer-add-timesheet',component:TrainerAddTimesheetComponent}
+    {path:'trainer-add-timesheet',component:TrainerAddTimesheetComponent},
+    {path:'add-expense',component:AddExpenseComponent}
   ]},
   {path:'finance-home',component:FinanceHomepageComponent,
   children:[

@@ -26,6 +26,7 @@ import { FinanceExpenseComponent } from './finance-expense/finance-expense.compo
 import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.component';
 import { ActivitytypeComponent } from './activitytype/activitytype.component';
 import { TrainerAddTimesheetComponent } from './trainer-add-timesheet/trainer-add-timesheet.component';
+import { AddExpenseComponent } from './add-expense/add-expense.component';
 
 
 
@@ -52,7 +53,8 @@ import { TrainerAddTimesheetComponent } from './trainer-add-timesheet/trainer-ad
 
     FTimesheetViewComponent,
     ActivitytypeComponent,
-    TrainerAddTimesheetComponent
+    TrainerAddTimesheetComponent,
+    AddExpenseComponent
 
 
   ],

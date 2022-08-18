@@ -1,0 +1,131 @@
+<h4> Expense Sheet</h4>
+<div class="container mb-2 pt-5 pb-5">
+    
+    <form class="row g-3" > <!--(ngSubmit)="AddUser()"-->
+        <div class="col-md-6">
+            <label> Program Date </label>
+            <input  
+            name="pDate" 
+            formControlName="pDateField"
+            id="pDate" 
+            type="date" 
+            class="form-control" 
+            placeholder="Program Date" >
+        </div>
+      
+        <div class="col-md-6">
+          <label>Description</label>
+          <input 
+            name="description" 
+            formControlName="descriptionField"
+            id="description" 
+            type="text" 
+            class="form-control" 
+            placeholder="Description" >
+        </div>
+  
+        <div class="col-md-6">
+        <label>Hotel Expense </label>
+        <input  
+              name="hotelExp" 
+              formControlName="hotelExpField"
+              id="hotelExp" 
+              type="number" 
+              class="form-control" 
+              placeholder="Amount" >
+              <div class="input-group mb-3">
+            <input  
+              name="filename" 
+              id="myFile" 
+              type="file" 
+              class="form-control">
+              <div class="input-group-append">
+                 <button type="submit" class="btn btn-outline-secondary">Upload</button>
+                <!-- <button class="btn btn-outline-secondary" type="button">Button</button> -->
+              </div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <label>Travel Expense(Train/Bus)</label>
+            <input  
+            name="travelExp" 
+            formControlName="travelExpField"
+            id="travelExp" 
+            type="number" 
+            class="form-control" 
+            placeholder="Amount" >
+            <div class="input-group mb-3">
+            <input  
+            name="filename" 
+            id="myFile" 
+            type="file" 
+            class="form-control">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-outline-secondary">Upload</button>
+        <!-- <button type="submit" class="btn btn-primary">Upload</button> -->
+            </div>
+        </div>
+    </div>
+
+
+      <div class="col-md-6">
+        <label>Local Travel(Car/Auto) </label>
+        <input  
+        name="localExp" 
+        formControlName="localExpField"
+        id="localExp" 
+        type="number" 
+        class="form-control" 
+        placeholder="Amount" >
+        <div class="input-group mb-3">
+      <input  
+        name="filename" 
+        id="myFile" 
+        type="file" 
+        class="form-control">
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-outline-secondary">Upload</button>
+       <!-- <button type="submit" class="btn btn-primary">Upload</button>     -->
+      </div>
+    </div>
+    </div>
+
+      <div class="col-md-6">
+        <label>Others</label>
+        <input  
+        name="otherExp" 
+        formControlName="otherExpField"
+        id="otherExp" 
+        type="number" 
+        class="form-control" 
+        placeholder="Amount" >
+        <div class="input-group mb-3">
+      <input  
+        name="filename" 
+        id="myFile" 
+        type="file" 
+        class="form-control">
+        <div class="input-group-append">
+            <button type="submit" class="btn btn-outline-secondary">Upload</button>
+       <!-- <button type="submit" class="btn btn-primary">Upload</button> -->
+    </div>     
+    </div>
+    </div>
+
+      <div class="col-md-6">
+        <label>Total amount</label>
+            <input  
+              name="totalAmount" 
+              formControlName="totalAmountField"
+              id="totalAmount" 
+              type="number" 
+              class="form-control" >
+            
+      </div>
+      <div class="col-12">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </form>
+  </div>
+  
+  

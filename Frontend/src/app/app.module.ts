@@ -22,10 +22,12 @@ import { ApproveComponent } from './approve/approve.component';
 import { TDetailsComponent } from './t-details/t-details.component';
 import { TrainerHomeComponent } from './trainer-home/trainer-home.component';
 
-import { FinanceExpenseComponent } from './finance-expense/finance-expense.component';
 import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.component';
 import { ActivitytypeComponent } from './activitytype/activitytype.component';
 import { TrainerAddTimesheetComponent } from './trainer-add-timesheet/trainer-add-timesheet.component';
+import { FinanceExpenseViewComponent } from './finance-expense-view/finance-expense-view.component';
+import { TrainerAddExpenseComponent } from './trainer-add-expense/trainer-add-expense.component';
+import { TrainerSalaryRecieptComponent } from './trainer-salary-reciept/trainer-salary-reciept.component';
 
 
 
@@ -48,11 +50,13 @@ import { TrainerAddTimesheetComponent } from './trainer-add-timesheet/trainer-ad
     TDetailsComponent,
     TrainerHomeComponent,
 
-    FinanceExpenseComponent,
 
     FTimesheetViewComponent,
     ActivitytypeComponent,
-    TrainerAddTimesheetComponent
+    TrainerAddTimesheetComponent,
+    FinanceExpenseViewComponent,
+    TrainerAddExpenseComponent,
+    TrainerSalaryRecieptComponent
 
 
   ],

@@ -1,20 +1,18 @@
+
+
 .mainclass{
-    display:flex; 
+    display:flex;
     flex-direction: row;
     width:100%;
     align-content:center;
     text-decoration: none;
-    
+  
 }
 .leftdiv{
     background-color: rgb(61, 240, 180);
     width:20%;
-    height:520px;
+    height:480px;
     border-radius:10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px; 
-    padding-bottom: 20px;
     padding:20px;
     margin-left:2%;
     
@@ -22,14 +20,12 @@
 .rightdiv{
     
     background-color: rgb(61, 240, 180);
-    width:73%;
-    height:520px;
+    width:65%;
+    height:480px;
     border-radius:10px;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 20px;
-    padding-bottom: 20px; 
     padding:20px;
-    margin-left:3%;
+    margin-left:13%;
     transform: translate(29%,-100%);
+
+  
 }

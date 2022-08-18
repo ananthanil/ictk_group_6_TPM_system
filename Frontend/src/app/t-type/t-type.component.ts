@@ -11,5 +11,7 @@ export class TTypeComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
+  AddtrainerCategory(){
+    
+  }
 }

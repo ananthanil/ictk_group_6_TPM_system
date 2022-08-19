@@ -28,7 +28,7 @@ import { ActivitytypeComponent } from './activitytype/activitytype.component';
 import { TrainerAddTimesheetComponent } from './trainer-add-timesheet/trainer-add-timesheet.component';
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 
-
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -62,6 +62,7 @@ import { AddExpenseComponent } from './add-expense/add-expense.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [],

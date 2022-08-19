@@ -16,8 +16,12 @@ import { FinanceHomepageComponent } from './finance-homepage/finance-homepage.co
 import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.component';
 import { ActivitytypeComponent } from './activitytype/activitytype.component';
 import { TrainerAddTimesheetComponent } from './trainer-add-timesheet/trainer-add-timesheet.component';
+<<<<<<< HEAD
 import { FinanceExpenseViewComponent } from './finance-expense-view/finance-expense-view.component';
 import { TrainerSalaryRecieptComponent } from './trainer-salary-reciept/trainer-salary-reciept.component';
+=======
+import { AddExpenseComponent } from './add-expense/add-expense.component';
+>>>>>>> 32d27a2970d4a16d21997d00bd8601b1a9a9e816
 
 
 const routes: Routes = [
@@ -39,7 +43,11 @@ const routes: Routes = [
   {path:'trainer-home',component:TrainerHomeComponent,
   children:[
     {path:'trainer-add-timesheet',component:TrainerAddTimesheetComponent},
+<<<<<<< HEAD
     {path:'trainer-salary-reciept',component:TrainerSalaryRecieptComponent}
+=======
+    {path:'add-expense',component:AddExpenseComponent}
+>>>>>>> 32d27a2970d4a16d21997d00bd8601b1a9a9e816
   ]},
   {path:'finance-home',component:FinanceHomepageComponent,
   children:[

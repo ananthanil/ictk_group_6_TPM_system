@@ -1,4 +1,49 @@
-<div class="container">
+<div class="container mb-2 pt-5 pb-5">
+  <h4> Program Details</h4>
+  <form class="row g-3" form> <!--(ngSubmit)="AddUser()"-->
+
+    <div class="col-md-6">
+        <label>Program Name</label>
+        <input 
+          name="programtype" 
+          formControlName="programtypeField"
+          id="programtype" 
+          type="text" 
+          class="form-control" 
+          placeholder="Program Name" >
+    </div>
+
+    <div class="col-md-6">
+      <label>Number of Candidates </label>
+          <input  
+            name="studentsNum" 
+            formControlName="studentsNumField"
+            id="studentsNum" 
+            type="number" 
+            class="form-control" 
+            placeholder="Number of Candidates" >
+          
+    </div>
+    
+    <div class="col-md-6">
+      <label> Program Date </label>
+          <input  
+            name="pDate" 
+            formControlName="pDateField"
+            id="pDate" 
+            type="date" 
+            class="form-control" 
+            placeholder="Program Date" >
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+  </form>
+</div>
+
+
+<!-- <div class="container">
     <h4> Program Details</h4><br>
     <form  class="form">
         <div class="form-group">
@@ -51,10 +96,39 @@
           </button>
         </div>
       </form>
-    
-      <!-- submit px-3 -->
+</div>   -->
 
 
 
 
-</div>  
+<!-- <table class="table caption-top">
+  <caption>Program Details</caption>
+  <thead>
+    <tr>
+      <th scope="col">Sl No.</th>
+      <th scope="col"> Type of program</th>
+      <th scope="col">Number of Candidates</th>
+      <th scope="col">Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table> -->

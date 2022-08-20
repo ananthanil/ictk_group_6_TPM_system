@@ -20,6 +20,6 @@ export class TTypeComponent implements OnInit {
     this.adminservice.addTrainerCategory(this.category);
     console.log("called");
     alert("success");
-    this.router.navigate(['admin-home']);
+    // this.router.navigate(['admin-home']);
   }
 }

@@ -7,6 +7,8 @@ const adminRouter = express.Router();
 //   res.send('adminRouter is listening');
 // });
 
+// HEllo
+
 adminRouter.post('/add',function(req,res){
     console.log(req.body);
     var ttype = {       

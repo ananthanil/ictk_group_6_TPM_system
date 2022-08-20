@@ -1,5 +1,5 @@
 export class CategoryModel{
     constructor(
-        public trainerCategory : String,
+        public trainerCategory : String
         ){}
 }

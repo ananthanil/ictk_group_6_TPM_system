@@ -8,6 +8,7 @@ export class AdminService {
 
   // server_address : string = 'api';
   server_address : string = 'http://localhost:3666';
+  
   constructor(private http:HttpClient) { }
 
   addTrainerCategory(ttype: CategoryModel)

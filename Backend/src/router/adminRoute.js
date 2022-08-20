@@ -3,7 +3,7 @@
 
 // const adminRouter = express.Router();
 
-// adminRouter.post('/add',function(req,res){
+// adminRouter.post('/api/admin/add',function(req,res){
 //     console.log(req.body);
 //     var ttype = {       
 //         trainerCategory : req.body.category.trainerCategory,

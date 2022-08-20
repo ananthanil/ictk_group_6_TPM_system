@@ -33,7 +33,7 @@ import { TrainerSalaryRecieptComponent } from './trainer-salary-reciept/trainer-
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 >>>>>>> 32d27a2970d4a16d21997d00bd8601b1a9a9e816
 
-
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -72,6 +72,7 @@ import { AddExpenseComponent } from './add-expense/add-expense.component';
     BrowserModule,
     AppRoutingModule,
     FormsModule,
+    HttpClientModule,
     ReactiveFormsModule
   ],
   providers: [],

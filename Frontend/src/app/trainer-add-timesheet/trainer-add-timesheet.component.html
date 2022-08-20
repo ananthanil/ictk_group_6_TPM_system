@@ -1,1 +1,32 @@
-<p>trainer-add-timesheet works!</p>
+
+    <form class="row" >
+        <div class="col-md-6">
+            <label> Program Date </label>
+                <input  
+                  name="pDate" 
+                  formControlName="pDateField"
+                  id="pDate" 
+                  type="date" 
+                  class="form-control" 
+                  placeholder="Program Date" >
+          </div>
+    
+          <div class="col-md-6">
+            <div class="dropdown">
+                <br>
+                <button class="btn btn-secondary dropdown-toggle color " type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Select Program and Batch
+                </button>
+                <ul class="dropdown-menu">
+                  <li><button class="dropdown-item" type="button">Batch 1</button></li>
+                  <li><button class="dropdown-item" type="button">Batch 2</button></li>
+                  <li><button class="dropdown-item" type="button">Program</button></li>
+                </ul>
+              </div>
+          </div>
+    </form>
+    <div class="col-12">
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+   

@@ -3,9 +3,9 @@ const category = require('../model/trainer_category');
 
 const adminRouter = express.Router();
 
-adminRouter.get('', (req, res)=> {
-  res.send('adminRouter is listening');
-});
+// adminRouter.get('', (req, res)=> {
+//   res.send('adminRouter is listening');
+// });
 
 adminRouter.post('/add',function(req,res){
     console.log(req.body);

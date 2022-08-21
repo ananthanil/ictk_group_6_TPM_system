@@ -11,7 +11,7 @@ export class TTypeComponent implements OnInit {
 
   constructor(private adminservice:AdminService, private router:Router) { }
 
-  category = new CategoryModel('');
+  category = new CategoryModel('',1);
 
   ngOnInit(): void {
   }

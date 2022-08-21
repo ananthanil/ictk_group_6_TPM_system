@@ -9,10 +9,13 @@ const adminRouter = express.Router();
 
 // HEllo
 
+// admin inserting category
+
 adminRouter.post('/add',function(req,res){
     console.log(req.body);
     var ttype = {       
         trainerCategory : req.body.category.trainerCategory,
+        statusCategory : req.body.category.statusCategory
       }       
    var ttype = new category(ttype);
    ttype.save();

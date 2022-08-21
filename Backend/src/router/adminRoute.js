@@ -21,4 +21,6 @@ adminRouter.post('/add',function(req,res){
    ttype.save();
   });
 
+  
+
 module.exports = adminRouter;

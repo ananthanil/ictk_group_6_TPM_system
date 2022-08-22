@@ -11,18 +11,22 @@ export class TTypeComponent implements OnInit {
 
   constructor(private adminservice:AdminService, private router:Router) { }
 
-  category = new CategoryModel('',1);
-  catt:any = new CategoryModel('',1);
+  category_insert = new CategoryModel('',1);
+  category_view:any = new CategoryModel('',1);
+
+  reloadCurrentPage() {
+    window.location.reload();
+   }
 
   ngOnInit(): void {
     
     this.adminservice.getcategories().subscribe((data:any)=>{
-      this.catt=JSON.parse(JSON.stringify(data));
+      this.category_view=JSON.parse(JSON.stringify(data));
     })
   }
   AddtrainerCategory()
   {
-    this.adminservice.addTrainerCategory(this.category);
+    this.adminservice.addTrainerCategory(this.category_insert);
     console.log("called");
     alert("success");
     // this.router.navigate(['admin-home']);

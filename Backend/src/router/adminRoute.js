@@ -22,5 +22,13 @@ adminRouter.post('/add',function(req,res){
   });
 
   
+  adminRouter.get('/categoryview',function(req,res){
+    category.find()
+    .then(function(trainertype){
+         res.send(trainertype);
+    });
+  });
+
+
 
 module.exports = adminRouter;

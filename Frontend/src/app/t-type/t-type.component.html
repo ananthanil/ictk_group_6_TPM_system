@@ -10,3 +10,28 @@
 </table>
 </form>
 </div>
+
+
+        <div class="table-responsive">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th></th>
+                        <th>Category</th>
+                    </tr>
+                </thead>                        
+            <tbody>
+                    
+                   <tr *ngFor='let cat of catt'>
+                    <td></td>
+                    <td></td>
+                     <td>{{cat.trainerCategory}}</td>
+                    <td>
+                       <button class="btn btn-warning" style="cursor:pointer" >Update</button>  <!-- (click)="editbook(books)"" -->
+                         <button class="btn btn-danger" style="cursor:pointer"  style="margin-left: 5px;">Delete</button> <!--(click)="deleteRemove(books)" -->
+                    </td>
+                </tr>
+            </tbody>
+            </table>
+        </div>

@@ -15,3 +15,4 @@ var TainerCategory = new Schema({
 var category = mongoose.model('trainertype', TainerCategory); //UserData is the model and NewBookData is the schema
 
 module.exports = category;
+// hello

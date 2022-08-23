@@ -17,10 +17,16 @@ import { FTimesheetViewComponent } from './f-timesheet-view/f-timesheet-view.com
 import { ActivitytypeComponent } from './activitytype/activitytype.component';
 import { TrainerAddTimesheetComponent } from './trainer-add-timesheet/trainer-add-timesheet.component';
 
+
 import { FinanceExpenseViewComponent } from './finance-expense-view/finance-expense-view.component';
 import { TrainerSalaryRecieptComponent } from './trainer-salary-reciept/trainer-salary-reciept.component';
 
 import { AddExpenseComponent } from './add-expense/add-expense.component';
+
+
+// import { FinanceExpenseViewComponent } from './finance-expense-view/finance-expense-view.component';
+// import { TrainerSalaryRecieptComponent } from './trainer-salary-reciept/trainer-salary-reciept.component';
+// import { AddExpenseComponent } from './add-expense/add-expense.component';
 
 
 
@@ -46,6 +52,9 @@ const routes: Routes = [
 
     {path:'trainer-salary-reciept',component:TrainerSalaryRecieptComponent},
 
+    {path:'add-expense',component:AddExpenseComponent},
+
+    {path:'trainer-salary-reciept',component:TrainerSalaryRecieptComponent},
     {path:'add-expense',component:AddExpenseComponent}
 
   ]},
@@ -53,6 +62,7 @@ const routes: Routes = [
   children:[
     {path:'f-timesheet-view',component:FTimesheetViewComponent},
     {path:'finance-expense-view',component:FinanceExpenseViewComponent}
+
   ]}
   
    

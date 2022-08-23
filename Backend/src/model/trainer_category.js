@@ -8,7 +8,7 @@ mongoose.connect('mongodb+srv://admin:y1zccZWP7n2VK0j5@cluster0.ajlsmrf.mongodb.
 const Schema = mongoose.Schema;
 
 var TainerCategory = new Schema({
-    trainerCategory : String,
+    trainerCategory : String
 });
 
 var category = mongoose.model('trainertype', TainerCategory); //UserData is the model and NewBookData is the schema

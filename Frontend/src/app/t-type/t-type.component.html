@@ -4,9 +4,33 @@
 <table>
     <tr>
 <th><label id="typelabel">Enter Trainer Category Name:</label></th>
-<th><input type="text " name="typename" [(ngModel)]="category.trainerCategory"></th>
-<th><input type="submit" value="submit"><th>
+<th><input type="text " name="typename" [(ngModel)]="category_insert.trainerCategory"></th>
+ <th><input type="submit" value="submit" (click)="reloadCurrentPage()"><th> 
 </tr>
 </table>
 </form>
+</div>
+
+
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Category</th>
+            </tr>
+        </thead>                        
+        <tbody>
+               <tr *ngFor='let Category of category_view'>
+                    <td></td>
+                    <td></td>
+                    <td>{{Category.trainerCategory}}</td>
+                <td>
+                   <button class="btn btn-warning" style="cursor:pointer" >Update</button>  <!-- (click)="editbook(books)"" -->
+                   <button class="btn btn-danger" style="cursor:pointer"  style="margin-left: 5px;">Delete</button> <!--(click)="deleteRemove(books)" -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
 </div>

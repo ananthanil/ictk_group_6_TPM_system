@@ -19,4 +19,8 @@ export class AdminService {
       console.log(data);
     });
   }
+
+  getcategories(){
+    return this.http.get<any>(`${this.server_address}/admin/categoryview`);
+  }
 }

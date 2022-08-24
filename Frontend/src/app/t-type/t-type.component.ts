@@ -9,7 +9,13 @@ import { CategoryModel } from './category.model';
 })
 export class TTypeComponent implements OnInit {
 
+  showImage: boolean = false;
+
   constructor(private adminservice:AdminService, private router:Router) { }
+
+  toggleImage(): void{
+    this.showImage = !this.showImage;
+  }
 
   category_insert = new CategoryModel('',1);
   category_view:any = [];
@@ -18,6 +24,9 @@ export class TTypeComponent implements OnInit {
   reloadCurrentPage() {
     window.location.reload();
    }
+
+
+   
 
   ngOnInit(): void {
     

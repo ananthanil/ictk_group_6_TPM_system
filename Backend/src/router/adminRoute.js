@@ -23,7 +23,7 @@ adminRouter.post('/add',function(req,res){
 
   
   adminRouter.get('/categoryview',function(req,res){
-    category.find()
+    category.find({"statusCategory":1})
     .then(function(trainertype){
          res.send(trainertype);
     });

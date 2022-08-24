@@ -21,9 +21,6 @@ export class TTypeComponent implements OnInit {
 
   ngOnInit(): void {
     
-    // this.adminservice.getcategories().subscribe((data)=>{
-    //   this.category_view=JSON.parse(JSON.stringify(data));
-    // })
     this.adminservice.getcategories()
     .subscribe({
       next: (data)=>{

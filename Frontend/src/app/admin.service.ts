@@ -14,7 +14,7 @@ export class AdminService {
   addTrainerCategory(ttype: CategoryModel)
   {
     console.log('in service');
-    return this.http.post<any>(`${this.server_address}/admin/add`,{"category":ttype})
+    return this.http.post<any>(`${this.server_address}/admin/categoryadd`,{"category":ttype})
     .subscribe((data) => {
       console.log(data);
     });

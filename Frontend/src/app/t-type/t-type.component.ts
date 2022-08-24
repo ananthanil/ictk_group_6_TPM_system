@@ -12,7 +12,8 @@ export class TTypeComponent implements OnInit {
   constructor(private adminservice:AdminService, private router:Router) { }
 
   category_insert = new CategoryModel('',1);
-  category_view:any = new CategoryModel('',1);
+  category_view:any = [];
+  obj: any = {};
 
   reloadCurrentPage() {
     window.location.reload();
@@ -23,9 +24,15 @@ export class TTypeComponent implements OnInit {
     // this.adminservice.getcategories().subscribe((data)=>{
     //   this.category_view=JSON.parse(JSON.stringify(data));
     // })
-    this.adminservice.getcategories().subscribe(
-      data=>{this.category_view=data}
-    )
+    this.adminservice.getcategories()
+    .subscribe({
+      next: (data)=>{
+        this.category_view = JSON.parse(JSON.stringify(data));
+      },
+      error: (err)=> {
+        console.log(err);
+      }
+    })
   }
   AddtrainerCategory()
   {

@@ -9,9 +9,9 @@ const adminRouter = express.Router();
 
 // HEllo
 
-// admin inserting category
+// admin insert category
 
-adminRouter.post('/add',function(req,res){
+adminRouter.post('/categoryadd',function(req,res){
     console.log(req.body);
     var ttype = {       
         trainerCategory : req.body.category.trainerCategory,
@@ -21,6 +21,7 @@ adminRouter.post('/add',function(req,res){
    ttype.save();
   });
 
+// admin view category
   
   adminRouter.get('/categoryview',function(req,res){
     category.find({"statusCategory":1})
@@ -28,7 +29,5 @@ adminRouter.post('/add',function(req,res){
          res.send(trainertype);
     });
   });
-
-
 
 module.exports = adminRouter;

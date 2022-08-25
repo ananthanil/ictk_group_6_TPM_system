@@ -18,7 +18,6 @@ export class TTypeComponent implements OnInit {
   }
 
   category_insert = new CategoryModel('',1);
-  // category_delete = new CategoryModel('',0);
   category_view:any = [];
 
   reloadCurrentPage() {
@@ -49,7 +48,7 @@ export class TTypeComponent implements OnInit {
     if(this.showImage) {
       this.saveUpdate()
     } else {
-      this. AddtrainerCategory()
+      this.AddtrainerCategory()
     }
   }
 

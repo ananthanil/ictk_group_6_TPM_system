@@ -31,7 +31,6 @@ export class TTypeComponent implements OnInit {
     this.adminservice.getCategoriesUpdate(editId).subscribe((data)=>{
       this.category_insert = JSON.parse(JSON.stringify(data));
     })
-    // console.log(editId);
   }
 
   ngOnInit(): void {

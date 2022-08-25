@@ -1,8 +1,15 @@
 <div class="container" >
     <h3 >Training Mode</h3>
-    <label>Add Trainer Mode:</label>
-    <input type="text " id="typename">
-          <div class="button">
-            <button id="btt">Add </button> 
-         </div>
+    <form (ngSubmit)="AddtrainerMode()">
+       
+    <table>
+     <tr>
+      <th><label id="typelabel">Add Trainer Mode:</label></th>
+      <th><input type="text " name="typename" [(ngModel)]="trainermode_insert.trainerMode"></th>
+      <th><input type="submit" value="submit" (click)="reloadCurrentPage()"><th> 
+     </tr>
+    </table>
+  </form>
 </div>
+ 
+

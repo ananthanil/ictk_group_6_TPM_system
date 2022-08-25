@@ -12,7 +12,7 @@ export class TTypeComponent implements OnInit {
   constructor(private adminservice:AdminService, private router:Router) { }
 
   category_insert = new CategoryModel('',1);
-  category_view:any = new CategoryModel('',1);
+  // category_view:any = new CategoryModel('',1);
 
   reloadCurrentPage() {
     window.location.reload();
@@ -20,9 +20,9 @@ export class TTypeComponent implements OnInit {
 
   ngOnInit(): void {
     
-    this.adminservice.getcategories().subscribe((data:any)=>{
-      this.category_view=JSON.parse(JSON.stringify(data));
-    })
+    // this.adminservice.getcategories().subscribe((data:any)=>{
+      // this.category_view=JSON.parse(JSON.stringify(data));
+    // })
   }
   AddtrainerCategory()
   {

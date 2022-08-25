@@ -24,9 +24,15 @@ export class TTypeComponent implements OnInit {
   reloadCurrentPage() {
     window.location.reload();
    }
-
-
-   
+  
+  editCategory(editId: any)
+  {
+    console.log(editId);
+    this.adminservice.getCategoriesUpdate(editId).subscribe((data)=>{
+      this.category_insert = JSON.parse(JSON.stringify(data));
+    })
+    // console.log(editId);
+  }
 
   ngOnInit(): void {
     
@@ -40,11 +46,23 @@ export class TTypeComponent implements OnInit {
       }
     })
   }
+
+  onSubmit() {
+    if(this.showImage) {
+      this.saveUpdate()
+    } else {
+      this. AddtrainerCategory()
+    }
+  }
+
   AddtrainerCategory()
   {
     this.adminservice.addTrainerCategory(this.category_insert);
     console.log("called");
     alert("success");
-    // this.router.navigate(['admin-home']);
+  }
+
+  saveUpdate() {
+    alert("hello")
   }
 }

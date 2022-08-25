@@ -23,4 +23,8 @@ export class AdminService {
   getcategories(){
     return this.http.get<any[]>(`${this.server_address}/admin/categoryview`);
   }
+
+  getCategoriesUpdate(id:any){
+    return this.http.get<any>(`${this.server_address}/admin/`+id);
+  }
 }

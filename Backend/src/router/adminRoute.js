@@ -30,4 +30,13 @@ adminRouter.post('/categoryadd',function(req,res){
     });
   });
 
+// admin view update category
+
+adminRouter.get("/:id",(req, res)=>{
+  const id = req.params.id;
+  category.findOne({_id:id}).then((categories)=>{
+    res.send(categories);
+  });
+});
+
 module.exports = adminRouter;

@@ -30,7 +30,7 @@ adminRouter.post('/categoryadd',function(req,res){
     });
   });
 
-// admin view update category
+// admin select update category
 
 adminRouter.get("/:id",(req, res)=>{
   const id = req.params.id;
@@ -42,13 +42,25 @@ adminRouter.get("/:id",(req, res)=>{
 // admin Update Category
 
 adminRouter.put('/CategoryUpdate',(req,res)=>{
-  // console.log("hello");
   console.log(req.body)
   id=req.body._id
   trainerCategory  = req.body.trainerCategory
-  // console.log(trainerCategory);
   category.findByIdAndUpdate({"_id":id},
                                 {$set:{"trainerCategory":trainerCategory
+                                }})
+                                .then(function(){
+                                  res.send();
+                                })
+});
+
+// admin Remove Category
+
+adminRouter.put('/CategoryRemove',(req,res)=>{
+  console.log(req.body)
+  id=req.body._id
+  statusCategory  = req.body.statusCategory
+  category.findByIdAndUpdate({"_id":id},
+                                {$set:{"statusCategory":0
                                 }})
                                 .then(function(){
                                   res.send();

@@ -18,21 +18,18 @@ export class TTypeComponent implements OnInit {
   }
 
   category_insert = new CategoryModel('',1);
+  // category_delete = new CategoryModel('',0);
   category_view:any = [];
-  category_update = new CategoryModel('',1);
-  obj: any = {};
 
   reloadCurrentPage() {
     window.location.reload();
    }
   
   editCategory(editId: any)
-  {
-    
+  { 
     this.adminservice.getCategoriesUpdate(editId).subscribe((data)=>{
       this.category_insert  = JSON.parse(JSON.stringify(data));
     })
-    console.log(editId);
   }
 
   ngOnInit(): void {
@@ -66,5 +63,10 @@ export class TTypeComponent implements OnInit {
   saveUpdate() {
     this.adminservice.updateCategory(this.category_insert);
     alert("Category Updated");
+  }
+  
+  deleteCategory(){
+    this.adminservice.removeCategory(this.category_insert);
+    alert("deleted")
   }
 }

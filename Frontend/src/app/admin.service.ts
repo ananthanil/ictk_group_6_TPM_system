@@ -30,9 +30,14 @@ export class AdminService {
   }
 
   updateCategory(Categoryid:any){
-    console.log("inside admin service and update")
-    console.log(Categoryid)
+    // console.log("inside admin service and update")
+    // console.log(Categoryid)
     return this.http.put<any>(`${this.server_address}/admin/CategoryUpdate/`,Categoryid)
+    .subscribe(data => {console.log(data)})
+  }
+
+  removeCategory(Categoryid:any){
+    return this.http.put<any>(`${this.server_address}/admin/CategoryRemove/`,Categoryid)
     .subscribe(data => {console.log(data)})
   }
   }

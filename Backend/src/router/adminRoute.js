@@ -39,4 +39,20 @@ adminRouter.get("/:id",(req, res)=>{
   });
 });
 
+// admin Update Category
+
+adminRouter.put('/CategoryUpdate',(req,res)=>{
+  // console.log("hello");
+  console.log(req.body)
+  id=req.body._id
+  trainerCategory  = req.body.trainerCategory
+  // console.log(trainerCategory);
+  category.findByIdAndUpdate({"_id":id},
+                                {$set:{"trainerCategory":trainerCategory
+                                }})
+                                .then(function(){
+                                  res.send();
+                                })
+});
+
 module.exports = adminRouter;

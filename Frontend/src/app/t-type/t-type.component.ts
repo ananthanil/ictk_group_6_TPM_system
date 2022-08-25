@@ -19,6 +19,7 @@ export class TTypeComponent implements OnInit {
 
   category_insert = new CategoryModel('',1);
   category_view:any = [];
+  category_update = new CategoryModel('',1);
   obj: any = {};
 
   reloadCurrentPage() {
@@ -27,10 +28,11 @@ export class TTypeComponent implements OnInit {
   
   editCategory(editId: any)
   {
-    console.log(editId);
+    
     this.adminservice.getCategoriesUpdate(editId).subscribe((data)=>{
-      this.category_insert = JSON.parse(JSON.stringify(data));
+      this.category_insert  = JSON.parse(JSON.stringify(data));
     })
+    console.log(editId);
   }
 
   ngOnInit(): void {
@@ -62,6 +64,7 @@ export class TTypeComponent implements OnInit {
   }
 
   saveUpdate() {
-    alert("hello")
+    this.adminservice.updateCategory(this.category_insert);
+    alert("Category Updated");
   }
 }

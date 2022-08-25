@@ -11,6 +11,7 @@ export class AdminService {
   
   constructor(private http:HttpClient) { }
 
+  // Trainer Category operations
   addTrainerCategory(ttype: CategoryModel)
   {
     console.log('in service');
@@ -27,4 +28,11 @@ export class AdminService {
   getCategoriesUpdate(id:any){
     return this.http.get<any>(`${this.server_address}/admin/`+id);
   }
-}
+
+  updateCategory(Categoryid:any){
+    console.log("inside admin service and update")
+    console.log(Categoryid)
+    return this.http.put<any>(`${this.server_address}/admin/CategoryUpdate/`,Categoryid)
+    .subscribe(data => {console.log(data)})
+  }
+  }

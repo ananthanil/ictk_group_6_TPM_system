@@ -9,6 +9,8 @@ const adminRouter = express.Router();
 
 // HEllo
 
+// ------------ Category operations start ------------------
+
 // admin insert category
 
 adminRouter.post('/categoryadd',function(req,res){
@@ -66,5 +68,7 @@ adminRouter.put('/CategoryRemove',(req,res)=>{
                                   res.send();
                                 })
 });
+
+// ------------ Category operations ends ------------------
 
 module.exports = adminRouter;

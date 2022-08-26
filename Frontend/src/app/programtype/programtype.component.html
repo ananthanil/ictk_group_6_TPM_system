@@ -1,14 +1,13 @@
 <div class="container mb-2 pt-5 pb-5">
   <h4> Program Details</h4>
-  <form class="row g-3" ><!--  (ngSubmit)="()" -->
+  <form  class="row g-3"(ngSubmit)="addProgram()">
 
     <div class="col-md-6">
         <label>Program Name</label>
         <input 
-          name="programtype" 
-          formControlName="programtypeField"
-          id="programtype" 
-          type="text" 
+           type="text" 
+          [(ngModel)]="program_insert.programtype" 
+          name="programtype"
           class="form-control" 
           placeholder="Program Name" >
     </div>
@@ -16,10 +15,9 @@
     <div class="col-md-6">
       <label>Number of Candidates </label>
           <input  
-            name="studentsNum" 
-            formControlName="studentsNumField"
-            id="studentsNum" 
             type="number" 
+            [(ngModel)]="program_insert.studentsNum"
+            name="studentsNum"
             class="form-control" 
             placeholder="Number of Candidates" >
           
@@ -28,107 +26,45 @@
     <div class="col-md-6">
       <label> Program Date </label>
           <input  
-            name="pDate" 
-            formControlName="pDateField"
-            id="pDate" 
             type="date" 
+            [(ngModel)]="program_insert.date"  
+            name="date"
             class="form-control" 
             placeholder="Program Date" >
     </div>
 
     <div class="col-12">
-      <button type="submit" class="btn btn-primary">Submit</button>
+      <button type="submit" (click)="reloadCurrentPage()" class="btn btn-primary">Submit</button>
     </div>
   </form>
 </div>
 
 
-<!-- <div class="container">
-    <h4> Program Details</h4><br>
-    <form  class="form">
-        <div class="form-group">
-          <label>Program Name: </label>
-          <input 
-            name="programtype" 
-            formControlName="programtypeField"
-            id="programtype" 
-            type="text" 
-            class="form-control" 
-            placeholder="Program Name" >
-        </div>
-        <div class="form-group">
-          <label>Number of Candidates: </label>
-          <input  
-            name="studentsNum" 
-            formControlName="studentsNumField"
-            id="studentsNum" 
-            type="number" 
-            class="form-control" 
-            placeholder="Number of Candidates" >
-        </div>
-        <div class="form-group">
-          <label>Start Date: </label>
-          <input  
-            name="startDt" 
-            formControlName="startDtField"
-            id="startDt" 
-            type="date" 
-            class="form-control" 
-            placeholder="Start Date" >
-        </div>
-        <div class="form-group">
-          <label>End Date:</label>
-          <input  
-            name="endDt" 
-            formControlName="endDtField"
-            id="endDt" 
-            type="date" 
-            class="form-control" 
-            placeholder="End Date"  >
-        </div>
-        
-        <br>
-        <div class="form-group">
-          <button 
-            id="btn"
-            type="submit" 
-            class="form-control btn btn-primary ">Submit
-          </button>
-        </div>
-      </form>
-</div>   -->
 
 
 
 
-<!-- <table class="table caption-top">
-  <caption>Program Details</caption>
+<table class="table caption-top">
+  <caption> <h4>Program Details</h4></caption>
   <thead>
     <tr>
-      <th scope="col">Sl No.</th>
+     
       <th scope="col"> Type of program</th>
       <th scope="col">Number of Candidates</th>
       <th scope="col">Date</th>
     </tr>
   </thead>
   <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Larry</td>
-      <td>the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  </tbody>
-</table> -->
+    <tr *ngFor='let program_data of program_view'>
+                  
+                    <td>{{program_data.programtype }}</td>
+                    <td>{{program_data.studentsNum}}</td>
+                    <td>{{program_data.date}}</td>
+                <td>
+                   <button class="btn btn-warning" style="cursor:pointer" >Update</button> 
+                   <button class="btn btn-danger" style="cursor:pointer" (click)="deleteProgram()" style="margin-left: 5px;">Delete</button> 
+                </td>
+            </tr>
+    </tbody>
+  
+</table> 

@@ -1,7 +1,7 @@
 const express = require('express');
 const cors = require('cors');
 var bodyparser = require('body-parser');
-const adminRouter = require('./src/router/adminRoute')
+const adminRouter = require('./src/router/adminRoute');
 var app = new express();
 var PORT = 3666
 app.use(cors());

@@ -1,6 +1,6 @@
 <div class="container mb-2 pt-5 pb-5">
   <h4> Program Details</h4>
-  <form  class="row g-3"(ngSubmit)="addProgram()">
+  <form  class="row g-3"(ngSubmit)="onSubmit()">
 
     <div class="col-md-6">
         <label>Program Name</label>
@@ -8,7 +8,7 @@
            type="text" 
           [(ngModel)]="program_insert.programtype" 
           name="programtype"
-          class="form-control" 
+          class="form-control" required
           placeholder="Program Name" >
     </div>
 
@@ -18,7 +18,7 @@
             type="number" 
             [(ngModel)]="program_insert.studentsNum"
             name="studentsNum"
-            class="form-control" 
+            class="form-control" required
             placeholder="Number of Candidates" >
           
     </div>
@@ -29,12 +29,13 @@
             type="date" 
             [(ngModel)]="program_insert.date"  
             name="date"
-            class="form-control" 
+            class="form-control" required
             placeholder="Program Date" >
     </div>
 
     <div class="col-12">
-      <button type="submit" (click)="reloadCurrentPage()" class="btn btn-primary">Submit</button>
+      <button type="submit" (click)="reloadCurrentPage()"  class="btn btn-success">{{showButton? 'Update' : 'Save'}}</button>   
+      <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button>
     </div>
   </form>
 </div>
@@ -61,8 +62,8 @@
                     <td>{{program_data.studentsNum}}</td>
                     <td>{{program_data.date}}</td>
                 <td>
-                   <button class="btn btn-warning" style="cursor:pointer" >Update</button> 
-                   <button class="btn btn-danger" style="cursor:pointer" (click)="deleteProgram()" style="margin-left: 5px;">Delete</button> 
+                   <button class="btn btn-warning" style="cursor:pointer" (click)="editProgram(program_data._id); toggleButton()" >Edit</button> 
+                   <button class="btn btn-danger" style="cursor:pointer" (click)="deleteProgram();reloadCurrentPage()" style="margin-left: 5px;">Delete</button> 
                 </td>
             </tr>
     </tbody>

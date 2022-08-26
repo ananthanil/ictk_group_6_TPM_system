@@ -1,11 +1,36 @@
 <div class="heading" >
     <h3 >Activity type Details</h3>
+    <form (ngSubmit)="onSubmit()">
     <table>
         <tr>
     <th><label id="typelabel">Enter activity type:</label></th>
-    <th><input type="text " id="typename"></th>
-    <th><button id="bt1">Add </button><th>
-     <th><button id="bt1">delete </button><th></th>
+    <th><input type="text " id="activityType" [(ngModel)]="activityType_insert.activityType"></th>
+   
+    <th><button id="bt1" type="submit" (click)="reloadCurrentPage()">{{showImage? 'Update' : 'Save'}}>Add </button><th>
+     
     </tr>
     </table>
+</form>
+    </div>
+    <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th></th>
+                    <th>Acivity</th>
+                </tr>
+            </thead>                        
+            <tbody>
+                   <tr *ngFor='let acivityType of acivityType_view'>
+                        <td></td>
+                        <td></td>
+                        <td>{{activityType.activityType}}</td>
+                    <td>
+                       <button class="btn btn-primary" style="cursor:pointer" (click)="editCategory(Category._id); toggleImage()" style="margin-left: 5px;">Select</button>
+                       <!-- <button class="btn btn-danger" style="cursor:pointer"  >Delete</button> (click)="deleteRemove(books)" -->
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>

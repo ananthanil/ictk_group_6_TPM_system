@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CategoryModel } from './t-type/category.model';
+import { activityTypeModel } from './activitytype/activityType.model';
+
 @Injectable({
   providedIn: 'root'
 })
@@ -38,4 +40,44 @@ export class AdminService {
     return this.http.put<any>(`${this.server_address}/admin/CategoryRemove/`,Categoryid)
     .subscribe(data => {console.log(data)})
   }
+
+
+//Activity Type operations
+
+addactivityType(activityType: activityTypeModel)
+  {
+    console.log('in service');
+    return this.http.post<any>(`${this.server_address}/admin/activityadd`,{"category":activityType})
+    .subscribe((data) => {
+      console.log(data);
+    });
   }
+
+  getactivityType(){
+    return this.http.get<any[]>(`${this.server_address}/admin/activityTypeview`);
+  }
+
+  getactivityTypeUpdate(id:any){
+    return this.http.get<any>(`${this.server_address}/admin/`+id);
+  }
+
+  updateactivityType(activityTypeid:any){
+    return this.http.put<any>(`${this.server_address}/admin/activityTypeUpdate/`,activityTypeid)
+    .subscribe(data => {console.log(data)})
+  }
+
+  removeactivityType(activityType:any){
+    return this.http.put<any>(`${this.server_address}/admin/activityType/`,activityType)
+    .subscribe(data => {console.log(data)})
+  }
+
+
+
+
+
+
+
+
+  }
+
+

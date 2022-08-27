@@ -1,6 +1,6 @@
 const express = require('express');
 const category = require('../model/trainer_category');
-
+const activityType=require('../model/activityType');
 const adminRouter = express.Router();
 
 // adminRouter.get('', (req, res)=> {
@@ -66,5 +66,72 @@ adminRouter.put('/CategoryRemove',(req,res)=>{
                                   res.send();
                                 })
 });
+//-----------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------
+
+// admin insert acivityType
+
+adminRouter.post('/addactivityType',function(req,res){
+  console.log(req.body);
+ 
+  var aType = {       
+      activityType : req.body.activityType.activityType,
+      statusactivityType : req.body.activityType.statusactivityType
+    }       
+ var aType = new activityType(aType);
+ aType.save();
+ console.log("added new activity type"+aType);
+});
+
+// admin view activityType
+  
+ adminRouter.get('/activityTypeview',function(req,res){
+ activityType.find({"statusactivityType":1})
+.then(function(activityType){
+       res.send(activityType);
+  });
+  });
+
+// // admin select update activityType
+
+// adminRouter.get("/:activityTypeid",(req, res)=>{
+//  const activityTypeid = req.params.activityTypeid;
+
+//  activityType.findOne({activityType_id:activityTypeid}).then((activityType)=>{
+//   res.send(activityType);
+//  });
+//  });
+
+// // admin Update activityType
+
+//  adminRouter.put('/activityTypeUpdate',(req,res)=>{
+//  console.log(req.body)
+//  activityTypeid=req.body._activityTypeid;
+//   actType  = req.body.activityType;
+//  activityType.findByIdAndUpdate({"activityType_id":activityTypeid},
+//                                {$set:{"activityType":actType
+//                             }})
+//                             .then(function(){
+//                                res.send();
+//                               })
+// });
+
+// admin Remove activity Type
+
+// adminRouter.put('/activityTypeRemove',(req,res)=>{
+//   console.log("backend router called");
+// console.log(req.body)
+// actid=req.body.activityType_id
+// statusactivityType  = req.body.statusactivityType
+// activityType.findByIdAndUpdate({"_id":actid},
+//                               {$set:{"statusactivityType":0
+//                               }})
+//                               .then(function(){
+//                                 res.send();
+//                               })
+//                               console.log("deleted from db");
+// });
+
+
 
 module.exports = adminRouter;

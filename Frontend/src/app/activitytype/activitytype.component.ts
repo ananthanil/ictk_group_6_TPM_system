@@ -21,28 +21,29 @@ export class ActivitytypeComponent implements OnInit {
   activityType_view:any = [];
 
   reloadCurrentPage() {
-  // window.location.reload();
+    window.location.reload();
    }
   
-  //  editactivityType(editId: any)
-  // { 
-  //   this.adminservice.getactivityTypeUpdate(editId).subscribe((data)=>{
-  //     this.activityType_insert  = JSON.parse(JSON.stringify(data));
-      
-  //  })
-  //  }
+   editactivityType(editId: any)
+  { 
+    console.log("in edit activity view");
+    this.adminservice.getactivityTypeUpdate(editId).subscribe((data)=>{
+      this.activityType_insert  = JSON.parse(JSON.stringify(data));
+   })
+   console.log("end of the activity view");
+   }
 
   ngOnInit(): void {
     
-    //  this.adminservice.getactivityType()
-    // .subscribe({
-    //    next: (data)=>{
-    //      this.activityType_view = JSON.parse(JSON.stringify(data));
-    //    },
-    //    error: (err)=> {
-    //     console.log(err);
-    //    }
-    //   })
+     this.adminservice.getactivityType()
+    .subscribe({
+       next: (data)=>{
+         this.activityType_view = JSON.parse(JSON.stringify(data));
+       },
+       error: (err)=> {
+        console.log(err);
+       }
+      })
   }
 
   onSubmit() {
@@ -63,13 +64,13 @@ export class ActivitytypeComponent implements OnInit {
 
    saveUpdate() {
     alert("update called")
-    // this.adminservice.updateactivityType(this.activityType_insert);
+    this.adminservice.updateactivityType(this.activityType_insert);
       alert("activty type Updated");
    }
   
-  //  deleteactivityType(){
-  //   alert("component.ts called");
-  //   this.adminservice.removeactivityType(this.activityType_insert);
+   deleteactivityType(){
+    alert("component.ts called");
+    this.adminservice.removeactivityType(this.activityType_insert);
     
-  //  }
+   }
 }

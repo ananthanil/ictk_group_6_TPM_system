@@ -54,24 +54,25 @@ addactivityType(activityType: activityTypeModel)
     });
   }
 
-  // getactivityType(){
-  //    return this.http.get<any[]>(`${this.server_address}/admin/activityTypeview`);
-  //  }
+  getactivityType(){
+     return this.http.get<any[]>(`${this.server_address}/admin/activityTypeview`);
+   }
 
-  // getactivityTypeUpdate(activityTypeid:any){
-  //   return this.http.get<any>(`${this.server_address}/admin/`+activityTypeid);
-  //  }
+  getactivityTypeUpdate(activityTypeid:any){
+    console.log("in side in admin service & update")
+    return this.http.get<any>(`${this.server_address}/admin/`+activityTypeid);
+   }
 
-  //  updateactivityType(activityTypeid:any){
-  //     return this.http.put<any>(`${this.server_address}/admin/activityTypeUpdate/`,activityTypeid)
-  //    .subscribe(data => {console.log(data)})
-  //  }
+   updateactivityType(activityTypeid:any){
+      return this.http.put<any>(`${this.server_address}/admin/activityTypeUpdate/`,activityTypeid)
+     .subscribe(data => {console.log(data)})
+   }
 
-  // removeactivityType(activityType:any){
-  //   console.log("admin service called");
-  //   return this.http.put<any>(`${this.server_address}/admin/activityTypeRemove/`,activityType)
-  //   .subscribe(data => {console.log(data)})
-  // }
+  removeactivityType(activityType:any){
+    console.log("admin service called");
+    return this.http.put<any>(`${this.server_address}/admin/activityTypeRemove/`,activityType)
+    .subscribe(data => {console.log(data)})
+  }
 
 
 

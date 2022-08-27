@@ -5,12 +5,12 @@
         <tr>
     <th><label id="typelabel">Enter Activity Type:</label></th>
     <th><input type="text" name="typename" [(ngModel)]="activityType_insert.activityType"></th>
-     <th><button class='btn btn-success' type="submit" (click)="reloadCurrentPage()">{{showImage? 'Update' : 'Add'}}</button></th>
+     <th><button class='btn btn-success' type="submit" (click)="reloadCurrentPage()">{{showImage? 'Update' : 'Save'}}</button></th>
     </tr>
     </table>
     </form>
-    <!--<button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deleteactivityType()">Delete</button>
-     <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button> -->
+    <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deleteactivityType()">Delete</button>
+     <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button>
 </div>      
     
      <div class="table-responsive">
@@ -23,7 +23,15 @@
                 </tr>
             </thead>                        
             <tbody>
-                  
-            </tbody>
+                <tr *ngFor='let view of activityType_view'>
+                     <td></td>
+                     <td></td>
+                     <td>{{view.activityType}}</td>
+                 <td>
+                    <button class="btn btn-primary" style="cursor:pointer" (click)="editactivityType(view._id); toggleImage()" style="margin-left: 5px;">Select</button>
+                    <!-- <button class="btn btn-danger" style="cursor:pointer"  >Delete</button> (click)="deleteRemove(books)" -->
+                 </td>
+             </tr>
+         </tbody>
         </table>
     </div>

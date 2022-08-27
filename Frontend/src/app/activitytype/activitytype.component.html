@@ -1,10 +1,29 @@
 <div class="heading" >
-    <h3 >Activity type Details</h3>
+    <h3 >Activity activityType</h3>
+    <form (ngSubmit)="onSubmit()">
     <table>
         <tr>
-    <th><label id="typelabel">Enter activity type:</label></th>
-    <th><input type="text " id="typename"></th>
-    <th><button id="bt1">Add </button><th>
+    <th><label id="typelabel">Enter Activity Type:</label></th>
+    <th><input type="text" name="typename" [(ngModel)]="activityType_insert.activityType"></th>
+     <th><button class='btn btn-success' type="submit" (click)="reloadCurrentPage()">{{showImage? 'Update' : 'Add'}}</button></th>
     </tr>
     </table>
+    </form>
+    <!--<button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deleteactivityType()">Delete</button>
+     <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button> -->
+</div>      
+    
+     <div class="table-responsive">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th></th> 
+                     <th></th>
+                    <th>Activity Type</th>
+                </tr>
+            </thead>                        
+            <tbody>
+                  
+            </tbody>
+        </table>
     </div>

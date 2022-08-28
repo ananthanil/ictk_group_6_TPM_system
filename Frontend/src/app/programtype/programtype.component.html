@@ -34,10 +34,12 @@
     </div>
 
     <div class="col-12">
-      <button type="submit" (click)="reloadCurrentPage()"  class="btn btn-success">{{showButton? 'Update' : 'Save'}}</button>   
-      <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button>
+      <button type="submit" (click)="reloadCurrentPage()"  class="btn btn-success">{{showUp? 'Update' : 'Save'}}</button>   
     </div>
   </form>
+  <div id="btncancel">
+    <button class="btn btn-warning" (click)="reloadCurrentPage()">Cancel</button>
+  </div>
 </div>
 
 
@@ -60,12 +62,13 @@
                   
                     <td>{{program_data.programtype }}</td>
                     <td>{{program_data.studentsNum}}</td>
-                    <td>{{program_data.date}}</td>
+                  <td>{{program_data.date}}</td>   <!--  {{myDate | date: 'dd-MM-yyyy'}}-->
                 <td>
-                   <button class="btn btn-warning" style="cursor:pointer" (click)="editProgram(program_data._id); toggleButton()" >Edit</button> 
-                   <button class="btn btn-danger" style="cursor:pointer" (click)="deleteProgram();reloadCurrentPage()" style="margin-left: 5px;">Delete</button> 
+                   <button class="btn btn-warning"  (click)="editProgram(program_data._id); toggleUp()" >Edit</button> 
+                   <button class="btn btn-danger" (click)="deleteProgram();reloadCurrentPage()" style="margin-left: 5px;">Delete</button> 
                 </td>
             </tr>
     </tbody>
   
 </table> 
+<!-- style="cursor:pointer" style="cursor:pointer" -->

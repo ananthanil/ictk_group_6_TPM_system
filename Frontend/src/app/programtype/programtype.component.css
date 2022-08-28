@@ -1,1 +1,5 @@
+#btncancel{
+    transform: translate(10%,-100%); 
+    cursor: pointer;
 
+}

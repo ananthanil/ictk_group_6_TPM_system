@@ -31,16 +31,6 @@ adminRouter.post('/categoryadd',function(req,res){
     });
   });
 
-  // admin select update category
-
-  
-adminRouter.get("/:id",(req, res)=>{
-  const id = req.params.id;
-  category.findOne({_id:id}).then((categories)=>{
-    res.send(categories);
-  });
-});
-
 // admin Update Category
 
 adminRouter.put('/CategoryUpdate',(req,res)=>{
@@ -89,7 +79,7 @@ adminRouter.post('/insertprogram',function(req,res){
 // Admin view program list
 
 adminRouter.get('/programview',function(req,res){
-  program_data.find()
+  program_data.find({"statusProgram":1})
   .then(function(programdetails){
        res.send(programdetails);
   });
@@ -98,40 +88,72 @@ adminRouter.get('/programview',function(req,res){
  // admin select program to be  updated 
 adminRouter.get("/:id",(req, res)=>{
   const id = req.params.id;
-  program_data.findOne({_id:id}).then(()=>{
+  program_data.findOne({_id:id}).then((programdetails)=>{
     res.send(programdetails);
   });
 });
 
-// admin Update program list
+// admin Update program list programs
 
 adminRouter.put('/ProgramUpdate',(req,res)=>{
   console.log(req.body)
   id=req.body._id
-  programtype = req.body.programtype,
-  studentsNum=req.body.studentsNum,
+  programtype = req.body.programtype
+  studentsNum=req.body.studentsNum
   date=req.body.date
-  program_data.findByIdAndUpdate({"_id":id},
-                                {$set:{"programtype":programtype}},
-                                {$set:{"studentsNum":studentsNum}},
-                                {$set:{"date":date}})                           
+  program_data.findByIdAndUpdate({"_id":id}, { $set: req.body }, { new: true})                           
                                 .then(function(){
                                   res.send();
                                 })
 });
 
-// admin Remove Category
+ // admin Remove program list
 
 adminRouter.put('/ProgramRemove',(req,res)=>{
   console.log(req.body)
   id=req.body._id
   statusProgram  = req.body.statusProgram
-  program_data.findByIdAndUpdate({"_id":id},
+  program_data.findByIdAndupdate({"_id":id},
                                 {$set:{"statusProgram":0
                                 }})
                                 .then(function(){
                                   res.send();
                                 })
 });
+// adminRouter.delete(`/ProgramRemove/:id`,(req, res)=> {
+
+//    program_data.deleteOne({_id: req.params.id})
+//         .then((succ)=> {
+//        console.log(`DELETED: (${req.params.id}) ---->`, succ);
+//        res.status(200).json({
+//          success: true,
+//                   result: `Succesfully deleted`,
+//          response: succ
+//        });
+//      }).catch((err)=> {
+//        console.log(err.message);
+//        res.status(501).json({
+//          success: false,
+//          result: `Delete failed`,
+//          error: err.message
+//        });
+//      });
+//  });
+
+
+  // admin select update category
+
+  
+adminRouter.get("/:id",(req, res)=>{
+  const id = req.params.id;
+  category.findOne({_id:id}).then((categories)=>{
+    res.send(categories);
+  });
+});
 
 module.exports = adminRouter;
+
+
+                                // {$set:{"programtype":programtype}},
+                                // {$set:{"studentsNum":studentsNum}},
+                                // {$set:{"date":date}}

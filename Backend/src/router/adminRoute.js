@@ -9,6 +9,8 @@ const adminRouter = express.Router();
 
 // HEllo
 
+// ------------ Category operations start ------------------
+
 // admin insert category
 
 adminRouter.post('/categoryadd',function(req,res){
@@ -30,14 +32,7 @@ adminRouter.post('/categoryadd',function(req,res){
     });
   });
 
-// admin select update category
 
-adminRouter.get("/:id",(req, res)=>{
-  const id = req.params.id;
-  category.findOne({_id:id}).then((categories)=>{
-    res.send(categories);
-  });
-});
 
 // admin Update Category
 
@@ -92,46 +87,59 @@ adminRouter.post('/addactivityType',function(req,res){
   });
   });
 
-// // admin select update activityType
 
-// adminRouter.get("/:activityTypeid",(req, res)=>{
-//  const activityTypeid = req.params.activityTypeid;
-
-//  activityType.findOne({activityType_id:activityTypeid}).then((activityType)=>{
-//   res.send(activityType);
-//  });
-//  });
 
 // // admin Update activityType
 
-//  adminRouter.put('/activityTypeUpdate',(req,res)=>{
-//  console.log(req.body)
-//  activityTypeid=req.body._activityTypeid;
-//   actType  = req.body.activityType;
-//  activityType.findByIdAndUpdate({"activityType_id":activityTypeid},
-//                                {$set:{"activityType":actType
-//                             }})
-//                             .then(function(){
-//                                res.send();
-//                               })
-// });
+ adminRouter.put('/activityTypeUpdate',(req,res)=>{
+ console.log(req.body)
+ activityTypeid=req.body._activityTypeid;
+  actType  = req.body.activityType;
+ activityType.findByIdAndUpdate({"activityType_id":activityTypeid},
+                               {$set:{"activityType":actType
+                            }})
+                            .then(function(){
+                               res.send();
+                              })
+});
 
 // admin Remove activity Type
 
-// adminRouter.put('/activityTypeRemove',(req,res)=>{
-//   console.log("backend router called");
-// console.log(req.body)
-// actid=req.body.activityType_id
-// statusactivityType  = req.body.statusactivityType
-// activityType.findByIdAndUpdate({"_id":actid},
-//                               {$set:{"statusactivityType":0
-//                               }})
-//                               .then(function(){
-//                                 res.send();
-//                               })
-//                               console.log("deleted from db");
-// });
+adminRouter.put('/activityTypeRemove',(req,res)=>{
+  console.log("backend router called");
+console.log(req.body)
+actid=req.body.activityType_id
+statusactivityType  = req.body.statusactivityType
+activityType.findByIdAndUpdate({"_id":actid},
+                              {$set:{"statusactivityType":0
+                              }})
+                              .then(function(){
+                                res.send();
+                              })
+                              console.log("deleted from db");
+});
 
 
+
+// ------------ Category operations ends ------------------
+
+// admin select update category
+
+adminRouter.get("/:id",(req, res)=>{
+  const id = req.params.id;
+  category.findOne({_id:id}).then((categories)=>{
+    res.send(categories);
+  });
+});
+
+// // admin select update activityType
+
+adminRouter.get("/:activityTypeid",(req, res)=>{
+  const activityTypeid = req.params.activityTypeid;
+ 
+  activityType.findOne({activityType_id:activityTypeid}).then((activityType)=>{
+   res.send(activityType);
+  });
+  });
 
 module.exports = adminRouter;

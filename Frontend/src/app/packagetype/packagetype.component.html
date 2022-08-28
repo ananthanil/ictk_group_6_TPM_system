@@ -1,18 +1,19 @@
 <div class="container mb-2 pt-5 pb-5">
-    <form [formGroup]="form" class="row g-3" > <!--(ngSubmit)="AddUser()"-->
+    <form [formGroup]="form" (ngSubmit)="AddPackage()" class="row g-3" > <!--(ngSubmit)="AddUser()"-->
 
       <div class="form-group" class="col-md-6">
             <label for="firstName" class="form-label">Trainer Category</label>
             <select formControlName="Category" class="form-control">
                 <option>Select Trainer Category</option>
-                <option *ngFor="let list of CategoryList">{{list.trainerCategory}}</option>
+                <option *ngFor="let list_Category of CategoryList">{{list_Category.trainerCategory}}</option>
             </select>  <!--[(ngModel)]="loginItem.uFname" -->
       </div>
 
       <div class="col-md-6">
-            <label for="lastName" class="form-label">Training Mode</label>
-            <select class="form-control">
-                <option>Select Training Mode</option>
+            <label for="lastName" class="form-label">Activity Type</label>
+            <select formControlName="Activity" class="form-control">
+                <option>Select Activity Type</option>
+                <option *ngFor="let Activity_list of ActivityList">{{Activity_list.activityType}}</option>
             </select> <!--[(ngModel)]="loginItem.uLname" -->
       </div>
       

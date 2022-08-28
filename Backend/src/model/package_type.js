@@ -15,6 +15,5 @@ var tpackage = new Schema({
     packageStatus : Number
 });
 
-var PackageDetails = mongoose.model('package', tpackage); //UserData is the model and NewBookData is the schema
-
+var PackageDetails = mongoose.model('package', tpackage); 
 module.exports = PackageDetails;

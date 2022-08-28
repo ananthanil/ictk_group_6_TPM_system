@@ -1,8 +1,41 @@
 <div class="container" >
-    <h3 >Training Mode</h3>
-    <label>Add Trainer Mode:</label>
-    <input type="text " id="typename">
-          <div class="button">
-            <button id="btt">Add </button> 
-         </div>
+  <h3 >Training Mode</h3>
+  <form (ngSubmit)="AddtrainerMode()">
+     
+  <table>
+   <tr>
+    
+    <th><label id="typelabel">Add Trainer Mode:</label></th>
+    <th><input type="text " name="typename" [(ngModel)]="trainermode_insert.trainingMode"></th>
+    <th><button type="submit" value="submit" >Save</button><th>  
+
+      <!-- (click)=" reloadCurrentPage()"
+      {{showImage? 'Update' : 'Save'}} -->
+   </tr>
+  </table>
+</form>
+<button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deleteTrainerMode();reloadCurrentPage()">Delete</button>
+<button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button>
 </div>
+
+<div class="table-responsive">
+  <table class="table">
+      <thead>
+          <tr>
+              <th></th>
+              <th></th>
+              <th>Trainer Mode</th>
+          </tr>
+      </thead>
+       <tbody>
+        <tr *ngFor='let view of trainermode_view'> 
+             <td></td>
+             <td></td>
+             <td>{{view.trainingMode}}</td> 
+         <td>  
+          <button class="btn btn-primary" style="cursor:pointer" (click)="editTrainermode(view._id); toggleImage()" style="margin-left: 5px;">Select</button>
+         </td>
+        </tr>
+      </tbody>
+  </table>
+</div>  

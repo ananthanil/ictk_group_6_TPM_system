@@ -1,6 +1,6 @@
 <div class="heading" >
     <h3 >Activity activityType</h3>
-    <form (ngSubmit)="onSubmit()">
+     <form ><!-- (ngSubmit)="onSubmit()" -->
     <table>
         <tr>
     <th><label id="typelabel">Enter Activity Type:</label></th>
@@ -9,7 +9,8 @@
     </tr>
     </table>
     </form>
-    <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deleteactivityType()">Delete</button>
+    <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" >Delete</button>
+    <!-- (click)="deleteactivityType()" -->
      <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button>
 </div>      
     
@@ -28,7 +29,8 @@
                      <td></td>
                      <td>{{view.activityType}}</td>
                  <td>
-                    <button class="btn btn-primary" style="cursor:pointer" (click)="editactivityType(view._id); toggleImage()" style="margin-left: 5px;">Select</button>
+                    <button class="btn btn-primary" style="cursor:pointer"  style="margin-left: 5px;">Select</button>
+                    <!-- (click)="editactivityType(view._id); toggleImage()" -->
                     <!-- <button class="btn btn-danger" style="cursor:pointer"  >Delete</button> (click)="deleteRemove(books)" -->
                  </td>
              </tr>

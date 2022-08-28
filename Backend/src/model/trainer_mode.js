@@ -4,11 +4,10 @@ mongoose.connect('mongodb+srv://admin:y1zccZWP7n2VK0j5@cluster0.ajlsmrf.mongodb.
 }).catch((err)=>{
     console.log('connection failed',err.message)
 });
-mongoose.connect('mongodb://localhost:27017/Tmpsystem')
 const Schema = mongoose.Schema;
 
 var TrnMode = new Schema({
-    trnMode : String,
+    trainingMode: String,
     statusTrainermode : Number
 });
 

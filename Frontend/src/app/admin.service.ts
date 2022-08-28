@@ -50,49 +50,37 @@ addactivityType(activityType: activityTypeModel)
   {
     console.log('in service');
     return this.http.post<any>(`${this.server_address}/admin/addactivityType`,{"activityType":activityType})
-
-  //Trainer mode operationS
-  // addTrainerMode(tmode:TrainerMode )
-  // {
-  //   console.log('in service');
-  //   return this.http.post<any>(`${this.server_address}/admin/trainermodeadd`,{"trMode":tmode})
-  //   .subscribe((data) => {
-  //     console.log(data);
-  //   });
-  // }
-
-
-  // getactivityType(){
-  //    return this.http.get<any[]>(`${this.server_address}/admin/activityTypeview`);
-  //  }
-
-  // getactivityTypeUpdate(activityTypeid:any){
-  //   console.log("in side in admin service & update")
-  //   return this.http.get<any>(`${this.server_address}/admin/`+activityTypeid);
-  //  }
-
-  //  updateactivityType(activityTypeid:any){
-  //     return this.http.put<any>(`${this.server_address}/admin/activityTypeUpdate/`,activityTypeid)
-  //    .subscribe(data => {console.log(data)})
-  //  }
-
-  // removeactivityType(activityType:any){
-  //   console.log("admin service called");
-  //   return this.http.put<any>(`${this.server_address}/admin/activityTypeRemove/`,activityType)
-  //   .subscribe(data => {console.log(data)})
-  // }
-
-
-
-
-
-
-
-
   }
 
+  getactivityType(){
+     return this.http.get<any[]>(`${this.server_address}/admin/activityTypeview`);
+   }
 
+  getactivityTypeUpdate(activityTypeid:any){
+    console.log("in side in admin service & update")
+    return this.http.get<any>(`${this.server_address}/admin/`+activityTypeid);
+   }
 
+   updateactivityType(activityTypeid:any){
+      return this.http.put<any>(`${this.server_address}/admin/activityTypeUpdate/`,activityTypeid)
+     .subscribe(data => {console.log(data)})
+   }
+
+  removeactivityType(activityType:any){
+    console.log("admin service called");
+    return this.http.put<any>(`${this.server_address}/admin/activityTypeRemove/`,activityType)
+    .subscribe(data => {console.log(data)})
+  }
+
+  // Trainer mode operationS
+  addTrainerMode(tmode:TrainerMode )
+  {
+    console.log('in service');
+    return this.http.post<any>(`${this.server_address}/admin/trainermodeadd`,{"trMode":tmode})
+    .subscribe((data) => {
+      console.log(data);
+    });
+  }
   gettrainerMode(){
     return this.http.get<any[]>(`${this.server_address}/admin/TrainerModeview`);
   }
@@ -109,5 +97,5 @@ addactivityType(activityType: activityTypeModel)
     return this.http.put<any>(`${this.server_address}/admin/TrainermodeRemove/`,Tmodeid)
     .subscribe(data => {console.log(data)})
   }
-  }
+}
   

@@ -29,15 +29,15 @@ export class PackagetypeComponent implements OnInit {
         console.log(err);
       }
     });
-    // this.adminservice.getactivityType()
-    // .subscribe({
-    //   next: (data)=>{
-    //     this.ActivityList = JSON.parse(JSON.stringify(data));
-    //   },
-    //   error: (err)=> {
-    //     console.log(err);
-    //   }
-    // })
+    this.adminservice.getactivityType()
+    .subscribe({
+      next: (data)=>{
+        this.ActivityList = JSON.parse(JSON.stringify(data));
+      },
+      error: (err)=> {
+        console.log(err);
+      }
+    })
   }
   AddPackage(){
     console.log(this.form.value);

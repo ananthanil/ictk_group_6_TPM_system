@@ -44,19 +44,19 @@ export class TModeComponent implements OnInit {
     })
   }
 
-  //  onSubmit(){
-  //   if(this.showImage) {
-  //     this.saveUpdate()
-  //   } else {
-  //     this.AddtrainerMode()
-  //   }
-  // }
+   onSubmit(){
+    if(this.showImage) {
+      this.saveUpdate()
+    } else {
+      this.AddtrainerMode()
+    }
+  }
 
-  // AddtrainerMode(){
-  //   this.adminservice.addTrainerMode(this.trainermode_insert);
-  //   console.log("called");
-  //   alert("sucess");
-  // }
+  AddtrainerMode(){
+    this.adminservice.addTrainerMode(this.trainermode_insert);
+    console.log("called");
+    alert("sucess");
+  }
 
   saveUpdate(){
     this.adminservice.updateTrainerMode(this.trainermode_insert);

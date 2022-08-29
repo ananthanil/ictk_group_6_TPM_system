@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
+import { PackageModel } from './package.model';
 import { FormGroup, FormControl, Validators} from '@angular/forms'
 
 @Component({
@@ -9,13 +10,14 @@ import { FormGroup, FormControl, Validators} from '@angular/forms'
 })
 export class PackagetypeComponent implements OnInit {
 
+  package_insertion = new PackageModel('','','',0,0,1);
   CategoryList: any = []
   ActivityList: any = []
 
-  form = new FormGroup({
-    Category: new FormControl('', Validators.required),
-    Activity: new FormControl('', Validators.required)
-  });
+  // form = new FormGroup({
+  //   Category: new FormControl('', Validators.required),
+  //   Activity: new FormControl('', Validators.required)
+  // });
  
   constructor(private adminservice:AdminService) { }
 
@@ -39,8 +41,10 @@ export class PackagetypeComponent implements OnInit {
       }
     })
   }
-  AddPackage(){
-    console.log(this.form.value);
-  }
 
+  AddPackage(){
+    this.adminservice.insertPackage();
+    console.log("called");
+    alert("success");
+  }
 }

@@ -1,27 +1,41 @@
 <div class="container mb-2 pt-5 pb-5">
-    <form [formGroup]="form" (ngSubmit)="AddPackage()" class="row g-3" > <!--(ngSubmit)="AddUser()"-->
+    <form (ngSubmit)="AddPackage()" class="row g-3" > <!--(ngSubmit)="AddUser()"-->
+
+<!-- 
+      <div class="form-group" class="col-md-6">
+        <label for="firstName" class="form-label">Select Trainer</label>
+        <select  [(ngModel)]="package_insertion.PtrainerCategory" class="form-control">
+          <option>Select Trainer Category</option>
+          <option *ngFor="let list_Category of CategoryList" >{{list_Category.trainerCategory}}</option>
+        </select>  <!--[(ngModel)]="loginItem.uFname" -->
+      <!-- </div> -->
 
       <div class="form-group" class="col-md-6">
-            <label for="firstName" class="form-label">Trainer Category</label>
-            <select formControlName="Category" class="form-control">
+            <label for="firstName" class="form-label">Select Trainer Category</label>
+            <select   class="form-control">
                 <option>Select Trainer Category</option>
-                <option *ngFor="let list_Category of CategoryList">{{list_Category.trainerCategory}}</option>
+                <option *ngFor="let list_Category of CategoryList" [(ngModel)]="package_insertion.PtrainerCategory">{{list_Category.trainerCategory}}</option>
             </select>  <!--[(ngModel)]="loginItem.uFname" -->
       </div>
 
       <div class="col-md-6">
-            <label for="lastName" class="form-label">Activity Type</label>
-            <select formControlName="Activity" class="form-control">
+            <label for="lastName" class="form-label"> Select Activity Type</label>
+          <select   class="form-control">  <!-- [(ngModel)]="package_insertion.PtrainerActivity"  -->
                 <option>Select Activity Type</option>
-                <option *ngFor="let Activity_list of ActivityList">{{Activity_list.activityType}}</option>
+                <option *ngFor="let Activity_list of ActivityList" [value]="ActivityList._id">{{Activity_list.activityType}}</option>
             </select> <!--[(ngModel)]="loginItem.uLname" -->
       </div>
       
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Per Hour Amount</label>
-        <input type="number" class="form-control" name="uEmail"  id="signup_inputEmail4" placeholder="Eg : Rs.1000">  <!-- [(ngModel)]="loginItem.uEmail"  -->
+        <input type="number" class="form-control" name="p_per_Hour_Amount"  id="signup_inputEmail4" placeholder="Eg : Rs.1000" [(ngModel)]="package_insertion.PHourAmount">  <!-- [(ngModel)]="loginItem.uEmail"  -->
       </div>
 
+      <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Activity Per Head Amount</label>
+        <input type="number" class="form-control" name="p_activity_per_head_amount"  id="signup_inputEmail4" placeholder="Eg : Rs.1000" [(ngModel)]="package_insertion.pActivityAmount">  <!-- [(ngModel)]="loginItem.uEmail"  -->
+      </div>
+      
       <div class="col-12">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>

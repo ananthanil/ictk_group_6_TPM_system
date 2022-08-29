@@ -3,6 +3,7 @@ const program_data = require('../model/program_type');
 const category = require('../model/trainer_category');
 const activityType=require('../model/activityType');
 const trMode = require('../model/trainer_mode');
+const PackageDetails = require('../model/package_type')
 
 const adminRouter = express.Router();
 

@@ -99,6 +99,10 @@ addactivityType(activityType: activityTypeModel)
     return this.http.put<any>(`${this.server_address}/admin/TrainermodeRemove/`,Tmodeid)
     .subscribe(data => {console.log(data)})
   }
+
+  insertPackage(){
+    
+  }
 }
   
 

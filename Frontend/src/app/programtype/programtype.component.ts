@@ -13,65 +13,65 @@
     showUp: boolean = false;
     constructor(private adminservice:AdminService, private router:Router) { }
 
-    toggleUp(): void{
-      this.showUp= !this.showUp;
-    }
+    // toggleUp(): void{
+    //   this.showUp= !this.showUp;
+    // }
 
 
     program_insert =new ProgramModel('',0,'',1);
-    program_view:any = {}
+    program_view:any = [];
     
-    reloadCurrentPage() {
-      window.location.reload();
-    }
+    // reloadCurrentPage() {
+    //   window.location.reload();
+    // }
 
-    editProgram(editId: any)
-    { 
-      this.adminservice.getProgramsUpdate(editId).subscribe((data)=>{
-        this.program_insert  = JSON.parse(JSON.stringify(data));
-      })
-    }
+    // editProgram(editId: any)
+    // { 
+    //   this.adminservice.getProgramsUpdate(editId).subscribe((data)=>{
+    //     this.program_insert  = JSON.parse(JSON.stringify(data));
+    //   })
+    // }
     
     ngOnInit(): void {
 
-      this.adminservice.getprograms()
-      .subscribe({
-        next: (data)=>{
-      this.program_view=JSON.parse(JSON.stringify(data));   
+    //   this.adminservice.getprograms()
+    //   .subscribe({
+    //     next: (data)=>{
+    //   this.program_view=JSON.parse(JSON.stringify(data));   
       
-    },
-        error: (err)=> {
-          console.log(err);
-        }
-    })
+    // },
+    //     error: (err)=> {
+    //       console.log(err);
+    //     }
+    // })
     }
 
-    onSubmit() {
-      if(this.showUp) {
-        this.saveUpdate()
-      } else {
-        this.addProgram()
-      }
-    }
+    // onSubmit() {
+    //   if(this.showUp) {
+    //     this.saveUpdate()
+    //   } else {
+    //     this.addProgram()
+    //   }
+    // }
 
     addProgram()
     {
-      this.adminservice.addProgram(this.program_insert);
+      this.adminservice.add_Program(this.program_insert);
       console.log("called");
       alert("success");
-      // this.router.navigate(['admin-home']);
     }
 
 
-    saveUpdate() {
-      this.adminservice.updateProgram(this.program_insert);
-      alert("Updated");
-    }
+    // saveUpdate() {
+    //   this.adminservice.updateProgram(this.program_insert);
+    //   alert("Updated");
+    // }
     
-    deleteProgram(){
-      this.adminservice.removeProgram(this.program_insert);
-      alert("Are you sure to delete")
-    }
+    // deleteProgram(){
+    //   this.adminservice.removeProgram(this.program_insert);
+    //   alert("Are you sure to delete")
+    // }
+  
     // var x = prompt(`Type 'yes' to delete`)
     // if(x == 'yes') {
     //   this.adminservice.removeProgram(this.program_insert)
@@ -91,7 +91,4 @@
     //   else {
     //       alert(`type 'yes'`);
     //     }
-      
-        }    
-  
-  
+  }

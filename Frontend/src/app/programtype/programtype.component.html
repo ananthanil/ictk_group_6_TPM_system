@@ -1,6 +1,6 @@
 <div class="container mb-2 pt-5 pb-5">
   <h4> Program Details</h4>
-  <form  class="row g-3"(ngSubmit)="onSubmit()">
+  <form  class="row g-3"(ngSubmit)="addProgram()">
 
     <div class="col-md-6">
         <label>Program Name</label>
@@ -34,11 +34,13 @@
     </div>
 
     <div class="col-12">
-      <button type="submit" (click)="reloadCurrentPage()"  class="btn btn-success">{{showUp? 'Update' : 'Save'}}</button>   
+      <button type="submit"   class="btn btn-success">Save</button>   
+      <!-- (click)="reloadCurrentPage()" -->
+      <!-- {{showUp? 'Update' : 'Save'}} -->
     </div>
   </form>
   <div id="btncancel">
-    <button class="btn btn-warning" (click)="reloadCurrentPage()">Cancel</button>
+    <!-- <button class="btn btn-warning" (click)="reloadCurrentPage()">Cancel</button> -->
   </div>
 </div>
 
@@ -64,8 +66,8 @@
                     <td>{{program_data.studentsNum}}</td>
                   <td>{{program_data.date}}</td>   <!--  {{myDate | date: 'dd-MM-yyyy'}}-->
                 <td>
-                   <button class="btn btn-warning"  (click)="editProgram(program_data._id); toggleUp()" >Edit</button> 
-                   <button class="btn btn-danger" (click)="deleteProgram();reloadCurrentPage()" style="margin-left: 5px;">Delete</button> 
+                   <!-- <button class="btn btn-warning"  (click)="editProgram(program_data._id); toggleUp()" >Edit</button>  -->
+                   <!-- <button class="btn btn-danger" (click)="deleteProgram();reloadCurrentPage()" style="margin-left: 5px;">Delete</button>  -->
                 </td>
             </tr>
     </tbody>

@@ -1,0 +1,10 @@
+.heading{
+    align-content: center;
+}
+#typelabel{
+    text-align: left;
+
+}
+#bt1{
+    align-self:flex-end;
+}

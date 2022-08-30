@@ -82,9 +82,11 @@ addactivityType(activityType: activityTypeModel)
       console.log(data);
     });
   }
+
   gettrainerMode(){
     return this.http.get<any[]>(`${this.server_address}/admin/TrainerModeview`);
   }
+
   getTrainerModeUpdate(id:any){
     return this.http.get<any>(`${this.server_address}/admin/`+id);
   }
@@ -99,11 +101,26 @@ addactivityType(activityType: activityTypeModel)
     .subscribe(data => {console.log(data)})
   }
 
+// Trainer mode operations
+
   insertPackage(tpackage:PackageModel){
     console.log('in service');
     return this.http.post<any>(`${this.server_address}/admin/addPackage`,{"package":tpackage})
     .subscribe((data) => {
       console.log(data);
     });
+  }
+
+  packageView(){
+    return this.http.get<any[]>(`${this.server_address}/admin/packageview`); 
+  }
+
+  PackageUpdateView(id:any){
+    return this.http.get<any>(`${this.server_address}/admin/packageselect/`+id)
+  }
+
+  updatePackage(packageid:any){
+    return this.http.put<any>(`${this.server_address}/admin/PackageUpdate/`,packageid)
+    .subscribe(data => {console.log(data)})
   }
 }

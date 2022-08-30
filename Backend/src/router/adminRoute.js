@@ -64,8 +64,7 @@ adminRouter.post('/addPackage',function(req,res){
  tpackage.save();
 });
 // ------------ Insertion operations ends ------------------
-
-// ------------ View operations Starts ------------------
+// ------------ View operations Starts ---------------------
 
 // admin view category
   
@@ -93,9 +92,14 @@ adminRouter.get('/TrainerModeview',function(req,res){
       res.send(trainermode);
  });
 });
-
-// ------------ View operations ends ------------------
-
+ //Package view
+  adminRouter.get('/packageview',function(req,res){
+    PackageDetails.find({"packageStatus":1})
+   .then(function(package){
+        res.send(package);
+   });
+  });
+// ------------ View operations ends ----------------------
 // ------------ Update operations starts ------------------
 
 // admin Update Category
@@ -139,9 +143,28 @@ adminRouter.put('/CategoryUpdate',(req,res)=>{
                                   res.send();
                                 })
 });
+// admin Update Package
 
-// ------------ Update operations ends ------------------
-
+adminRouter.put('/PackageUpdate',(req,res)=>{
+  console.log(req.body)
+  id=req.body._id
+  PtrainerName = req.body.PtrainerName,
+  PtrainerCategory = req.body.PtrainerCategory,
+  PtrainerActivity = req.body.PtrainerActivity,
+  PHourAmount = req.body.PHourAmount,
+  pActivityAmount = req.body.pActivityAmount
+  PackageDetails.findByIdAndUpdate({"_id":id},
+                                {$set:{"PtrainerName":PtrainerName,
+                                       "PtrainerCategory" : PtrainerCategory,
+                                       "PtrainerActivity" : PtrainerActivity,
+                                       "PHourAmount" : PHourAmount,
+                                       "pActivityAmount" : pActivityAmount
+                                }})
+                                .then(function(){
+                                  res.send();
+                                })
+});
+// ------------ Update operations ends --------------------
 // ------------ Delete operations starts ------------------
 
 // admin Remove Category
@@ -188,8 +211,7 @@ adminRouter.put('/TrainmermodeRemove',(req,res)=>{
                                 })
 });
 
-// ------------ Delete operations ends ------------------
-
+// ------------ Delete operations ends ---------------------------
 // ------------ Update Selete operations starts ------------------
 
 // admin select update category
@@ -217,6 +239,13 @@ adminRouter.get("/:id",(req, res)=>{
   const id = req.params.id;
      trMode.findOne({_id:id}).then((categories)=>{  
     res.send(categories);
+  });
+});
+
+adminRouter.get("/packageselect/:id",(req, res)=>{
+  const id = req.params.id;
+  PackageDetails.findOne({_id:id}).then((pdetails)=>{
+    res.send(pdetails);
   });
 });
 // ------------ Update Selete operations ends ------------------

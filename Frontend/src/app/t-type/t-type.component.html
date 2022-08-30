@@ -11,30 +11,30 @@
     </form>
     <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deleteCategory();reloadCurrentPage()">Delete</button>
     <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button>
-    </div>
+</div>
     
     
-    <div class="table-responsive">
-        <table class="table">
-            <thead>
-                <tr>
-                    <th></th>
-                    <th></th>
-                    <th>Category</th>
-                </tr>
-            </thead>                        
-            <tbody>
-                   <tr *ngFor='let Category of category_view'>
-                        <td></td>
-                        <td></td>
-                        <td>{{Category.trainerCategory}}</td>
-                    <td>
-                       <button class="btn btn-primary" style="cursor:pointer" (click)="editCategory(Category._id); toggleImage()" style="margin-left: 5px;">Select</button>
-                       <!-- <button class="btn btn-danger" style="cursor:pointer"  >Delete</button> (click)="deleteRemove(books)" -->
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+<div class="table-responsive">
+    <table class="table">
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th>Category</th>
+            </tr>
+        </thead>                        
+        <tbody>
+               <tr *ngFor='let Category of category_view'>
+                    <td></td>
+                    <td></td>
+                    <td>{{Category.trainerCategory}}</td>
+                <td>
+                   <button class="btn btn-primary" style="cursor:pointer" (click)="editCategory(Category._id); toggleImage()" style="margin-left: 5px;">Select</button>
+                   <!-- <button class="btn btn-danger" style="cursor:pointer"  >Delete</button> (click)="deleteRemove(books)" -->
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
    
     

@@ -80,4 +80,8 @@ export class PackagetypeComponent implements OnInit {
     this.adminservice.updatePackage(this.insert);
     alert("Category Updated");
   }
+  deletePackage(){
+    this.adminservice.removePackage(this.insert);
+    alert("deleted")
+  }
 }

@@ -123,4 +123,10 @@ addactivityType(activityType: activityTypeModel)
     return this.http.put<any>(`${this.server_address}/admin/PackageUpdate/`,packageid)
     .subscribe(data => {console.log(data)})
   }
+
+  removePackage(packageid:any)
+  {
+    return this.http.put<any>(`${this.server_address}/admin/PackageRemove/`,packageid)
+    .subscribe(data => {console.log(data)})
+  }
 }

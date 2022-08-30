@@ -211,6 +211,20 @@ adminRouter.put('/TrainmermodeRemove',(req,res)=>{
                                 })
 });
 
+// Package remove
+
+adminRouter.put('/PackageRemove',(req,res)=>{
+  console.log(req.body)
+  id=req.body._id
+  packageStatus  = req.body.packageStatus
+  PackageDetails.findByIdAndUpdate({"_id":id},
+                                {$set:{"packageStatus":0
+                                }})
+                                .then(function(){
+                                  res.send();
+                                })
+});
+
 // ------------ Delete operations ends ---------------------------
 // ------------ Update Selete operations starts ------------------
 
@@ -242,6 +256,7 @@ adminRouter.get("/:id",(req, res)=>{
   });
 });
 
+// package mode  select update
 adminRouter.get("/packageselect/:id",(req, res)=>{
   const id = req.params.id;
   PackageDetails.findOne({_id:id}).then((pdetails)=>{

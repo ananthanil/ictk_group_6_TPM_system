@@ -48,11 +48,11 @@ adminRouter.post('/trainermodeadd',function(req,res){
  
 });
 
+// Admin Trainer Package insertion
+
 adminRouter.post('/addPackage',function(req,res){
   console.log(req.body);
   var tpackage = {       
-      // trainerCategory : req.body.category.trainerCategory,
-      // statusCategory : req.body.category.statusCategory,
     PtrainerName : req.body.package.PtrainerName,
     PtrainerCategory : req.body.package.PtrainerCategory,
     PtrainerActivity : req.body.package.PtrainerActivity,

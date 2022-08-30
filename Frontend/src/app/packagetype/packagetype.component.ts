@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { PackageModel } from './package.model';
-import { FormGroup, FormControl, Validators} from '@angular/forms'
+// import { FormGroup, FormControl, Validators} from '@angular/forms'
 
 @Component({
   selector: 'app-packagetype',
@@ -10,17 +10,41 @@ import { FormGroup, FormControl, Validators} from '@angular/forms'
 })
 export class PackagetypeComponent implements OnInit {
 
+  // hello : String = '';
+  // hai : String = '';
+  // tata : String = '';
   CategoryList: any = []
   ActivityList: any = []
-
-  form = new FormGroup({
-    Category: new FormControl('', Validators.required),
-    Activity: new FormControl('', Validators.required),
-    Hour_Amount: new FormControl('', Validators.required),
-    per_head_amount: new FormControl('', Validators.required),
-    hello  : new FormControl(1, Validators.required),
-  });
  
+
+  // changeCat(e:any){
+  //   this.hello = e.target.value;
+  //   console.log(this.hello);
+  // }
+  // changeCate(e:any){
+  //   console.log(e.target.value)
+  //   this.hai = e.target.value;
+  //   console.log(this.hai);
+  // }
+  // changeActivity(e:any){
+  //   this.tata = e.target.value;
+  //   console.log(this.tata);
+  // }
+  // hello: any;
+  // hai:any
+
+  // form = new FormGroup({
+  //   Category: new FormControl('', Validators.required),
+  //   Category1: new FormControl('', Validators.required),
+  //   Activity: new FormControl('', Validators.required),
+  //   Hour_Amount: new FormControl('', Validators.required),
+  //   per_head_amount: new FormControl('', Validators.required),
+  //   satus  : new FormControl(1, Validators.required),
+  // });
+
+  insert = new PackageModel('','','',0,0,1);
+
+
   constructor(private adminservice:AdminService) { }
 
   ngOnInit(): void {
@@ -45,6 +69,9 @@ export class PackagetypeComponent implements OnInit {
   }
 
   AddPackage(){
-    console.log(this.form.value)
+    console.log(this.insert);
+    this.adminservice.insertPackage(this.insert);
+    console.log("called");
+    alert("success");
   }
 }

@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CategoryModel } from './t-type/category.model';
 import { activityTypeModel } from './activitytype/activityType.model';
 import { TrainerMode } from './t-mode/trainermode.model';
+import { PackageModel } from './packagetype/package.model';
 
 @Injectable({
   providedIn: 'root'
@@ -98,8 +99,11 @@ addactivityType(activityType: activityTypeModel)
     .subscribe(data => {console.log(data)})
   }
 
-  insertPackage(){
-    
+  insertPackage(tpackage:PackageModel){
+    console.log('in service');
+    return this.http.post<any>(`${this.server_address}/admin/addPackage`,{"package":tpackage})
+    .subscribe((data) => {
+      console.log(data);
+    });
   }
 }
-  

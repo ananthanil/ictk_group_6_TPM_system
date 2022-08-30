@@ -48,6 +48,21 @@ adminRouter.post('/trainermodeadd',function(req,res){
  
 });
 
+adminRouter.post('/addPackage',function(req,res){
+  console.log(req.body);
+  var tpackage = {       
+      // trainerCategory : req.body.category.trainerCategory,
+      // statusCategory : req.body.category.statusCategory,
+    PtrainerName : req.body.package.PtrainerName,
+    PtrainerCategory : req.body.package.PtrainerCategory,
+    PtrainerActivity : req.body.package.PtrainerActivity,
+    PHourAmount : req.body.package.PHourAmount,
+    pActivityAmount : req.body.package.pActivityAmount,
+    packageStatus : req.body.package.packageStatus
+    }       
+ var tpackage = new PackageDetails(tpackage);
+ tpackage.save();
+});
 // ------------ Insertion operations ends ------------------
 
 // ------------ View operations Starts ------------------

@@ -13,7 +13,6 @@
         <div  class="col-md-6">
               <label for="fCategory" class="form-label">Select Trainer Category</label>
               <select [(ngModel)]="insert.PtrainerCategory"  name="Category" class="form-control">
-                <!-- (change)="changeCate($event)" -->
                   <option>Select Trainer Category</option>
                   <option *ngFor="let list_Category of CategoryList" >{{list_Category.trainerCategory}}</option>
               </select> 
@@ -22,7 +21,6 @@
         <div class="col-md-6">
               <label for="Activity" class="form-label"> Select Activity Type</label>
             <select [(ngModel)]="insert.PtrainerActivity" name="Activity" class="form-control">
-              <!-- (change)="changeActivity($event)" -->
                   <option>Select Activity Type</option>
                   <option *ngFor="let Activity_list of ActivityList">{{Activity_list.activityType}}</option>
               </select>

@@ -79,7 +79,7 @@ adminRouter.post('/trainermodeadd',function(req,res){
 //trainer mode view
 
 adminRouter.get('/TrainerModeview',function(req,res){
-   trMode.find()
+   trMode.find({"statusTrainermode":1})
   .then(function(trainermode){
        res.send(trainermode);
   });
@@ -87,21 +87,21 @@ adminRouter.get('/TrainerModeview',function(req,res){
 
 // trainer mode  select update
 
-adminRouter.get("/:id",(req, res)=>{
+adminRouter.get("/TrainermodeSelect/:id",(req, res)=>{
   const id = req.params.id;
-     trMode.findOne({_id:id}).then((categories)=>{  //
-    res.send(categories);
+     trMode.findOne({_id:id}).then((mode)=>{  
+    res.send(mode);
   });
 });
 
 // trainer mode update
 
-adminRouter.put('/CategoryUpdate',(req,res)=>{
+adminRouter.put('/TrainermodeUpdate',(req,res)=>{
   console.log(req.body)
   id=req.body._id
-  trainerMode = req.body.trainerMode
+  trainingMode = req.body.trainingMode
   trMode.findByIdAndUpdate({"_id":id},
-                                {$set:{"trainerMode":trainerMode
+                                {$set:{"trainingMode":trainingMode
                                 }})
                                 .then(function(){
                                   res.send();
@@ -110,12 +110,12 @@ adminRouter.put('/CategoryUpdate',(req,res)=>{
 
 // trainer mode remove
 
-  adminRouter.put('/TrainmermodeRemove',(req,res)=>{
+  adminRouter.put('/TrainermodeRemove',(req,res)=>{
   console.log(req.body)
   id=req.body._id
-  trainerMode = req.body.trainerMode
+  statusTrainermode = req.body.statusTrainermode
   trMode.findByIdAndUpdate({"_id":id},
-                                {$set:{"trainerMode":0
+                                {$set:{"statusTrainermode":0
                                 }})
                                 .then(function(){
                                   res.send();

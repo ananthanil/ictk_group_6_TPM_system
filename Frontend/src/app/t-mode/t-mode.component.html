@@ -1,16 +1,14 @@
 <div class="container" >
   <h3 >Training Mode</h3>
-  <form (ngSubmit)="AddtrainerMode()">
+  <form (ngSubmit)="onSubmit()">
      
   <table>
    <tr>
     
     <th><label id="typelabel">Add Trainer Mode:</label></th>
     <th><input type="text " name="typename" [(ngModel)]="trainermode_insert.trainingMode"></th>
-    <th><button type="submit" value="submit" >Save</button><th>  
+    <th><button type="submit" value="submit" (click)=" reloadCurrentPage()"> {{showImage? 'Update' : 'Save'}}</button><th>  
 
-      <!-- (click)=" reloadCurrentPage()"
-      {{showImage? 'Update' : 'Save'}} -->
    </tr>
   </table>
 </form>

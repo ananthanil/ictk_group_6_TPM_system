@@ -10,6 +10,7 @@ export class AdminService {
 
   // server_address : string = 'api';
   server_address : string = 'http://localhost:3666/api';
+
   
   constructor(private http:HttpClient) { }
 
@@ -42,7 +43,7 @@ export class AdminService {
   }
 
 
-  //Trainer mode operationS
+  //-----------Trainer mode operations Start----------
   addTrainerMode(tmode:TrainerMode )
   {
     console.log('in service');
@@ -55,7 +56,7 @@ export class AdminService {
     return this.http.get<any[]>(`${this.server_address}/admin/TrainerModeview`);
   }
   getTrainerModeUpdate(id:any){
-    return this.http.get<any>(`${this.server_address}/admin/`+id);
+    return this.http.get<any>(`${this.server_address}/admin/TrainermodeSelect/`+id);
   }
 
   updateTrainerMode(Tmodeid:any){
@@ -67,5 +68,8 @@ export class AdminService {
     return this.http.put<any>(`${this.server_address}/admin/TrainermodeRemove/`,Tmodeid)
     .subscribe(data => {console.log(data)})
   }
+
+  //---------- tarining mode oprations end---------
+
   }
   

@@ -9,7 +9,7 @@ app.use(cors());
 app.use(bodyparser.json());
 
 app.use('/api/admin/',adminRouter);
-app.use('/api/user', signupRouter);
+app.use('/api/user/', signupRouter);
 
 app.listen(PORT,function(){
     console.log(`listening to port ${PORT}`);

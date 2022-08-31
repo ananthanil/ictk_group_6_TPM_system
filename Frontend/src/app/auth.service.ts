@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { SignupModel } from './signup/signup.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +11,13 @@ export class AuthService {
   server_address : string = 'http://localhost:3666/api';
   
 
-  constructor() { }
+  constructor(private http:HttpClient) { }
 
-  signup(){}
+  Addtrainer(user: SignupModel){
+    console.log('in service');
+    return this.http.post<any>(`${this.server_address}/user/trainersignup`,{"trainer":user})
+    .subscribe((data) => {
+      console.log(data);
+    });
+  }
 }

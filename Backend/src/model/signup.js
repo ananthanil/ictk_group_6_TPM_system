@@ -12,7 +12,9 @@ var TainerSignup = new Schema({
     Ulastname : String,
     Uemail : String,
     Umobile : Number,
-    Upassword : String 
+    Upassword : String,
+    Urole : String,
+    Ustatus : Number
 });
 
 var signup = mongoose.model('signup', TainerSignup); //UserData is the model and NewBookData is the schema

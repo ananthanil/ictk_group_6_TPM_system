@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { PackageModel } from './package.model';
+import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-packagetype',
@@ -16,7 +17,7 @@ export class PackagetypeComponent implements OnInit {
   insert = new PackageModel('','','',0,0,1);
 
 
-  constructor(private adminservice:AdminService) { }
+  constructor(private adminservice:AdminService,private auth:AuthService) { }
 
   makechanges(): void{
     this.changebutton = !this.changebutton;
@@ -34,6 +35,15 @@ export class PackagetypeComponent implements OnInit {
    }
 
   ngOnInit(): void {
+    // this.auth.getactivityType()
+    // .subscribe({
+    //   next: (data)=>{
+    //     this.TrainerList = JSON.parse(JSON.stringify(data));
+    //   },
+    //   error: (err)=> {
+    //     console.log(err);
+    //   }
+    // });
     this.adminservice.getcategories()
     .subscribe({
       next: (data)=>{

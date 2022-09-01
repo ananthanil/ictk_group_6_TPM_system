@@ -1,5 +1,70 @@
+<div class="container mb-2 pt-5 pb-5">
+  <form  class="row g-3" > 
+    <!-- (ngSubmit)="onSubmit()" -->
+    <div class="col-md-6">
+      <label for="tcDate" class="form-label">Select Class Date</label>
+      <select  name="tcDate" class="form-control">
+        <!-- [(ngModel)]="PackageList.PtrainerName" -->
+        <option>Select Class Date</option>
+        <option ></option>
+        <!-- *ngFor="let list_Category of CategoryList" -->
+        <!-- {{list_Category.trainerCategory}} -->
+      </select>  
+    </div>
+  
+    <div  class="col-md-6">
+      <label for="tcProgram" class="form-label">Select Program and Batch</label>
+      <select  name="tcProgram" class="form-control">
+        <!-- [(ngModel)]="insert.PtrainerCategory" -->
+          <option>Select Program and Batch</option>
+          <option ></option>
+          <!-- *ngFor="let list_Category of CategoryList"  {{list_Category.trainerCategory}} -->
+      </select> 
+    </div>
+  
+ <div class="col-md-6">
+      <label for="tcActivity" class="form-label"> Select Activity Type</label>
+      <select  name="tcActivity" class="form-control">
+        <!-- [(ngModel)]="insert.PtrainerActivity" -->
+        <option>Select Activity Type</option>
+        <option *ngFor="let Activity_list of ActivityList">{{Activity_list.activityType}}</option>
+        <!-- *ngFor="let Activity_list of ActivityList"
+         {{Activity_list.activityType}}-->
+      </select>
+    </div>
 
-    <form class="row" >
+
+    <div class="col-md-6">
+      <label for="tcTraining_Mod" class="form-label"> Select Training Mod</label>
+      <select  name="tcTraining_Mod" class="form-control">
+        <!-- [(ngModel)]="insert.PtrainerActivity" -->
+        <option>Select Training Mod</option>
+        <option ></option>
+        <!-- *ngFor="let Activity_list of ActivityList"
+         {{Activity_list.activityType}}-->
+      </select>
+    </div>
+        
+       <div class="col-md-6">
+      <label for="tcclass_hour" class="form-label">Class Taken Hours</label>
+      <input type="number" class="form-control" name="tcclass_hour"  id="signup_inputEmail4" placeholder="Eg : Rs.1000" >  
+      <!-- [(ngModel)]="insert.PHourAmount"  -->
+    </div>
+  
+    <!-- <div class="col-md-6">
+      <label for="activity_per_head_amount" class="form-label">Activity Per Head Amount</label>
+      <input type="number" class="form-control" name="p_activity_per_head_amount"   id="signup_inputEmail4" placeholder="Eg : Rs.1000" [(ngModel)]="insert.pActivityAmount">
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" (click)="reloadCurrentPage()">{{changebutton? 'Update' : 'Save'}}</button>
+    </div> -->
+  </form>
+  <!-- <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deletePackage();reloadCurrentPage()">Delete</button>
+  <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button> -->
+</div>
+
+<!-- <form class="row" >
         <div class="col-md-6">
             <label> Program Date </label>
                 <input  
@@ -28,5 +93,4 @@
     <div class="col-12">
         <br>
         <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-   
+      </div> -->

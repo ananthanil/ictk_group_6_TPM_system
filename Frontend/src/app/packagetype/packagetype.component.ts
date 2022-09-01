@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { PackageModel } from './package.model';
-import { AuthService } from '../auth.service';
 
 @Component({
   selector: 'app-packagetype',
@@ -17,7 +16,7 @@ export class PackagetypeComponent implements OnInit {
   insert = new PackageModel('','','',0,0,1);
 
 
-  constructor(private adminservice:AdminService,private auth:AuthService) { }
+  constructor(private adminservice:AdminService) { }
 
   makechanges(): void{
     this.changebutton = !this.changebutton;

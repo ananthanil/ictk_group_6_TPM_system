@@ -3,7 +3,10 @@ import { HttpClient } from '@angular/common/http';
 import { CategoryModel } from './t-type/category.model';
 import { activityTypeModel } from './activitytype/activityType.model';
 import { TrainerMode } from './t-mode/trainermode.model';
+
 import { PackageModel } from './packagetype/package.model';
+
+import { TrainerDetails } from './t-details/trainerdetails.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +15,7 @@ export class AdminService {
 
   // server_address : string = 'api';
   server_address : string = 'http://localhost:3666/api';
+
   
   constructor(private http:HttpClient) { }
 
@@ -47,6 +51,7 @@ export class AdminService {
 //===========================================================================================
 //Activity Type operations
 
+
 addactivityType(activityType: activityTypeModel)
   {
     console.log('in service');
@@ -74,6 +79,8 @@ addactivityType(activityType: activityTypeModel)
   }
 
   // Trainer mode operationS
+
+  //-----------Trainer mode operations Start----------
   addTrainerMode(tmode:TrainerMode )
   {
     console.log('in service');
@@ -88,7 +95,7 @@ addactivityType(activityType: activityTypeModel)
   }
 
   getTrainerModeUpdate(id:any){
-    return this.http.get<any>(`${this.server_address}/admin/`+id);
+    return this.http.get<any>(`${this.server_address}/admin/TrainermodeSelect/`+id);
   }
 
   updateTrainerMode(Tmodeid:any){
@@ -101,6 +108,7 @@ addactivityType(activityType: activityTypeModel)
     .subscribe(data => {console.log(data)})
   }
 
+
 // Trainer mode operations
 
   insertPackage(tpackage:PackageModel){
@@ -111,6 +119,35 @@ addactivityType(activityType: activityTypeModel)
     });
   }
 
+  //---------- tarining mode oprations end---------
+
+  //-----------training Details operation start--------
+
+  addTrainerDetails(tdetails:TrainerDetails)
+  {
+    console.log('in service');
+    return this.http.post<any>(`${this.server_address}/admin/trainerdetailsadd`,{"trDetails":tdetails})
+    .subscribe((data) => {
+      console.log(data);
+    });
+  }
+ 
+  gettrainerDetals(){
+    return this.http.get<any[]>(`${this.server_address}/admin/TrainerDetalsview`);
+  }
+  getTrainerDetailsUpdate(id:any)
+  {
+    return this.http.get<any>(`${this.server_address}/admin/TrainerdetailsSelect/`+id);
+  }
+  // updateTrainerDetails()
+  // {
+  //   return this.http.put<any>(`${this.server_address}/admin/TrainerdetailsUpdate/`,TDetails)
+  //   .subscribe(data => {console.log(data)})
+  // }
+  // removeTrainerDetails(){
+  //   return this.http.put<any>(`${this.server_address}/admin/TrainerdetalsRemove/`,Tmodeid)
+  //   .subscribe(data => {console.log(data)})
+  // }
   packageView(){
     return this.http.get<any[]>(`${this.server_address}/admin/packageview`); 
   }

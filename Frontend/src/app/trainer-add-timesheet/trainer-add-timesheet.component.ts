@@ -34,5 +34,4 @@ export class TrainerAddTimesheetComponent implements OnInit {
       }
     });
   }
-
 }

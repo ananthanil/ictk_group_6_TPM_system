@@ -1,1 +1,24 @@
 
+#btncancel{
+    transform: translate(10%,-100%); 
+    cursor: pointer;
+
+}
+
+.caption-top{width: 850px; }
+tbody {
+    
+    height: 400px;
+       /* Just for the demo          */
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+
+table ,th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    background-color: white;
+  } 
+th, td {
+    padding: 15px;
+  }

@@ -17,4 +17,8 @@ signupRouter.post('/trainersignup',function(req,res){
    ttype.save();
   });
 
+  signupRouter.post('/login',function(req,res){
+
+  });
+
 module.exports = signupRouter;

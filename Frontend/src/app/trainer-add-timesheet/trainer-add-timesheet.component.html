@@ -28,8 +28,6 @@
         <!-- [(ngModel)]="insert.PtrainerActivity" -->
         <option>Select Activity Type</option>
         <option *ngFor="let Activity_list of ActivityList">{{Activity_list.activityType}}</option>
-        <!-- *ngFor="let Activity_list of ActivityList"
-         {{Activity_list.activityType}}-->
       </select>
     </div>
 
@@ -39,9 +37,7 @@
       <select  name="tcTraining_Mod" class="form-control">
         <!-- [(ngModel)]="insert.PtrainerActivity" -->
         <option>Select Training Mod</option>
-        <option ></option>
-        <!-- *ngFor="let Activity_list of ActivityList"
-         {{Activity_list.activityType}}-->
+        <option *ngFor="let tMod_list of TrainingMod_List">{{tMod_list.trainingMode}}</option>
       </select>
     </div>
         

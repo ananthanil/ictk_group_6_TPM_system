@@ -15,19 +15,11 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
   }
 
-<<<<<<< HEAD
-  // trainerSignup()
-  // {
-  //   this.Auth.signup(this.category_insert);
-  //   console.log("called");
-  //   alert("success");
-  // }
-=======
+
   signup()
   {
     this.Auth.Addtrainer(this.insert);
     console.log("called");
     alert("success");
   }
->>>>>>> 5620bfdb855cc6761795549d71137a09175de7e0
 }

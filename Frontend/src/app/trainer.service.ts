@@ -10,4 +10,13 @@ export class TrainerService {
     server_address : string = 'http://localhost:3666/api';
 
   constructor(private http : HttpClient) { }
+
+
+  getactivityType(){
+    return this.http.get<any[]>(`${this.server_address}/trainer/activityTypeview`);
+  }
+
+  gettrainerMode(){
+    return this.http.get<any[]>(`${this.server_address}/trainer/TrainerModeview`);
+  }
 }

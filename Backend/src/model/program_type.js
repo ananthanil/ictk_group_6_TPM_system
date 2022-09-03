@@ -10,7 +10,7 @@ const Schema = mongoose.Schema;
 var NewProgramSchema = new Schema({
     programtype : String,
     studentsNum  :Number ,
-    date : String,
+    date : Date,
     statusProgram : Number
     });
 

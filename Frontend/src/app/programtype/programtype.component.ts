@@ -13,46 +13,49 @@
     showUp: boolean = false;
     constructor(private adminservice:AdminService, private router:Router) { }
 
-    // toggleUp(): void{
-    //   this.showUp= !this.showUp;
-    // }
+    toggleUp(): void{
+      this.showUp= !this.showUp;
+    }
 
 
     program_insert =new ProgramModel('',0,'',1);
     program_view:any = [];
     
-    // reloadCurrentPage() {
-    //   window.location.reload();
-    // }
+    reloadCurrentPage() {
+      window.location.reload();
+    }
 
-    // editProgram(editId: any)
-    // { 
-    //   this.adminservice.getProgramsUpdate(editId).subscribe((data)=>{
-    //     this.program_insert  = JSON.parse(JSON.stringify(data));
-    //   })
-    // }
+    editProgram(editId: any)
+    { 
+      this.adminservice.getProgramsUpdate(editId)
+      .subscribe((data)=>{
+        console.log(data);
+        this.program_insert  = JSON.parse(JSON.stringify(data));
+        this.program_insert.date = this.program_insert.date.slice(0,10)
+      })
+    }
     
     ngOnInit(): void {
 
-    //   this.adminservice.getprograms()
-    //   .subscribe({
-    //     next: (data)=>{
-    //   this.program_view=JSON.parse(JSON.stringify(data));   
+      this.adminservice.getprograms()
+      .subscribe({
+        next: (data)=>{
+      this.program_view=JSON.parse(JSON.stringify(data));   
       
-    // },
-    //     error: (err)=> {
-    //       console.log(err);
-    //     }
-    // })
+    },
+        error: (err)=> {
+          console.log(err);
+        }
+    })
     }
 
-    // onSubmit() {
-    //   if(this.showUp) {
-    //     this.saveUpdate()
-    //   } else {
-    //     this.addProgram()
-    //   }
-    // }
+    onSubmit() {
+      if(this.showUp) {
+        this.saveUpdate()
+      } else {
+        this.addProgram()
+      }
+    }
 
     addProgram()
     {
@@ -62,33 +65,21 @@
     }
 
 
-    // saveUpdate() {
-    //   this.adminservice.updateProgram(this.program_insert);
-    //   alert("Updated");
-    // }
+    saveUpdate() {
+      this.adminservice.updateProgram(this.program_insert);
+      alert("Updated");
+    }
     
-    // deleteProgram(){
-    //   this.adminservice.removeProgram(this.program_insert);
-    //   alert("Are you sure to delete")
-    // }
-  
-    // var x = prompt(`Type 'yes' to delete`)
-    // if(x == 'yes') {
-    //   this.adminservice.removeProgram(this.program_insert)
-    //         if(response.success) {
-    //           alert(`Deleted Successfully!`);
-    //           this.router.navigateByUrl('', { skipLocationChange: true }).then(() => {
-    //             this.router.navigate(['program_view']); //Workaround to reload the component
-    //           });     
-    //         } 
-    //         else {
-    //           alert(response.result);
-    //         } 
-    //       }
-    
-    //     };
+    deleteProgram(id: any){
+
+      let confirmed = confirm('Are you sure to delete');
+      console.log(confirmed);
+
+      if(confirmed) {
+        this.adminservice.removeProgram(id);
+      }
       
-    //   else {
-    //       alert(`type 'yes'`);
-    //     }
+    }
   }
+
+  

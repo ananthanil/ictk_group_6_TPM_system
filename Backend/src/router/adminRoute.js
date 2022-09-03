@@ -220,12 +220,12 @@ adminRouter.put('/TrainmermodeRemove',(req,res)=>{
 
 adminRouter.put('/ProgramRemove',(req,res)=>{
   console.log(req.body)
-  id=req.body._id
+  id=req.body.Programid
   statusProgram  = req.body.statusProgram
-  program_data.findByIdAndupdate({"_id":id},
-                                {$set:{"statusProgram":0
-                              }})
-                              .then(function(){
+  program_data.findByIdAndUpdate({"_id":id},
+                                {$set:{"statusProgram":0 }})
+                              .then(function(data){
+                                console.log(data);
                                 res.send();
                               })
 });
@@ -255,6 +255,13 @@ adminRouter.get("/:activityTypeid",(req, res)=>{
   });
   });
 
+  
+ adminRouter.get("/programdata/:id",(req, res)=>{
+  const id = req.params.id;
+     program_data.findOne({_id:id}).then((Programs)=>{  
+    res.send(Programs);
+  });
+});
   // trainer mode  select update
 
 adminRouter.get("/:id",(req, res)=>{
@@ -266,12 +273,7 @@ adminRouter.get("/:id",(req, res)=>{
 
  //select program list to be updated
 
- adminRouter.get("/:id",(req, res)=>{
-  const id = req.params.id;
-     program_data.findOne({_id:id}).then((programs)=>{  
-    res.send(programs);
-  });
-});
 // ------------ Update Selete operations ends ------------------
 
 module.exports = adminRouter;
+

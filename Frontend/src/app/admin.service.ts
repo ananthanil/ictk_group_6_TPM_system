@@ -5,6 +5,7 @@ import { ProgramModel } from './programtype/program.model';
 import { activityTypeModel } from './activitytype/activityType.model';
 import { TrainerMode } from './t-mode/trainermode.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -103,41 +104,37 @@ addactivityType(activityType: activityTypeModel)
   insertPackage(){
     
   }
-}
+
   
 
 // <-------- Program Type operations-----------
-add_Program() {
+
+  add_Program(ptype: ProgramModel){
     console.log('in service');
     return this.http.post<any>(`${this.server_address}/admin/insertprogram`,{"program_data":ptype})
     .subscribe((data) => {
       console.log(data);
     });
+  }
+
+  getprograms(){
+    return this.http.get<any[]>(`${this.server_address}/admin/programview`);
+  }
+
+  getProgramsUpdate(id:any){
+    return this.http.get<any>(`${this.server_address}/admin/programdata/`+id);
+  }
+
+  updateProgram(Programid:any){
+    return this.http.put<any>(`${this.server_address}/admin/ProgramUpdate/`,Programid)
+    .subscribe(data => {console.log(data)})
+  }
+
+  removeProgram(Programid:any){
+    console.log(Programid);
+    
+    return this.http.put<any>(`${this.server_address}/admin/ProgramRemove/`, { 'Programid': Programid})
+    .subscribe(data => {console.log(data)})
+  }
+
 }
-  // add_Program(ptype: ProgramModel){
-  //   console.log('in service');
-  //   return this.http.post<any>(`${this.server_address}/admin/insertprogram`,{"program_data":ptype})
-  //   .subscribe((data) => {
-  //     console.log(data);
-  //   });
-  // }
-
-  // getprograms(){
-  //   return this.http.get<any[]>(`${this.server_address}/admin/programview`);
-  // }
-
-  // getProgramsUpdate(id:any){
-  //   return this.http.get<any>(`${this.server_address}/admin/`+id);
-  // }
-
-  // updateProgram(Programid:any){
-  //   return this.http.put<any>(`${this.server_address}/admin/ProgramUpdate/`,Programid)
-  //   .subscribe(data => {console.log(data)})
-  // }
-
-  // removeProgram(Programid:any){
-  //   return this.http.put<any>(`${this.server_address}/admin/ProgramRemove/`,Programid)
-  //   .subscribe(data => {console.log(data)})
-  // }
-
-

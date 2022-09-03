@@ -11,7 +11,7 @@ signupRouter.post('/trainersignup',function(req,res){
     Upassword : req.body.trainer.Upassword,
     Urole : req.body.trainer.Urole,
     Ustatus : req.body.trainer.Ustatus
-       
+  
       }       
    var ttype = new signup(ttype);
    ttype.save();

@@ -13,6 +13,7 @@ export class PackagetypeComponent implements OnInit {
   CategoryList: any = []
   ActivityList: any = []
   PackageList: any = []
+  tainerList: any = []
   insert = new PackageModel('','','',0,0,1);
 
 
@@ -37,12 +38,13 @@ export class PackagetypeComponent implements OnInit {
     // this.auth.getactivityType()
     // .subscribe({
     //   next: (data)=>{
-    //     this.TrainerList = JSON.parse(JSON.stringify(data));
+    //     this.tainerList = JSON.parse(JSON.stringify(data));
     //   },
     //   error: (err)=> {
     //     console.log(err);
     //   }
     // });
+    
     this.adminservice.getcategories()
     .subscribe({
       next: (data)=>{

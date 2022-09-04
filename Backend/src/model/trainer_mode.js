@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://admin:y1zccZWP7n2VK0j5@cluster0.ajlsmrf.mongodb.net/Tmpsystem?retryWrites=true&w=majority').then((success)=>{
-    console.log('DB connected')
+    console.log('DB connected Trainer Mode')
 }).catch((err)=>{
     console.log('connection failed',err.message)
 });
@@ -14,3 +14,4 @@ var TrnMode = new Schema({
 var trMode = mongoose.model('trainermode', TrnMode); //UserData is the model and NewBookData is the schema
 
 module.exports = trMode;
+

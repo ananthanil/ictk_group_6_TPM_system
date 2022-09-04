@@ -2,8 +2,10 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { CategoryModel } from './t-type/category.model';
 import { ProgramModel } from './programtype/program.model';
-import { activityTypeModel } from './activitytype/activityType.model';
+import { ActivityTypeModel } from './activitytype/activityType.model';
 import { TrainerMode } from './t-mode/trainermode.model';
+import { PackageModel } from './packagetype/package.model';
+import { TrainerDetails } from './t-details/trainerdetails.model';
 
 
 @Injectable({
@@ -14,6 +16,7 @@ export class AdminService {
 
   // server_address : string = 'api';
   server_address : string = 'http://localhost:3666/api';
+
   
   constructor(private http:HttpClient) { }
 
@@ -49,33 +52,39 @@ export class AdminService {
   
 //Activity Type operations
 
-addactivityType(activityType: activityTypeModel)
+
+addactivity(aType: ActivityTypeModel)
   {
     console.log('in service');
-    return this.http.post<any>(`${this.server_address}/admin/addactivityType`,{"activityType":activityType})
+    return this.http.post<any>(`${this.server_address}/admin/insertactivity`,{"activity_Type":aType})
+    .subscribe((data) => {
+      console.log(data);
+    });
   }
 
-  getactivityType(){
-     return this.http.get<any[]>(`${this.server_address}/admin/activityTypeview`);
+  getactivity(){
+     return this.http.get<any[]>(`${this.server_address}/admin/activityview`);
    }
 
-  getactivityTypeUpdate(activityTypeid:any){
-    console.log("in side in admin service & update")
-    return this.http.get<any>(`${this.server_address}/admin/`+activityTypeid);
+  getactivitiesUpdate(id:any){
+    console.log("inside admin service & update")
+    return this.http.get<any>(`${this.server_address}/admin/activitydata/`+id);
    }
 
-   updateactivityType(activityTypeid:any){
-      return this.http.put<any>(`${this.server_address}/admin/activityTypeUpdate/`,activityTypeid)
+   updateactivity(activityid:any){
+      return this.http.put<any>(`${this.server_address}/admin/activityUpdate/`,activityid)
      .subscribe(data => {console.log(data)})
    }
 
-  removeactivityType(activityType:any){
+  removeactivity(activityid:any){
     console.log("admin service called");
-    return this.http.put<any>(`${this.server_address}/admin/activityTypeRemove/`,activityType)
+    return this.http.put<any>(`${this.server_address}/admin/activityRemove/`,activityid)
     .subscribe(data => {console.log(data)})
   }
 
   // Trainer mode operationS
+
+  //-----------Trainer mode operations Start----------
   addTrainerMode(tmode:TrainerMode )
   {
     console.log('in service');
@@ -84,11 +93,13 @@ addactivityType(activityType: activityTypeModel)
       console.log(data);
     });
   }
+
   gettrainerMode(){
     return this.http.get<any[]>(`${this.server_address}/admin/TrainerModeview`);
   }
+
   getTrainerModeUpdate(id:any){
-    return this.http.get<any>(`${this.server_address}/admin/`+id);
+    return this.http.get<any>(`${this.server_address}/admin/TrainermodeSelect/`+id);
   }
 
   updateTrainerMode(Tmodeid:any){
@@ -101,40 +112,97 @@ addactivityType(activityType: activityTypeModel)
     .subscribe(data => {console.log(data)})
   }
 
-  insertPackage(){
-    
-  }
 
-  
 
-// <-------- Program Type operations-----------
+//---------- tarining mode oprations end--------- 
 
-  add_Program(ptype: ProgramModel){
+  //-----------training Details operation start--------
+
+  addTrainerDetails(tdetails:TrainerDetails)
+  {
     console.log('in service');
-    return this.http.post<any>(`${this.server_address}/admin/insertprogram`,{"program_data":ptype})
+    return this.http.post<any>(`${this.server_address}/admin/trainerdetailsadd`,{"trDetails":tdetails})
     .subscribe((data) => {
       console.log(data);
     });
   }
 
-  getprograms(){
-    return this.http.get<any[]>(`${this.server_address}/admin/programview`);
+ 
+  gettrainerDetals(){
+    return this.http.get<any[]>(`${this.server_address}/admin/TrainerDetalsview`);
+  }
+  getTrainerDetailsUpdate(id:any)
+  {
+    return this.http.get<any>(`${this.server_address}/admin/TrainerdetailsSelect/`+id);
+  }
+  // updateTrainerDetails()
+  // {
+  //   return this.http.put<any>(`${this.server_address}/admin/TrainerdetailsUpdate/`,TDetails)
+  //   .subscribe(data => {console.log(data)})
+  // }
+  // removeTrainerDetails(){
+  //   return this.http.put<any>(`${this.server_address}/admin/TrainerdetalsRemove/`,Tmodeid)
+  //   .subscribe(data => {console.log(data)})
+  // }
+
+  // Package operations
+
+  insertPackage(tpackage:PackageModel){
+    console.log('in service');
+    return this.http.post<any>(`${this.server_address}/admin/addPackage`,{"package":tpackage})
+    .subscribe((data) => {
+      console.log(data);
+    });
+  }
+  packageView(){
+    return this.http.get<any[]>(`${this.server_address}/admin/packageview`); 
   }
 
-  getProgramsUpdate(id:any){
-    return this.http.get<any>(`${this.server_address}/admin/programdata/`+id);
+  PackageUpdateView(id:any){
+    return this.http.get<any>(`${this.server_address}/admin/packageselect/`+id)
   }
 
-  updateProgram(Programid:any){
-    return this.http.put<any>(`${this.server_address}/admin/ProgramUpdate/`,Programid)
+  updatePackage(packageid:any){
+    return this.http.put<any>(`${this.server_address}/admin/PackageUpdate/`,packageid)
     .subscribe(data => {console.log(data)})
   }
 
-  removeProgram(Programid:any){
-    console.log(Programid);
-    
-    return this.http.put<any>(`${this.server_address}/admin/ProgramRemove/`, { 'Programid': Programid})
+  removePackage(packageid:any)
+  {
+    return this.http.put<any>(`${this.server_address}/admin/PackageRemove/`,packageid)
     .subscribe(data => {console.log(data)})
   }
+
+
+// <-------- Program Type operations-----------
+
+add_Program(ptype: ProgramModel){
+  console.log('in service');
+  return this.http.post<any>(`${this.server_address}/admin/insertprogram`,{"program_data":ptype})
+  .subscribe((data) => {
+    console.log(data);
+  });
+}
+
+
+getprograms(){
+  return this.http.get<any[]>(`${this.server_address}/admin/programview`);
+}
+
+getProgramsUpdate(id:any){
+  return this.http.get<any>(`${this.server_address}/admin/programdata/`+id);
+}
+
+updateProgram(Programid:any){
+  return this.http.put<any>(`${this.server_address}/admin/ProgramUpdate/`,Programid)
+  .subscribe(data => {console.log(data)})
+}
+
+removeProgram(Programid:any){
+  console.log(Programid);
+  
+  return this.http.put<any>(`${this.server_address}/admin/ProgramRemove/`, { 'Programid': Programid})
+  .subscribe(data => {console.log(data)})
+}
 
 }

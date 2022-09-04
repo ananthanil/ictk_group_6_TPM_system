@@ -1,17 +1,20 @@
 <div class="container mb-2 pt-5 pb-5">
     <form class="row g-3" form> <!--(ngSubmit)="AddUser()"-->
+
       <div class="col-md-6">
         <label for="firstName" class="form-label">First Name</label>
         <input type="uFname" class="form-control"  name="uFname"  id="signup_firstName">  <!--[(ngModel)]="loginItem.uFname" -->
       </div>
+      
       <div class="col-md-6">
-        <label for="lastName" class="form-label">Last Name</label>
+         <label for="lastName" class="form-label">Last Name</label>
          <input type="uLname" class="form-control" name="uLname"  id="signup_lastName"> <!--[(ngModel)]="loginItem.uLname" -->
         <span class="error" id="lastname_message"></span>
       </div>
+     
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Email</label>
-       <input type="email" class="form-control" name="uEmail"  id="signup_inputEmail4" placeholder="Eg : xyz@gmail.com">  <!-- [(ngModel)]="loginItem.uEmail"  -->
+        <input type="email" class="form-control" name="uEmail"  id="signup_inputEmail4" placeholder="Eg : xyz@gmail.com">  <!-- [(ngModel)]="loginItem.uEmail"  -->
       </div>
       
       <div class="col-md-6">
@@ -28,10 +31,10 @@
     <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Confirm Password</label>
         <input type="password" class="form-control" id="signup_mobile4">
-      
     </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Add Details</button>
-    </div>
+    <div class="button">
+    <button type="submit" value="submit" (click)=" reloadCurrentPage()">Add Details </button>
+    <!-- {{showImage? 'Update' : 'Save'}} -->
+  </div>
   </form>
 </div>

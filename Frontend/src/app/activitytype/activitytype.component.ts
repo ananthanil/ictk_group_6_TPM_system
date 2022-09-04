@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AdminService } from '../admin.service';
-import { activityTypeModel } from './activityType.model';
+import { ActivityTypeModel } from './activityType.model';
 @Component({
   selector: 'app-t-type',
   templateUrl: './activitytype.component.html',
@@ -17,8 +17,8 @@ export class ActivitytypeComponent implements OnInit {
     this.showImage = !this.showImage;
   }
 
-  activityType_insert = new activityTypeModel('',1);
-  activityType_view:any = [];
+  activity_insert = new ActivityTypeModel('',1);
+  activity_view:any = [];
 
   reloadCurrentPage() {
     window.location.reload();
@@ -27,18 +27,18 @@ export class ActivitytypeComponent implements OnInit {
    editactivityType(editId: any)
   { 
     console.log("in edit activity view");
-    this.adminservice.getactivityTypeUpdate(editId).subscribe((data)=>{
-      this.activityType_insert  = JSON.parse(JSON.stringify(data));
+    this.adminservice.getactivitiesUpdate(editId).subscribe((data)=>{
+      this.activity_insert  = JSON.parse(JSON.stringify(data));
    })
    console.log("end of the activity view");
    }
 
   ngOnInit(): void {
     
-     this.adminservice.getactivityType()
+     this.adminservice.getactivity()
     .subscribe({
        next: (data)=>{
-         this.activityType_view = JSON.parse(JSON.stringify(data));
+         this.activity_view = JSON.parse(JSON.stringify(data));
        },
        error: (err)=> {
         console.log(err);
@@ -57,19 +57,19 @@ export class ActivitytypeComponent implements OnInit {
   AddactivityType()
   {
    
-    this.adminservice.addactivityType(this.activityType_insert);
+    this.adminservice.addactivity(this.activity_insert);
     console.log("called");
     alert("Added");
   }
 
    saveUpdate() {
     alert("update called")
-    this.adminservice.updateactivityType(this.activityType_insert);
+    this.adminservice.updateactivity(this.activity_insert);
       alert("activty type Updated");
    }
   
    deleteactivityType(){
     alert("component.ts called");
-    this.adminservice.removeactivityType(this.activityType_insert);
+    this.adminservice.removeactivity(this.activity_insert);
    }
 }

@@ -1,9 +1,10 @@
 const express = require('express');
 const program_data = require('../model/program_type');
 const category = require('../model/trainer_category');
-const activityType=require('../model/activityType');
+const activity_Type=require('../model/activityType');
 const trMode = require('../model/trainer_mode');
-const PackageDetails = require('../model/package_type')
+const PackageDetails = require('../model/package_type');
+
 
 const adminRouter = express.Router();
 
@@ -23,17 +24,17 @@ adminRouter.post('/categoryadd',function(req,res){
 
 // admin insert acivityType
 
-adminRouter.post('/addactivityType',function(req,res){
+adminRouter.post('/insertactivity',function(req,res){
+  
   console.log(req.body);
- 
+  
   var aType = {       
-      activityType : req.body.activityType.activityType,
-      statusactivityType : req.body.activityType.statusactivityType
+      activityType : req.body.activity_Type.activityType,
+      statusactivityType : req.body.activity_Type.statusactivityType
     }       
- var aType = new activityType(aType);
+ var aType = new activity_Type(aType);
  aType.save();
- console.log("added new activity type"+aType);
-});
+ });
 
 // Admin trainer mode insertion
 
@@ -48,6 +49,7 @@ adminRouter.post('/trainermodeadd',function(req,res){
  tmode.save();
  
 });
+
 
 // admin inserting programdata
 
@@ -64,9 +66,27 @@ adminRouter.post('/insertprogram',function(req,res){
 });
 
 
-// ------------ Insertion operations ends ------------------
 
-// ------------ View operations Starts ------------------
+// Admin Trainer Package insertion
+
+
+adminRouter.post('/addPackage',function(req,res){
+  console.log(req.body);
+  var tpackage = {       
+    PtrainerName : req.body.package.PtrainerName,
+    PtrainerCategory : req.body.package.PtrainerCategory,
+    PtrainerActivity : req.body.package.PtrainerActivity,
+    PHourAmount : req.body.package.PHourAmount,
+    pActivityAmount : req.body.package.pActivityAmount,
+    packageStatus : req.body.package.packageStatus
+    }       
+ var tpackage = new PackageDetails(tpackage);
+ tpackage.save();
+});
+//  ------------ Insertion operations ends ------------------
+
+
+//  ------------ View operations Starts ---------------------
 
 // admin view category
   
@@ -79,10 +99,10 @@ adminRouter.get('/categoryview',function(req,res){
 
 // admin view activityType
   
-adminRouter.get('/activityTypeview',function(req,res){
-  activityType.find({"statusactivityType":1})
- .then(function(activityType){
-        res.send(activityType);
+adminRouter.get('/activityview',function(req,res){
+  activity_Type.find({"statusactivityType":1})
+ .then(function(activity){
+        res.send(activity);
    });
    });
 
@@ -95,6 +115,7 @@ adminRouter.get('/TrainerModeview',function(req,res){
  });
 });
 
+
 // Admin view program list
 
 adminRouter.get('/programview',function(req,res){
@@ -104,7 +125,16 @@ adminRouter.get('/programview',function(req,res){
   });
 });
 
-// ------------ View operations ends ------------------
+
+ //Package view
+  adminRouter.get('/packageview',function(req,res){
+    PackageDetails.find({"packageStatus":1})
+   .then(function(package){
+        res.send(package);
+   });
+  });
+// ------------ View operations ends ----------------------
+
 
 // ------------ Update operations starts ------------------
 
@@ -124,17 +154,22 @@ adminRouter.put('/CategoryUpdate',(req,res)=>{
 
 // admin Update activityType
 
-adminRouter.put('/activityTypeUpdate',(req,res)=>{
+adminRouter.put('/activityUpdate',(req,res)=>{
   console.log(req.body)
-  activityTypeid=req.body._activityTypeid;
-   actType  = req.body.activityType;
-  activityType.findByIdAndUpdate({"activityType_id":activityTypeid},
-                                {$set:{"activityType":actType
-                             }})
-                             .then(function(){
-                                res.send();
-                               })
- });
+  id=req.body._id;
+  activity= req.body.activityType;
+  activity_Type.findByIdAndUpdate({"_id":id}, { $set: req.body }, { new: true})
+                                  .then(function(){
+                                    res.send();
+                                    })
+});
+
+                            //     {$set:{"activityType":activityType
+                            //  }})
+//                              .then(function(){
+//                                 res.send();
+//                                })
+//  });
 
  // trainer mode update
 
@@ -150,6 +185,8 @@ adminRouter.put('/CategoryUpdate',(req,res)=>{
                                 })
 });
 
+
+
 // admin Update program list programs
 
 adminRouter.put('/ProgramUpdate',(req,res)=>{
@@ -158,13 +195,40 @@ adminRouter.put('/ProgramUpdate',(req,res)=>{
   programtype = req.body.programtype
   studentsNum=req.body.studentsNum
   date=req.body.date
-  program_data.findByIdAndUpdate({"_id":id}, { $set: req.body }, { new: true})                           
+  program_data.findByIdAndUpdate({"_id":id}, { $set: req.body }, { new: true}) 
+                                .then(function(){
+                                  res.send();
+                                })
+                              });
+  
+  
+// admin Update Package
+adminRouter.put('/PackageUpdate',(req,res)=>{
+  console.log(req.body)
+  id=req.body._id
+  PtrainerName = req.body.PtrainerName,
+  PtrainerCategory = req.body.PtrainerCategory,
+  PtrainerActivity = req.body.PtrainerActivity,
+  PHourAmount = req.body.PHourAmount,
+  pActivityAmount = req.body.pActivityAmount
+  PackageDetails.findByIdAndUpdate({"_id":id},
+                                {$set:{"PtrainerName":PtrainerName,
+                                       "PtrainerCategory" : PtrainerCategory,
+                                       "PtrainerActivity" : PtrainerActivity,
+                                       "PHourAmount" : PHourAmount,
+                                       "pActivityAmount" : pActivityAmount
+                                }})
                                 .then(function(){
                                   res.send();
                                 })
 });
 
+                               
+
+
 // ------------ Update operations ends ------------------
+
+
 
 // ------------ Delete operations starts ------------------
 
@@ -187,12 +251,12 @@ adminRouter.put('/CategoryRemove',(req,res)=>{
  
 // admin Remove activity Type
 
-adminRouter.put('/activityTypeRemove',(req,res)=>{
+adminRouter.put('/activityRemove',(req,res)=>{
   console.log("backend router called");
 console.log(req.body)
-actid=req.body.activityType_id
+id=req.body._id
 statusactivityType  = req.body.statusactivityType
-activityType.findByIdAndUpdate({"_id":actid},
+activity_Type.findByIdAndUpdate({"_id":id},
                               {$set:{"statusactivityType":0
                               }})
                               .then(function(){
@@ -203,17 +267,20 @@ activityType.findByIdAndUpdate({"_id":actid},
 
 // trainer mode remove
 
-adminRouter.put('/TrainmermodeRemove',(req,res)=>{
+
+adminRouter.put('/TrainermodeRemove',(req,res)=>{
+
   console.log(req.body)
   id=req.body._id
-  trainerMode = req.body.trainerMode
+  statusTrainermode = req.body.statusTrainermode
   trMode.findByIdAndUpdate({"_id":id},
-                                {$set:{"trainerMode":0
+                                {$set:{"statusTrainermode":0
                                 }})
                                 .then(function(){
                                   res.send();
                                 })
 });
+
 
 
 // admin Remove program list
@@ -230,8 +297,23 @@ adminRouter.put('/ProgramRemove',(req,res)=>{
                               })
 });
 
-// ------------ Delete operations ends ------------------
 
+// Package remove
+
+
+adminRouter.put('/PackageRemove',(req,res)=>{
+  console.log(req.body)
+  id=req.body._id
+  packageStatus  = req.body.packageStatus
+  PackageDetails.findByIdAndUpdate({"_id":id},
+                                {$set:{"packageStatus":0
+                                }})
+                                .then(function(){
+                                  res.send();
+                                })
+});
+
+// ------------ Delete operations ends ---------------------------
 // ------------ Update Selete operations starts ------------------
 
 // admin select update category
@@ -247,15 +329,36 @@ adminRouter.get("/:id",(req, res)=>{
                              
 // admin select update activityType
 
-adminRouter.get("/:activityTypeid",(req, res)=>{
-  const activityTypeid = req.params.activityTypeid;
+adminRouter.get("/activitydata/:id",(req, res)=>{
+  const id = req.params.id;
+  activity_Type.findOne({_id:id}).then((activities)=>{  
+   res.send(activities);
+  });
+  });
  
-  activityType.findOne({activityType_id:activityTypeid}).then((activityType)=>{
-   res.send(activityType);
-  });
-  });
 
-  
+// trainer mode  select update
+
+adminRouter.get("/TrainermodeSelect/:id",(req, res)=>{
+  const id = req.params.id;
+     trMode.findOne({_id:id}).then((mode)=>{  
+    res.send(mode);
+  });
+});
+
+// package mode  select update
+
+adminRouter.get("/packageselect/:id",(req, res)=>{
+  const id = req.params.id;
+  PackageDetails.findOne({_id:id}).then((pdetails)=>{
+    res.send(pdetails);
+  });
+});
+
+
+
+  //select program list to be updated
+
  adminRouter.get("/programdata/:id",(req, res)=>{
   const id = req.params.id;
      program_data.findOne({_id:id}).then((Programs)=>{  
@@ -271,7 +374,14 @@ adminRouter.get("/:id",(req, res)=>{
   });
 });
 
- //select program list to be updated
+
+// package mode  select update
+adminRouter.get("/packageselect/:id",(req, res)=>{
+  const id = req.params.id;
+  PackageDetails.findOne({_id:id}).then((pdetails)=>{
+    res.send(pdetails);
+  });
+});
 
 // ------------ Update Selete operations ends ------------------
 

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AdminService } from '../admin.service';
 import { PackageModel } from './package.model';
-import { FormGroup, FormControl, Validators} from '@angular/forms'
 
 @Component({
   selector: 'app-packagetype',
@@ -9,19 +8,43 @@ import { FormGroup, FormControl, Validators} from '@angular/forms'
   styleUrls: ['./packagetype.component.css']
 })
 export class PackagetypeComponent implements OnInit {
-
-  package_insertion = new PackageModel('','','',0,0,1);
+  
+  changebutton: boolean = false;
   CategoryList: any = []
   ActivityList: any = []
+  PackageList: any = []
+  tainerList: any = []
+  insert = new PackageModel('','','',0,0,1);
 
-  // form = new FormGroup({
-  //   Category: new FormControl('', Validators.required),
-  //   Activity: new FormControl('', Validators.required)
-  // });
- 
+
   constructor(private adminservice:AdminService) { }
 
+  makechanges(): void{
+    this.changebutton = !this.changebutton;
+  }
+
+  reloadCurrentPage() {
+    window.location.reload();
+   }
+
+   editview(editId:any){
+    this.adminservice.PackageUpdateView(editId).subscribe((data)=>{
+      this.insert = JSON.parse(JSON.stringify(data));
+      console.log(editId)
+    })
+   }
+
   ngOnInit(): void {
+    // this.auth.getactivityType()
+    // .subscribe({
+    //   next: (data)=>{
+    //     this.tainerList = JSON.parse(JSON.stringify(data));
+    //   },
+    //   error: (err)=> {
+    //     console.log(err);
+    //   }
+    // });
+    
     this.adminservice.getcategories()
     .subscribe({
       next: (data)=>{
@@ -31,7 +54,8 @@ export class PackagetypeComponent implements OnInit {
         console.log(err);
       }
     });
-    this.adminservice.getactivityType()
+
+    this.adminservice.getactivity()
     .subscribe({
       next: (data)=>{
         this.ActivityList = JSON.parse(JSON.stringify(data));
@@ -39,12 +63,36 @@ export class PackagetypeComponent implements OnInit {
       error: (err)=> {
         console.log(err);
       }
+    });
+
+    this.adminservice.packageView()
+    .subscribe({
+      next: (data)=>{
+        this.PackageList = JSON.parse(JSON.stringify(data));
+      },
+      error: (err)=> {
+        console.log(err);
+      }
     })
   }
-
+  onSubmit() {
+    if(this.changebutton) {
+      this.Updatepackage()
+    } else {
+      this.AddPackage()
+    }
+  }
   AddPackage(){
-    this.adminservice.insertPackage();
+    this.adminservice.insertPackage(this.insert);
     console.log("called");
     alert("success");
+  }
+  Updatepackage(){
+    this.adminservice.updatePackage(this.insert);
+    alert("Category Updated");
+  }
+  deletePackage(){
+    this.adminservice.removePackage(this.insert);
+    alert("deleted")
   }
 }

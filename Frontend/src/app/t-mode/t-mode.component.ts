@@ -30,6 +30,7 @@ export class TModeComponent implements OnInit {
     this.adminservice.getTrainerModeUpdate(editId).subscribe((data)=>{
       this.trainermode_insert = JSON.parse(JSON.stringify(data));
     })
+    console.log(editId)
   }
   ngOnInit(): void {
     

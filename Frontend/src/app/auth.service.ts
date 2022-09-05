@@ -14,10 +14,17 @@ export class AuthService {
   constructor(private http:HttpClient) { }
 
   Addtrainer(user: SignupModel){
+    // console.log('in service');
+    // return this.http.post<any>(`${this.server_address}/user/trainersignup`,{"trainer":user})
+    // .subscribe((data) => {
+    //   console.log(data);
+    // });
+  }
+  loginuser(loginuser: SignupModel){
     console.log('in service');
-    return this.http.post<any>(`${this.server_address}/user/trainersignup`,{"trainer":user})
-    .subscribe((data) => {
-      console.log(data);
-    });
+    return this.http.post<any>(`${this.server_address}/user/login`,{"logtrainer":loginuser})
+    // .subscribe((data) => {
+    //   console.log(data);
+    // });
   }
 }

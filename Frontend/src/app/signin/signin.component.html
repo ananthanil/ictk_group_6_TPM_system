@@ -5,22 +5,26 @@
        </div>
     </div>
 </div>
-<div class="col-md-6">
-    <label for="inputEmail4" class="form-label">Email</label>
-   <input type="email" class="form-control" name="uEmail"  id="signup_inputEmail4" > 
-</div>
-<div class="col-md-6">
-    <label for="inputPassword4" class="form-label">Password</label>
-    <input type="password" class="form-control" name="uPassword" >
- </div>
-<div>
+<form (ngSubmit)="singin()">
+    <div class="col-md-6">
+        <label for="inputEmail4" class="form-label">Email</label>
+        <input [(ngModel)]="user.Uemail" type="email" class="form-control" name="umail"  id="signup_inputEmail4" > 
+    </div>
+    <div class="col-md-6">
+        <label for="inputPassword4" class="form-label">Password</label>
+        <input [(ngModel)]="user.Upassword" type="password" class="form-control" name="uPassword" >
+    </div>
+    <div class="col-12">
+        <button type="submit" class="btn btn-primary">Sign In</button>
+      </div>
+</form>
+    <div>
+
     <input type="checkbox">
     <label>Remember me</label>
     <a routerLink="/forgot">Forgot Password?</a>
 </div>
-<div class="col-12">
-    <button type="submit" class="btn btn-primary">Sign In</button>
-  </div>
+
 
   <h5>Create an account 
     <a routerLink="/signup">Sign Up</a> 

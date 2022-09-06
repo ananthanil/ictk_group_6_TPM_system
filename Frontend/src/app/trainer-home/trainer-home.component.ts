@@ -10,6 +10,8 @@ export class TrainerHomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    let username = localStorage.getItem("name");
+    console.log(username);
   }
 
 }

@@ -29,17 +29,17 @@ export class SigninComponent implements OnInit {
             console.log('in side status=1')
             if(data[0].Urole == 'admin') 
             {
-              console.log("hello from admin if");
+              localStorage.setItem("name",data[0].Ufirstname.toString());
               this.router.navigate(['admin-home']);
             } 
             else if(data[0].Urole == 'finance')
             {
-              console.log("hello from finance else if");
+              localStorage.setItem("name",data[0].Ufirstname.toString());
               this.router.navigate(['finance-home']);
             } 
             else 
             {
-              console.log("hello from tainer else");
+              localStorage.setItem("name",data[0].Ufirstname.toString());
               this.router.navigate(['trainer-home']);
             }
             console.log(data);

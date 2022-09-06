@@ -1,60 +1,56 @@
 <h3> TIME SHEET</h3>
 <div class="container mb-2 pt-5 pb-5">
-  <form  class="row g-3" > 
-    <!-- (ngSubmit)="onSubmit()" -->
+  <form  class="row g-3" (ngSubmit)="onSubmit()"> 
+    <!--  -->
     <div class="col-md-6">
-      <!-- <label for="tcDate" class="form-label"> Program Date</label> -->
-      <select  name="tcDate" class="form-control">
-        <!-- [(ngModel)]="PackageList.PtrainerName" -->
+      <label for="tsDate" class="form-label"> Program Date</label>
+      <select  name="tsDate" class="form-control"  [(ngModel)]="ts_insert.tsDate">
         <option>Select Program Date</option>
-        <!-- *ngFor="let list_Category of CategoryList" -->
-        <!-- {{list_Category.trainerCategory}} -->
+        <option *ngFor="let Program_list of ProgramList">{{Program_list.date.toString().slice(0,10)}}</option> 
       </select>  
     </div>
   
     <div  class="col-md-6">
-      <!-- <label for="tcProgram" class="form-label"> Program Name </label> -->
-      <select  name="tcProgram" class="form-control">
-        <!-- [(ngModel)]="insert.PtrainerCategory" -->
-          <option>Select Program Name</option>
-          <option ></option>
-          <!-- *ngFor="let list_Category of CategoryList"  {{list_Category.trainerCategory}} -->
+      <label for="tsProgram" class="form-label"> Program Name </label>
+      <select  name="tsProgram" class="form-control" [(ngModel)]="ts_insert.tsProgram">
+       <option>Select Program Name</option>
+        <option *ngFor="let Program_list of ProgramList">{{Program_list.programtype}}</option> 
+          
       </select> 
     </div>
   
  <div class="col-md-6">
-      <!-- <label for="tcActivity" class="form-label"> Activity Type</label> -->
-      <select  name="tcActivity" class="form-control">
-        <!-- [(ngModel)]="insert.PtrainerActivity" -->
+      <label for="tsActivity" class="form-label"> Activity Type</label>
+      <select  name="tsActivity" class="form-control"  [(ngModel)]="ts_insert.tsActivity">
+        
         <option>Select Activity Type</option>
-        <option *ngFor="let Activity_list of ActivityList">{{Activity_list.activityType}}</option>
+        <option *ngFor="let Activity_list of activityList">{{Activity_list.activityType}}</option>
       </select>
     </div>
 
 
     <div class="col-md-6">
-      <!-- <label for="tcTraining_Mod" class="form-label">Training Mod</label> -->
-      <select  name="tcTraining_Mod" class="form-control">
-        <!-- [(ngModel)]="insert.PtrainerActivity" -->
+      <label for="tsTraining_Mod" class="form-label">Training Mod</label>
+      <select  name="tsTraining_Mod" class="form-control" [(ngModel)]="ts_insert.tsTraining_Mod">
         <option>Select Training Mod</option>
         <option *ngFor="let tMod_list of TrainingMod_List">{{tMod_list.trainingMode}}</option>
       </select>
     </div>
-        
        <div class="col-md-6">
-      <!-- <label for="tcclass_hour" class="form-label">Program Duration</label> -->
-      <input type="number" class="form-control" name="tcclass_hour"  id="signup_inputEmail4" placeholder="Enter Program Duration" >  
-      <!-- [(ngModel)]="insert.PHourAmount"  -->
+      <label for="tsHour" class="form-label">Program Duration</label>
+      <input type="number" class="form-control" name="tsHour"  id="signup_inputEmail4" [(ngModel)]="ts_insert.tsHour" placeholder="Enter Program Duration" >  
+      <!--   -->
     </div>
   
-    <!-- <div class="col-md-6">
-      <label for="activity_per_head_amount" class="form-label">Activity Per Head Amount</label>
-      <input type="number" class="form-control" name="p_activity_per_head_amount"   id="signup_inputEmail4" placeholder="Eg : Rs.1000" [(ngModel)]="insert.pActivityAmount">
-    </div>
+     <div class="col-md-6">
+      <label for="tsCandidateNumber" class="form-label">Number of Candidates</label>
+      <input type="number" class="form-control" name="tsCandidateNumber"   id="signup_inputEmail4"  [(ngModel)]="ts_insert.tsCandidateNumber">
+    </div><br><br>
 
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary" (click)="reloadCurrentPage()">{{changebutton? 'Update' : 'Save'}}</button>
-    </div> -->
+    <div class="col-12" >
+      <button type="submit" class="btn btn-primary" (click)="reloadCurrentPage()">{{changeButton? 'Update' : 'Save'}}</button>
+      <button type="submit" class="btn btn-warning" (click)="reloadCurrentPage()" style="margin-left: 7px;">Cancel</button>
+    </div> 
   </form>
   <!-- <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deletePackage();reloadCurrentPage()">Delete</button>
   <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button> -->

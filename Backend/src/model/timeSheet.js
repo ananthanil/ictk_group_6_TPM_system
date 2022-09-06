@@ -9,11 +9,14 @@ const Schema = mongoose.Schema;
 
 var sheet = new Schema({
     tsTrainerName : String,
-    tsProgramDate : String,
-    tsProgramName : String,
-    tsStudentNumber : String,
+    tsDate : String,
+    tsProgram : String,
+    tsActivity : String,
+    tsTraining_Mod: String,
+    tsHour : Number,
+    tsCandidateNumber: Number,
     tsStatus : Number
-});
+})    
 
 var tsheet = mongoose.model('timesheet', sheet);
 

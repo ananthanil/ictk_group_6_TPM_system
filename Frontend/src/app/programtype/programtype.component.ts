@@ -9,7 +9,7 @@
     styleUrls: ['./programtype.component.css']
   })
   export class ProgramtypeComponent implements OnInit {
-    // myDate: Date = new Date();
+    
     showUp: boolean = false;
     constructor(private adminservice:AdminService, private router:Router) { }
 

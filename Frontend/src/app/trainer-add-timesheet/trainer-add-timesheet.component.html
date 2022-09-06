@@ -49,9 +49,10 @@
 
     <div class="col-12" >
       <button type="submit" class="btn btn-primary" (click)="reloadCurrentPage()">{{changeButton? 'Update' : 'Save'}}</button>
-      <button type="submit" class="btn btn-warning" (click)="reloadCurrentPage()" style="margin-left: 7px;">Cancel</button>
+      
     </div> 
   </form>
+  <button  class="btn btn-warning" (click)="reloadCurrentPage()" >Cancel</button>
   <!-- <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deletePackage();reloadCurrentPage()">Delete</button>
   <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button> -->
 </div>

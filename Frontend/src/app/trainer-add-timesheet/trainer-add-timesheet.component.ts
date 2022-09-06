@@ -29,15 +29,31 @@ export class TrainerAddTimesheetComponent implements OnInit {
 
    
     ts_insert =new TrainertimesheetModel('','','','',0,0,1);
-
+    ts_view:any=[];
 
   ngOnInit(): void {
+
+    this.trainer_service.gettimesheet()
+    .subscribe({
+      next: (data)=>{
+    this.ts_view=JSON.parse(JSON.stringify(data));   
+    
+  },
+      error: (err)=> {
+        console.log(err);
+      }
+  })
+  
+
+
+
+
     // fetching program name and date
     this.trainer_service.getprograms()
     .subscribe({
       next: (data)=>{
         this.ProgramList = JSON.parse(JSON.stringify(data));
-         this.ProgramList.date = this.ProgramList.date.slice(0,10);
+        //  this.ProgramList.date = this.ProgramList.date.slice(0,10);
       },
       error: (err)=> {
         console.log(err);

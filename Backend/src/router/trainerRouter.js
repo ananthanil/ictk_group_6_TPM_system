@@ -25,21 +25,31 @@ trainerRouter.post('/inserttimesheet',function(req,res){
     ts.save();
    }); 
 
+// view timesheet
+trainerRouter.get('/time_sheetview',function(req,res){
+     tsheet.find({"tsStatus":1})
+     .then(function(timesheet){
+          res.send(timesheet);
+     });
+   });
 
+
+
+//  selection of program name  and date
 trainerRouter.get('/programview',function(req,res){
      program_type.find({"statusProgram":1})
     .then(function(programdetail){
           res.send(programdetail);
       });
       });
-
+//  selection of activitytype
 trainerRouter.get('/activityTypeview',function(req,res){
      activityType.find({"statusactivityType":1})
     .then(function(activityType){
           res.send(activityType);
       });
       });
-
+//  selection of TrainerMode
 trainerRouter.get('/TrainerModeview',function(req,res){
      trMode.find()
     .then(function(trainermode){

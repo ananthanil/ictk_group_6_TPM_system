@@ -12,6 +12,7 @@ export class TrainerService {
 
   constructor(private http : HttpClient) { }
 
+
   getprograms(){
     return this.http.get<any[]>(`${this.server_address}/trainer/programview`);
   }
@@ -26,7 +27,7 @@ export class TrainerService {
 
 
 
-// trainer add timesheet
+// trainer timesheet operations
 
   add_Timesheet(ts: TrainertimesheetModel){
     console.log('in service');
@@ -35,4 +36,10 @@ export class TrainerService {
       console.log(data);
     });
   }
+
+
+  gettimesheet(){
+    return this.http.get<any[]>(`${this.server_address}/trainer/time_sheetview`);
+  }
+
 }

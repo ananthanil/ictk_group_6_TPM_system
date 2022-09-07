@@ -12,7 +12,6 @@ import { TrainerMode } from './trainermode.model';
 export class TModeComponent implements OnInit {
 
   showImage:boolean = false;
-
   constructor(private adminservice:AdminService,private router:Router){}
  
   

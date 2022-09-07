@@ -3,9 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { CategoryModel } from './t-type/category.model';
 import { activityTypeModel } from './activitytype/activityType.model';
 import { TrainerMode } from './t-mode/trainermode.model';
-
 import { PackageModel } from './packagetype/package.model';
-
 import { TrainerDetails } from './t-details/trainerdetails.model';
 
 @Injectable({
@@ -121,33 +119,40 @@ addactivityType(activityType: activityTypeModel)
 
   //---------- tarining mode oprations end---------
 
-  //-----------training Details operation start--------
+  //-----------admin add trainer Details operation start--------
 
-  addTrainerDetails(tdetails:TrainerDetails)
+  addtrainerDetails(tdetails:TrainerDetails)
   {
     console.log('in service');
-    return this.http.post<any>(`${this.server_address}/admin/trainerdetailsadd`,{"trDetails":tdetails})
+    return this.http.post<any>(`${this.server_address}/admin/trainerdetailsadd`,{"signup":tdetails})
     .subscribe((data) => {
       console.log(data);
     });
+   }
+  gettrainerDetails(){
+    return this.http.get<any[]>(`${this.server_address}/admin/TrainerDetailsview`);
   }
- 
-  gettrainerDetals(){
-    return this.http.get<any[]>(`${this.server_address}/admin/TrainerDetalsview`);
-  }
+
   getTrainerDetailsUpdate(id:any)
-  {
+ {
     return this.http.get<any>(`${this.server_address}/admin/TrainerdetailsSelect/`+id);
   }
-  // updateTrainerDetails()
-  // {
-  //   return this.http.put<any>(`${this.server_address}/admin/TrainerdetailsUpdate/`,TDetails)
-  //   .subscribe(data => {console.log(data)})
-  // }
-  // removeTrainerDetails(){
-  //   return this.http.put<any>(`${this.server_address}/admin/TrainerdetalsRemove/`,Tmodeid)
-  //   .subscribe(data => {console.log(data)})
-  // }
+  updateTrainerDetails(TDetails:any)
+  {
+    return this.http.put<any>(`${this.server_address}/admin/TrainerdetailsUpdate/`,TDetails)
+    .subscribe(data => {console.log(data)})
+  }
+  removeTrainerDetails(TDetails:any){
+    
+    return this.http.put<any>(`${this.server_address}/admin/TrainerdetailsRemove/`,TDetails)
+    .subscribe(data => {console.log(data)})
+  }
+
+
+
+  //  -------admin add trainer details end----------
+
+
   packageView(){
     return this.http.get<any[]>(`${this.server_address}/admin/packageview`); 
   }

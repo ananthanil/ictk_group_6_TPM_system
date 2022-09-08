@@ -1,92 +1,89 @@
+
 <div class="container mb-2 pt-5 pb-5">
-  <form  class="row g-3" > 
-    <!-- (ngSubmit)="onSubmit()" -->
+  <h3> TIME SHEET</h3>
+  <form  class="row g-3" (ngSubmit)="onSubmit()"> 
     <div class="col-md-6">
-      <label for="tcDate" class="form-label">Select Class Date</label>
-      <select  name="tcDate" class="form-control">
-        <!-- [(ngModel)]="PackageList.PtrainerName" -->
-        <option>Select Class Date</option>
-        <option ></option>
-        <!-- *ngFor="let list_Category of CategoryList" -->
-        <!-- {{list_Category.trainerCategory}} -->
+      <label for="tsDate" class="form-label"> Program Date</label>
+      <select  name="tsDate" class="form-control"  [(ngModel)]="ts_insert.tsDate">
+        <option>Select Program Date</option>
+        <option *ngFor="let Program_list of ProgramList">{{Program_list.date.toString().slice(0,10)}}</option> 
       </select>  
     </div>
   
     <div  class="col-md-6">
-      <label for="tcProgram" class="form-label">Select Program and Batch</label>
-      <select  name="tcProgram" class="form-control">
-        <!-- [(ngModel)]="insert.PtrainerCategory" -->
-          <option>Select Program and Batch</option>
-          <option ></option>
-          <!-- *ngFor="let list_Category of CategoryList"  {{list_Category.trainerCategory}} -->
-      </select> 
+      <label for="tsProgram" class="form-label"> Program Name </label>
+      <select  name="tsProgram" class="form-control" [(ngModel)]="ts_insert.tsProgram">
+       <option>Select Program Name</option>
+        <option *ngFor="let Program_list of ProgramList">{{Program_list.programtype}}</option> 
+        </select> 
     </div>
   
- <div class="col-md-6">
-      <label for="tcActivity" class="form-label"> Select Activity Type</label>
-      <select  name="tcActivity" class="form-control">
-        <!-- [(ngModel)]="insert.PtrainerActivity" -->
+    <div class="col-md-6">
+      <label for="tsActivity" class="form-label"> Activity Type</label>
+      <select  name="tsActivity" class="form-control"  [(ngModel)]="ts_insert.tsActivity">
         <option>Select Activity Type</option>
-        <option *ngFor="let Activity_list of ActivityList">{{Activity_list.activityType}}</option>
+        <option *ngFor="let Activity_list of activityList">{{Activity_list.activityType}}</option>
       </select>
     </div>
 
 
     <div class="col-md-6">
-      <label for="tcTraining_Mod" class="form-label"> Select Training Mod</label>
-      <select  name="tcTraining_Mod" class="form-control">
-        <!-- [(ngModel)]="insert.PtrainerActivity" -->
-        <option>Select Training Mod</option>
+      <label for="tsTraining_Mod" class="form-label">Training Mode</label>
+      <select  name="tsTraining_Mod" class="form-control" [(ngModel)]="ts_insert.tsTraining_Mod">
+        <option>Select Training Mode</option>
         <option *ngFor="let tMod_list of TrainingMod_List">{{tMod_list.trainingMode}}</option>
       </select>
     </div>
-        
-       <div class="col-md-6">
-      <label for="tcclass_hour" class="form-label">Class Taken Hours</label>
-      <input type="number" class="form-control" name="tcclass_hour"  id="signup_inputEmail4" placeholder="Eg : Rs.1000" >  
-      <!-- [(ngModel)]="insert.PHourAmount"  -->
+    <div class="col-md-6">
+      <label for="tsHour" class="form-label">Program Duration</label>
+      <input type="number" class="form-control" name="tsHour"  id="signup_inputEmail4" [(ngModel)]="ts_insert.tsHour" placeholder="Enter Program Duration" >  
     </div>
   
-    <!-- <div class="col-md-6">
-      <label for="activity_per_head_amount" class="form-label">Activity Per Head Amount</label>
-      <input type="number" class="form-control" name="p_activity_per_head_amount"   id="signup_inputEmail4" placeholder="Eg : Rs.1000" [(ngModel)]="insert.pActivityAmount">
-    </div>
+    <div class="col-md-6">
+      <label for="tsCandidateNumber" class="form-label">Number of Candidates</label>
+      <input type="number" class="form-control" name="tsCandidateNumber"   id="signup_inputEmail4"  [(ngModel)]="ts_insert.tsCandidateNumber">
+    </div><br><br>
 
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary" (click)="reloadCurrentPage()">{{changebutton? 'Update' : 'Save'}}</button>
-    </div> -->
+    <div class="col-12" >
+      <button type="submit" class="btn btn-primary" (click)="reloadCurrentPage()" >{{changeButton? 'Update' : 'Save'}}</button>
+    </div> 
   </form>
-  <!-- <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deletePackage();reloadCurrentPage()">Delete</button>
-  <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button> -->
+  <button type="submit" class="btn btn-warning" (click)="reloadCurrentPage()" >Cancel</button>
 </div>
 
-<!-- <form class="row" >
-        <div class="col-md-6">
-            <label> Program Date </label>
-                <input  
-                  name="pDate" 
-                  formControlName="pDateField"
-                  id="pDate" 
-                  type="date" 
-                  class="form-control" 
-                  placeholder="Program Date" >
-          </div>
-    
-          <div class="col-md-6">
-            <div class="dropdown">
-                <br>
-                <button class="btn btn-secondary dropdown-toggle color " type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Select Program and Batch
-                </button>
-                <ul class="dropdown-menu">
-                  <li><button class="dropdown-item" type="button">Batch 1</button></li>
-                  <li><button class="dropdown-item" type="button">Batch 2</button></li>
-                  <li><button class="dropdown-item" type="button">Program</button></li>
-                </ul>
-              </div>
-          </div>
-    </form>
-    <div class="col-12">
-        <br>
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div> -->
+
+
+
+<!-- reloadCurrentPage(); (click)="toggleButton()"padding: 2%;   -->
+<!-- trainer table view -->
+<div style="height:400px; background-color: white; overflow:auto;">
+  <h3>Timesheet Details</h3>
+  <table  class="table caption-top">
+   <thead >
+     <tr>
+      <th scope="col">Date</th>
+      <th scope="col"> Program Name</th>
+      <th scope="col"> Activity Type</th>
+      <th scope="col">Training Mode</th>
+      <th scope="col">Duration</th>
+       <th scope="col">Number of Candidates</th>
+       
+     </tr>
+   </thead> 
+     <tbody>
+      
+      <tr *ngFor='let tsheet of ts_view'>
+                   
+          <td>{{tsheet.tsDate }}</td>
+          <td>{{tsheet.tsProgram }}</td>
+          <td>{{tsheet.tsActivity }}</td>
+          <td>{{tsheet. tsTraining_Mod}}</td>
+          <td>{{tsheet.tsHour}}</td>
+          <td>{{tsheet.tsCandidateNumber}}</td>
+          <!-- <td>{{tsheet.date.toString().slice(0,10)}}</td>     -->
+                
+      </tr>
+    </tbody>
+   
+ </table>
+</div>

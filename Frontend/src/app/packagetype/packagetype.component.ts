@@ -55,7 +55,7 @@ export class PackagetypeComponent implements OnInit {
       }
     });
 
-    this.adminservice.getactivityType()
+    this.adminservice.getactivity()
     .subscribe({
       next: (data)=>{
         this.ActivityList = JSON.parse(JSON.stringify(data));

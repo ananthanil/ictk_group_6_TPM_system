@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { TrainerService } from '../trainer.service';
-// import { AdminService } from '../admin.service';
+import { TrainertimesheetModel } from './trainertimesheet.model';
+
 
 @Component({
   selector: 'app-trainer-add-timesheet',
@@ -8,34 +10,70 @@ import { TrainerService } from '../trainer.service';
   styleUrls: ['./trainer-add-timesheet.component.css']
 })
 export class TrainerAddTimesheetComponent implements OnInit {
-  ActivityList: any = [];
-  // ProgramList: any = [];
+
+  changeButton:boolean=false;
+
+  activityList: any = [];
+  ProgramList: any = [];
   TrainingMod_List: any= [];
+  
+  reloadCurrentPage() {
+    window.location.reload();
+   }
 
   constructor(private trainer_service : TrainerService) { }
 
+  toggleButton(): void{
+    this.changeButton= !this.changeButton;
+    }
+
+   
+    ts_insert =new TrainertimesheetModel('','','','',0,0,1);
+    ts_view:any=[];
 
   ngOnInit(): void {
-    // this.admin_service.packageView()
-    // .subscribe({
-    //   next: (data)=>{
-    //     this.ProgramList = JSON.parse(JSON.stringify(data));
-    //   },
-    //   error: (err)=> {
-    //     console.log(err);
-    //   }
-    // });
-    
-    this.trainer_service.getactivityType()
+
+    this.trainer_service.gettimesheet()
     .subscribe({
       next: (data)=>{
-        this.ActivityList = JSON.parse(JSON.stringify(data));
+    this.ts_view=JSON.parse(JSON.stringify(data));   
+    
+  },
+      error: (err)=> {
+        console.log(err);
+      }
+  })
+  
+
+
+
+
+    // fetching program name and date
+    this.trainer_service.getprograms()
+    .subscribe({
+      next: (data)=>{
+        this.ProgramList = JSON.parse(JSON.stringify(data));
+        //  this.ProgramList.date = this.ProgramList.date.slice(0,10);
       },
       error: (err)=> {
         console.log(err);
       }
     });
 
+
+// fetching activity type
+    this.trainer_service.getactivity()
+    .subscribe({
+      next: (data)=>{
+        this.activityList = JSON.parse(JSON.stringify(data));
+      },
+      error: (err)=> {
+        console.log(err);
+      }
+    });
+
+
+// fetching trainer Mode
     this.trainer_service.gettrainerMode()
     .subscribe({
       next: (data)=>{
@@ -46,4 +84,27 @@ export class TrainerAddTimesheetComponent implements OnInit {
       }
     });
   }
+
+
+  onSubmit() {
+    if(this.changeButton) {
+      this.saveUpdate()
+    } else {
+      this.addTimesheet()
+    }
+  }
+
+  addTimesheet(){
+  this.trainer_service.add_Timesheet(this.ts_insert);
+      console.log("called");
+      alert("success");
+    }
+
+
+    saveUpdate() {
+      // this.trainer_service.updateTimesheet(this.ts_insert);
+      // alert("Updated");
+    }
+    
+ 
 }

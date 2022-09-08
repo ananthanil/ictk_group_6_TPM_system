@@ -45,7 +45,7 @@
 
 
 
- <!-------------------- Program View  ---------------style="overflow:auto;"----->
+ <!-------------------- Program View  ------------------->
  <div style="height:400px; background-color: white;padding: 2%; overflow:auto;">
  <h3>Program Details</h3>
  <table  class="table caption-top">
@@ -63,7 +63,7 @@
                   
                     <td>{{program_data.programtype }}</td>
                     <td>{{program_data.studentsNum}}</td>
-                    <td>{{program_data.date.toString().slice(0,10)}}</td>   <!--  {{myDate | date: 'dd-MM-yyyy'}}-->
+                    <td>{{program_data.date.toString().slice(0,10)}}</td>  
                 <td>
                   <div id="btn-edit">
                    <button class="btn btn"  (click)="editProgram(program_data._id); toggleUp()" ><i class="fa-solid fa-pen" style="color:blue ;"></i></button> 
@@ -74,4 +74,4 @@
     </tbody>
   
 </table></div>
-<!-- ;reloadCurrentPage() -->
+

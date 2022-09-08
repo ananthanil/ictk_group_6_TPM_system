@@ -1,16 +1,16 @@
 <div class="heading" >
     <h3 >Activity activityType</h3>
-     <form ><!-- (ngSubmit)="onSubmit()" -->
+     <form (ngSubmit)="onSubmit()"><!-- (ngSubmit)="onSubmit()" -->
     <table>
         <tr>
     <th><label id="typelabel">Enter Activity Type:</label></th>
-    <th><input type="text" name="typename" [(ngModel)]="activityType_insert.activityType"></th>
-     <th><button class='btn btn-success' type="submit" (click)="reloadCurrentPage()">{{showImage? 'Update' : 'Save'}}</button></th>
+    <th><input type="text" name="typename" [(ngModel)]="activity_insert.activityType"></th>
+     <th><button class='btn btn-success' type="submit" (click)="reloadCurrentPage()" >{{showImage? 'Update' : 'Save'}}</button></th>
     </tr>
     </table>
     </form>
-    <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" >Delete</button>
-    <!-- (click)="deleteactivityType()" -->
+    <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deleteactivityType();reloadCurrentPage()">Delete</button>
+   
      <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button>
 </div>      
     
@@ -24,12 +24,12 @@
                 </tr>
             </thead>                        
             <tbody>
-                <tr *ngFor='let view of activityType_view'>
+                <tr *ngFor='let activity_Type  of activity_view'>
                      <td></td>
                      <td></td>
-                     <td>{{view.activityType}}</td>
+                     <td>{{activity_Type.activityType}}</td>
                  <td>
-                    <button class="btn btn-primary" style="cursor:pointer"  style="margin-left: 5px;">Select</button>
+                    <button class="btn btn-primary" style="cursor:pointer"  style="margin-left: 5px;"(click)="editactivityType(activity_Type._id); toggleImage()">Select</button>
                     <!-- (click)="editactivityType(view._id); toggleImage()" -->
                     <!-- <button class="btn btn-danger" style="cursor:pointer"  >Delete</button> (click)="deleteRemove(books)" -->
                  </td>

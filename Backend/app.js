@@ -1,9 +1,10 @@
 const express = require('express');
 const cors = require('cors');
 var bodyparser = require('body-parser');
-const adminRouter = require('./src/router/adminRoute');
-const signupRouter = require('./src/router/signupRouter');
-const trainerRouter = require('./src/router/trainerRouter');
+const adminRouter = require('./src/router/adminRoute')
+const signupRouter = require('./src/router/signupRouter')
+const trainerRouter = require('./src/router/trainerRouter')
+
 
 var app = new express();
 var PORT = 3666

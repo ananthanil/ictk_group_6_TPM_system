@@ -3,3 +3,22 @@
     color: black;
     width: 100%;
 }
+.btn-warning{
+ transform: translate(80px,-37px);
+}
+.caption-top{width: 850px; }
+tbody {
+    
+    height: 400px;
+    overflow-y: auto;    /* Trigger vertical scroll    */
+    overflow-x: hidden;  /* Hide the horizontal scroll */
+}
+
+table ,th, td{
+    border: 1px solid black;
+    border-collapse: collapse;
+    /* background-color: white; */
+  } 
+th, td {
+    padding: 15px;
+  }

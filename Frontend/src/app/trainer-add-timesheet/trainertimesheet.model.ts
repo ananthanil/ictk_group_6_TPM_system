@@ -1,5 +1,6 @@
 export class TrainertimesheetModel{
     constructor(
+        public  tsTrainerName:string,
         public tsDate : String,
         public  tsProgram: String,
         public tsActivity : String,

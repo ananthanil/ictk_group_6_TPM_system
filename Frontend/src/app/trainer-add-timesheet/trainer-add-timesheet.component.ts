@@ -28,7 +28,7 @@ export class TrainerAddTimesheetComponent implements OnInit {
     }
 
    
-    ts_insert =new TrainertimesheetModel('','','','',0,0,1);
+    ts_insert =new TrainertimesheetModel('','','','','',0,0,1);
     ts_view:any=[];
 
   ngOnInit(): void {
@@ -95,6 +95,10 @@ export class TrainerAddTimesheetComponent implements OnInit {
   }
 
   addTimesheet(){
+    let username = localStorage.getItem("name")
+     if(username){
+      this.ts_insert.tsTrainerName=username
+    }
   this.trainer_service.add_Timesheet(this.ts_insert);
       console.log("called");
       alert("success");

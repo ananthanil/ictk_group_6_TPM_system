@@ -12,7 +12,8 @@ const trainerRouter = express.Router();
 
 trainerRouter.post('/inserttimesheet',function(req,res){                  
      console.log(req.body);
-     var ts = {       
+     var ts = {
+          tsTrainerName : req.body.timesheet.tsTrainerName,       
           tsDate : req.body.timesheet.tsDate,
           tsProgram: req.body.timesheet.tsProgram,
           tsActivity: req.body.timesheet.tsActivity,

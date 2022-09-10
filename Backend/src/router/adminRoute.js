@@ -4,6 +4,7 @@ const category = require('../model/trainer_category');
 const activity_Type=require('../model/activityType');
 const trMode = require('../model/trainer_mode');
 const PackageDetails = require('../model/package_type');
+const tsheet=require('../model/timesheet');
 
 
 const adminRouter = express.Router();
@@ -133,6 +134,16 @@ adminRouter.get('/programview',function(req,res){
         res.send(package);
    });
   });
+
+// admin view timesheet for approval
+  
+adminRouter.get('/time_sheetview',function(req,res){
+  tsheet.find({"tsStatus":1})
+  .then(function(timesheet){
+       res.send(timesheet);
+  });
+});
+
 // ------------ View operations ends ----------------------
 
 
@@ -164,12 +175,6 @@ adminRouter.put('/activityUpdate',(req,res)=>{
                                     })
 });
 
-                            //     {$set:{"activityType":activityType
-                            //  }})
-//                              .then(function(){
-//                                 res.send();
-//                                })
-//  });
 
  // trainer mode update
 
@@ -384,6 +389,7 @@ adminRouter.get("/packageselect/:id",(req, res)=>{
 });
 
 // ------------ Update Selete operations ends ------------------
+
 
 module.exports = adminRouter;
 

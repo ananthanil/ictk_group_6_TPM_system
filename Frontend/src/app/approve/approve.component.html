@@ -6,7 +6,7 @@
             <tr>
                 <th> Date</th>
                 <th> Trainer Name</th>
-                <th> Time</th>
+                <th> Hours</th>
                 <th>Mode of Training</th>
                 <th> Approve</th>
             </tr>
@@ -14,16 +14,16 @@
           </thead>
           <tbody>
            
-          
-          <tr>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th></th>
-            <th>
-                
+            <tr *ngFor='let Approve_list of ApproveList'>
+                   
+              <td>{{Approve_list.tsDate }}</td>
+              <td></td>
+              <td>{{Approve_list.tsHour}}</td>
+              <td>{{Approve_list. tsTraining_Mod}}</td>
+                 
+              <td>
                   <input type="checkbox" id="approve" >
-            </th>
+                </td>   
           </tr>
           <button class="btn btn-primary">
             Approve

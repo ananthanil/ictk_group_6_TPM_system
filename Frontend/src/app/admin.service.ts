@@ -6,6 +6,7 @@ import { ActivityTypeModel } from './activitytype/activityType.model';
 import { TrainerMode } from './t-mode/trainermode.model';
 import { PackageModel } from './packagetype/package.model';
 import { TrainerDetails } from './t-details/trainerdetails.model';
+import { TrainertimesheetModel } from './trainer-add-timesheet/trainertimesheet.model';
 
 
 @Injectable({
@@ -19,11 +20,14 @@ export class AdminService {
 
   
   constructor(private http:HttpClient) { }
+// getting time sheet data
+  gettimesheet(){
+    return this.http.get<any[]>(`${this.server_address}/admin/time_sheetview`);
+  }
 
   // Trainer Category operations
   addTrainerCategory(ttype: CategoryModel)
   {
-    console.log('in service');
     return this.http.post<any>(`${this.server_address}/admin/categoryadd`,{"category":ttype})
     .subscribe((data) => {
       console.log(data);
@@ -55,7 +59,6 @@ export class AdminService {
 
 addactivity(aType: ActivityTypeModel)
   {
-    console.log('in service');
     return this.http.post<any>(`${this.server_address}/admin/insertactivity`,{"activity_Type":aType})
     .subscribe((data) => {
       console.log(data);
@@ -67,7 +70,6 @@ addactivity(aType: ActivityTypeModel)
    }
 
   getactivitiesUpdate(id:any){
-    console.log("inside admin service & update")
     return this.http.get<any>(`${this.server_address}/admin/activitydata/`+id);
    }
 
@@ -77,7 +79,6 @@ addactivity(aType: ActivityTypeModel)
    }
 
   removeactivity(activityid:any){
-    console.log("admin service called");
     return this.http.put<any>(`${this.server_address}/admin/activityRemove/`,activityid)
     .subscribe(data => {console.log(data)})
   }
@@ -87,7 +88,6 @@ addactivity(aType: ActivityTypeModel)
   //-----------Trainer mode operations Start----------
   addTrainerMode(tmode:TrainerMode )
   {
-    console.log('in service');
     return this.http.post<any>(`${this.server_address}/admin/trainermodeadd`,{"trMode":tmode})
     .subscribe((data) => {
       console.log(data);
@@ -120,7 +120,6 @@ addactivity(aType: ActivityTypeModel)
 
   addTrainerDetails(tdetails:TrainerDetails)
   {
-    console.log('in service');
     return this.http.post<any>(`${this.server_address}/admin/trainerdetailsadd`,{"trDetails":tdetails})
     .subscribe((data) => {
       console.log(data);
@@ -148,7 +147,6 @@ addactivity(aType: ActivityTypeModel)
   // Package operations
 
   insertPackage(tpackage:PackageModel){
-    console.log('in service');
     return this.http.post<any>(`${this.server_address}/admin/addPackage`,{"package":tpackage})
     .subscribe((data) => {
       console.log(data);
@@ -177,7 +175,6 @@ addactivity(aType: ActivityTypeModel)
 // <-------- Program Type operations-----------
 
 add_Program(ptype: ProgramModel){
-  console.log('in service');
   return this.http.post<any>(`${this.server_address}/admin/insertprogram`,{"program_data":ptype})
   .subscribe((data) => {
     console.log(data);

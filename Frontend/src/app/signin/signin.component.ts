@@ -19,26 +19,26 @@ export class SigninComponent implements OnInit {
     this.Auth.loginuser(this.user)
     .subscribe({
       next: (data:any)=> {
-        console.log('line22', data);
         if(data.length == 0) {
           alert("User not found");
         } else {
           if(data[0].Ustatus == 1)
           {
-            console.log(data);
-            console.log('in side status=1')
             if(data[0].Urole == 'admin') 
             {
+              localStorage.setItem('token',data.token);
               localStorage.setItem("name",data[0].Ufirstname.toString());
               this.router.navigate(['admin-home']);
             } 
             else if(data[0].Urole == 'finance')
             {
+              localStorage.setItem('token',data.token);
               localStorage.setItem("name",data[0].Ufirstname.toString());
               this.router.navigate(['finance-home']);
             } 
             else 
             {
+              localStorage.setItem('token',data.token);
               localStorage.setItem("name",data[0].Ufirstname.toString());
               this.router.navigate(['trainer-home']);
             }

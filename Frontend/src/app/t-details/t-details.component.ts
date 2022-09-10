@@ -15,7 +15,7 @@ export class TDetailsComponent implements OnInit {
  toggleImage():void{
   this.showImage = !this.showImage
 }
- adminaddtrainer_insert = new TrainerDetails('','','',0,'','trainer',1);
+ adminaddtrainer_insert = new TrainerDetails('','','',0,'','','trainer',1);
  adminaddtrainer_view: any=[];
 
 
@@ -64,5 +64,8 @@ export class TDetailsComponent implements OnInit {
         }
   }
 
+  
 
+ 
+ 
 

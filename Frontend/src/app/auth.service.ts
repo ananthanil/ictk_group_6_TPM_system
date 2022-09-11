@@ -8,8 +8,8 @@ import { SignupModel } from './signup/signup.model';
 })
 export class AuthService {
 
-  // server_address : string = '/api';
-  server_address : string = 'http://localhost:3666/api';
+  server_address : string = '/api';
+  // server_address : string = 'http://localhost:3666/api';
   
 
   constructor(private http:HttpClient) { }

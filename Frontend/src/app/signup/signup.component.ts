@@ -11,7 +11,7 @@ export class SignupComponent implements OnInit {
 
   constructor( private Auth: AuthService) { }
 
-  insert = new SignupModel('','','',0,'','trainer',0);
+  insert = new SignupModel('','','',0,'','','trainer',0);
   ngOnInit(): void {
   }
 

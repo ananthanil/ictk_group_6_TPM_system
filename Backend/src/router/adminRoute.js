@@ -611,4 +611,3 @@ adminRouter.get("/TrainerdetailsSelect/:id",(req, res)=>{
 
 
 module.exports = adminRouter;
-

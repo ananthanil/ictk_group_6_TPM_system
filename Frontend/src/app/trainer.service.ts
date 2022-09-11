@@ -7,7 +7,7 @@ import { TrainertimesheetModel } from './trainer-add-timesheet/trainertimesheet.
 })
 export class TrainerService {
 
-    // server_address : string = 'api';
+    // server_address : string = '/api';
     server_address : string = 'http://localhost:3666/api';
 
   constructor(private http : HttpClient) { }

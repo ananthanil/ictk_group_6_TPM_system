@@ -14,7 +14,7 @@ import { TrainertimesheetModel } from './trainer-add-timesheet/trainertimesheet.
 export class AdminService {
 
 
-  // server_address : string = 'api';
+  // server_address : string = '/api';
   server_address : string = 'http://localhost:3666/api';
 
   

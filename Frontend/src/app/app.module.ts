@@ -31,6 +31,9 @@ import { TrainerSalaryRecieptComponent } from './trainer-salary-reciept/trainer-
 import { AddExpenseComponent } from './add-expense/add-expense.component';
 
 import {HttpClientModule} from '@angular/common/http';
+import { AdminService } from './admin.service';
+import { TrainerService } from './trainer.service';
+import { AuthService } from './auth.service';
 
 @NgModule({
   declarations: [
@@ -63,7 +66,7 @@ import {HttpClientModule} from '@angular/common/http';
     HttpClientModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AdminService,TrainerService,AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

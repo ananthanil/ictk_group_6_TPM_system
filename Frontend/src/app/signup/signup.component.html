@@ -12,48 +12,63 @@
   <!-- signup -->
 
   <div class="container mb-2 pt-5 pb-5">
-    <form class="row g-3" form> <!--(ngSubmit)="AddUser()"-->
+    <form class="row g-3"  #tDetails="ngForm" novalidate name="myForm" (ngSubmit)="signup()" > 
       <div class="col-md-6">
         <label for="firstName" class="form-label">First Name</label>
-        <input type="uFname" class="form-control"  name="uFname"  id="signup_firstName">  <!--[(ngModel)]="loginItem.uFname" -->
+        <input type="uFname" class="form-control" [(ngModel)]="insert.Ufirstname" name="uFname"  #Ufirstname="ngModel" required>  
+        <span class="text-danger" *ngIf="Ufirstname.touched && Ufirstname.errors?.['required']">
+          *Required!
+        </span>
       </div>
       <div class="col-md-6">
         <label for="lastName" class="form-label">Last Name</label>
-         <input type="uLname" class="form-control" name="uLname"  id="signup_lastName"> <!--[(ngModel)]="loginItem.uLname" -->
-        <span class="error" id="lastname_message"></span>
+         <input type="uLname" class="form-control" [(ngModel)]="insert.Ulastname" name="uLname"  #Ulastname="ngModel" required > 
+         <span class="text-danger" *ngIf="Ulastname.touched && Ulastname.errors?.['required']">
+          *Required!
+        </span>
       </div>
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Email</label>
-       <input type="email" class="form-control" name="uEmail"  id="signup_inputEmail4" placeholder="Eg : xyz@gmail.com">  <!-- [(ngModel)]="loginItem.uEmail"  -->
+       <input type="email" class="form-control" [(ngModel)]="insert.Uemail" name="uEmail"  id="signup_inputEmail4" placeholder="Eg : xyz@gmail.com" #Uemail="ngModel" required email>
+       <span class="text-danger" *ngIf="Uemail.touched && Uemail.errors?.['required']">
+        *Required!
+      </span>
+      <span class="text-danger" *ngIf="Uemail.touched && Uemail.errors?.['email']">
+        *Invalid email!
+      </span>  
       </div>
       
       <div class="col-md-6">
       <label for="mobile4" class="form-label">Mobile</label>
-      <input type="tel" class="form-control" name="uPhone"  placeholder="Eg : XXX-XXX-XXXX">  <!--[(ngModel)]="loginItem.uPhone" -->
-      <span class="error" id="mobile_message"></span>
+      <input type="tel" class="form-control" [(ngModel)]="insert.Umobile" name="uPhone"  placeholder="Eg : XXX-XXX-XXXX" #Umobile="ngModel" required>  
+      <span class="text-danger" *ngIf="Umobile.touched && Umobile.errors?.['required']">
+        *Required!
+      </span>
       </div>
 
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Password</label>
-        <input type="password" class="form-control" name="uPassword" > <!-- [(ngModel)]="loginItem.uPassword" -->
+        <input type="password" class="form-control" [(ngModel)]="insert.Upassword" name="uPassword"  #Upassword="ngModel" required minlength="8">
+        <span class="text-danger" *ngIf="Upassword.touched && Upassword.errors?.['required']">
+          *Required!
+        </span>
+        <span class="text-danger" *ngIf="Upassword.touched && Upassword.errors?.['minlength']">
+          *8 Character Minimum!
+        </span> 
      </div>
 
     <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" id="signup_mobile4">
-      
+        <input type="password" class="form-control" name="uConfirmPassword"  [(ngModel)]="insert.Uconfirm_password" #Uconfirm_password="ngModel" required>
+        <span class="text-danger" *ngIf="Uconfirm_password.touched && Uconfirm_password.errors?.['required']">
+          *Required!
+        </span>
+        <span class="text-danger" *ngIf="Uconfirm_password.touched && insert.Uconfirm_password !== insert.Upassword">
+          *Passwords Mismatch!
+        </span>
     </div>
       <div class="col-12">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="signup_gridCheck">
-          <label class="form-check-label" for="gridCheck">
-            Accept terms and conditions
-          </label>
-        </div>
-        <span class="error" id="I_message"></span>
-      </div>
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">Sign Up</button>
+        <button type="submit" [disabled]= "!tDetails.valid" class="btn btn-primary">Sign Up</button>
       </div>
     </form>
   </div>

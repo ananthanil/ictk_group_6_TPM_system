@@ -1,27 +1,69 @@
 <div class="container mb-2 pt-5 pb-5">
-    <form class="row g-3" > <!--(ngSubmit)="AddUser()"-->
+  <form (ngSubmit)="onSubmit()" class="row g-3" > 
+    <div class="col-md-6">
+      <label for="Category" class="form-label">Select Trainer</label>
+      <select [(ngModel)]="insert.PtrainerName" name="Trainer" class="form-control">
+        <option>Select Trainer</option>
+        <option *ngFor="let list_Category of CategoryList" >{{list_Category.trainerCategory}}</option>
+      </select>  
+    </div>
+  
+    <div  class="col-md-6">
+      <label for="fCategory" class="form-label">Select Trainer Category</label>
+      <select [(ngModel)]="insert.PtrainerCategory"  name="Category" class="form-control">
+          <option>Select Trainer Category</option>
+          <option *ngFor="let list_Category of CategoryList" >{{list_Category.trainerCategory}}</option>
+      </select> 
+    </div>
+  
+    <div class="col-md-6">
+      <label for="Activity" class="form-label"> Select Activity Type</label>
+      <select [(ngModel)]="insert.PtrainerActivity" name="Activity" class="form-control">
+        <option>Select Activity Type</option>
+        <option *ngFor="let Activity_list of ActivityList">{{Activity_list.activityType}}</option>
+      </select>
+    </div>
+        
+    <div class="col-md-6">
+      <label for="per_Hour_Amount" class="form-label">Per Hour Amount</label>
+      <input type="number" class="form-control" name="p_per_Hour_Amount"  id="signup_inputEmail4" placeholder="Eg : Rs.1000" [(ngModel)]="insert.PHourAmount" >  
+    </div>
+  
+    <div class="col-md-6">
+      <label for="activity_per_head_amount" class="form-label">Activity Per Head Amount</label>
+      <input type="number" class="form-control" name="p_activity_per_head_amount"   id="signup_inputEmail4" placeholder="Eg : Rs.1000" [(ngModel)]="insert.pActivityAmount">
+    </div>
 
-      <div class="col-md-6">
-            <label for="firstName" class="form-label">Trainer Category</label>
-            <select class="form-control">
-                <option>Select Trainer Category</option>
-            </select>  <!--[(ngModel)]="loginItem.uFname" -->
-      </div>
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary" (click)="reloadCurrentPage()">{{changebutton? 'Update' : 'Save'}}</button>
+    </div>
+  </form>
+  <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deletePackage();reloadCurrentPage()">Delete</button>
+  <button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button>
+</div>
 
-      <div class="col-md-6">
-            <label for="lastName" class="form-label">Training Mode</label>
-            <select class="form-control">
-                <option>Select Training Mode</option>
-            </select> <!--[(ngModel)]="loginItem.uLname" -->
-      </div>
-      
-      <div class="col-md-6">
-        <label for="inputEmail4" class="form-label">Per Hour Amount</label>
-        <input type="number" class="form-control" name="uEmail"  id="signup_inputEmail4" placeholder="Eg : Rs.1000">  <!-- [(ngModel)]="loginItem.uEmail"  -->
-      </div>
-
-      <div class="col-12">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
-  </div>
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Trainer</th>
+        <th>Category</th>
+        <th>Activity Type</th>
+        <th>Hour Amount</th>
+        <th>Activity Amount</th>
+      </tr>
+    </thead>                        
+    <tbody>
+      <tr *ngFor='let list of PackageList'>
+          <td>{{list.PtrainerName}}</td>
+          <td>{{list.PtrainerCategory}}</td>
+          <td>{{list.PtrainerActivity}}</td>
+          <td>{{list.PHourAmount}}</td>
+          <td>{{list.pActivityAmount}}</td>
+          <td>
+            <button class="btn btn-primary" style="cursor:pointer"  style="margin-left: 5px;" (click)="editview(list._id); makechanges()">Select</button>
+          </td>
+      </tr>
+      </tbody>
+  </table>
+</div>

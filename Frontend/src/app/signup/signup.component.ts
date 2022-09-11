@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../auth.service';
+import { SignupModel } from './signup.model';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  constructor( private Auth: AuthService) { }
 
+  insert = new SignupModel('','','',0,'','','trainer',0);
   ngOnInit(): void {
   }
 
+
+  signup()
+  {
+    this.Auth.Addtrainer(this.insert);
+    console.log("called");
+    alert("success");
+  }
 }

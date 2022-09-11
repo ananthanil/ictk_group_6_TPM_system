@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb+srv://admin:y1zccZWP7n2VK0j5@cluster0.ajlsmrf.mongodb.net/Tmpsystem?retryWrites=true&w=majority').then((success)=>{
-    console.log('DB connected')
+    console.log('DB connected category')
 }).catch((err)=>{
     console.log('connection failed',err.message)
 });
@@ -8,9 +8,9 @@ mongoose.connect('mongodb+srv://admin:y1zccZWP7n2VK0j5@cluster0.ajlsmrf.mongodb.
 const Schema = mongoose.Schema;
 
 var TainerCategory = new Schema({
-    trainerCategory : String
+    trainerCategory : String,
+    statusCategory : Number
 });
 
-var category = mongoose.model('trainertype', TainerCategory); //UserData is the model and NewBookData is the schema
-
+var category = mongoose.model('trainertype', TainerCategory); 
 module.exports = category;

@@ -11,5 +11,6 @@ export class AdminHomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  username = localStorage.getItem("name");
 
 }

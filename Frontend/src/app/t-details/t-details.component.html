@@ -1,37 +1,93 @@
 <div class="container mb-2 pt-5 pb-5">
-    <form class="row g-3" form> <!--(ngSubmit)="AddUser()"-->
+    <form class="row g-3" #tDetails="ngForm" novalidate name="myForm" (ngSubmit)=onSubmit()  >
+
       <div class="col-md-6">
         <label for="firstName" class="form-label">First Name</label>
-        <input type="uFname" class="form-control"  name="uFname"  id="signup_firstName">  <!--[(ngModel)]="loginItem.uFname" -->
+        <input type="uFname" class="form-control"  name="uFname"  id="signup_firstName" [(ngModel)]="adminaddtrainer_insert.Ufirstname" #Ufirstname="ngModel" required>  
+        <span class="text-danger" *ngIf="Ufirstname.touched && Ufirstname.errors?.['required']">
+          *Required!
+        </span>
       </div>
+      
       <div class="col-md-6">
-        <label for="lastName" class="form-label">Last Name</label>
-         <input type="uLname" class="form-control" name="uLname"  id="signup_lastName"> <!--[(ngModel)]="loginItem.uLname" -->
-        <span class="error" id="lastname_message"></span>
+         <label for="lastName" class="form-label">Last Name</label>
+         <input type="uLname" class="form-control" name="uLname"  id="signup_lastName" [(ngModel)]="adminaddtrainer_insert.Ulastname" #Ulastname="ngModel" required>
+         <span class="text-danger" *ngIf="Ulastname.touched && Ulastname.errors?.['required']">
+          *Required!
+        </span>
       </div>
+     
       <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Email</label>
-       <input type="email" class="form-control" name="uEmail"  id="signup_inputEmail4" placeholder="Eg : xyz@gmail.com">  <!-- [(ngModel)]="loginItem.uEmail"  -->
+        <input type="email" class="form-control" name="uEmail"  id="signup_inputEmail4" placeholder="Eg : xyz@gmail.com" [(ngModel)]="adminaddtrainer_insert.Uemail" #Uemail="ngModel" required email> 
+        <span class="text-danger" *ngIf="Uemail.touched && Uemail.errors?.['required']">
+          *Required!
+        </span>
+        <span class="text-danger" *ngIf="Uemail.touched && Uemail.errors?.['email']">
+          *Invalid email!
+        </span>
       </div>
       
       <div class="col-md-6">
       <label for="mobile4" class="form-label">Mobile</label>
-      <input type="tel" class="form-control" name="uPhone"  placeholder="Eg : XXX-XXX-XXXX">  <!--[(ngModel)]="loginItem.uPhone" -->
-      <span class="error" id="mobile_message"></span>
+      <input type="tel" class="form-control" name="uPhone"  placeholder="Eg : XXX-XXX-XXXX" [(ngModel)]="adminaddtrainer_insert.Umobile" #Umobile="ngModel" required> 
+      <span class="text-danger" *ngIf="Umobile.touched && Umobile.errors?.['required']">
+        *Required!
+      </span>
       </div>
 
       <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Password</label>
-        <input type="password" class="form-control" name="uPassword" > <!-- [(ngModel)]="loginItem.uPassword" -->
-     </div>
+        <input type="password" class="form-control" name="uPassword" [(ngModel)]="adminaddtrainer_insert.Upassword" #Upassword="ngModel" required minlength="8"> 
+        <span class="text-danger" *ngIf="Upassword.touched && Upassword.errors?.['required']">
+          *Required!
+        </span>
+        <span class="text-danger" *ngIf="Upassword.touched && Upassword.errors?.['minlength']">
+          *8 Character Minimum!
+        </span>
+      </div>
 
     <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Confirm Password</label>
-        <input type="password" class="form-control" id="signup_mobile4">
-      
+        <input type="password" class="form-control" name="uConfirmPassword" [(ngModel)]="adminaddtrainer_insert.Uconfirm_password" #Uconfirm_password="ngModel" required>
+        <span class="text-danger" *ngIf="Uconfirm_password.touched && Uconfirm_password.errors?.['required']">
+          *Required!
+        </span>
+        <span class="text-danger" *ngIf="Uconfirm_password.touched && adminaddtrainer_insert.Uconfirm_password !== adminaddtrainer_insert.Upassword">
+          *Passwords Mismatch!
+        </span>
     </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Add Details</button>
-    </div>
+    <div class="button">
+    <button type="submit" value="submit"  [disabled]= "!tDetails.valid" (click)=" reloadCurrentPage()">{{showImage? 'Update' : 'Save'}}</button> 
+    
+  </div>
   </form>
+
+  <button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deleteTrainerDetails();reloadCurrentPage()">Delete</button>
+<button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button>
+</div>
+
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Mobile</th>
+        </tr>
+    </thead>                        
+    <tbody>
+      <tr *ngFor='let details of adminaddtrainer_view'>
+          <td>{{details.Ufirstname}}</td>
+          <td>{{details.Ulastname}}</td>
+          <td>{{details.Uemail}}</td>
+          <td>{{details.Umobile}}</td>
+          
+          <td>
+            <button class="btn btn-primary" style="cursor:pointer"  style="margin-left: 5px;" (click)="editTrainerdetails(details._id); toggleImage()">Select</button>
+          </td>
+      </tr>
+      </tbody>
+  </table>
 </div>

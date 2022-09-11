@@ -1,8 +1,47 @@
 <div class="container" >
-    <h3 >Training Mode</h3>
-    <label>Add Trainer Mode:</label>
-    <input type="text " id="typename">
-          <div class="button">
-            <button id="btt">Add </button> 
-         </div>
+  <h3 >Training Mode</h3>
+  <form #tMode="ngForm" novalidate (ngSubmit)="onSubmit()">
+     
+  <table>
+   <tr>
+    
+    <th><label id="typelabel">Add Trainer Mode:</label></th>
+
+    <th><input type="text " name="typename" [(ngModel)]="trainermode_insert.trainingMode"></th>
+    <th><button type="submit" value="submit" (click)=" reloadCurrentPage()">{{showImage? 'Update' : 'Save'}}</button><th>  
+
+    <th><input type="text " name="typename" [(ngModel)]="trainermode_insert.trainingMode" #typename="ngModel"  required></th>
+    <span class="text-danger" *ngIf="typename.touched && typename.errors?.['required']">
+                    *Required!
+                  </span>
+    <th><button type="submit" value="submit" [disabled]= "!tMode.valid" (click)=" reloadCurrentPage()">{{showImage? 'Update' : 'Save'}}</button><th>  
+
+
+   </tr>
+  </table>
+</form>
+<button class="btn btn-danger" style="cursor:pointer" style="margin-left: 5px;" (click)="deleteTrainerMode();reloadCurrentPage()">Delete</button>
+<button class="btn btn-warning" style="cursor:pointer" style="margin-left: 5px;" (click)="reloadCurrentPage()">Cancel</button>
 </div>
+
+<div class="table-responsive">
+  <table class="table">
+      <thead>
+          <tr>
+              <th></th>
+              <th></th>
+              <th>Trainer Mode</th>
+          </tr>
+      </thead>
+       <tbody>
+        <tr *ngFor='let view of trainermode_view'> 
+             <td></td>
+             <td></td>
+             <td>{{view.trainingMode}}</td> 
+         <td>  
+          <button class="btn btn-primary" style="cursor:pointer" (click)="editTrainermode(view._id); toggleImage()" style="margin-left: 5px;">Select</button>
+         </td>
+        </tr>
+      </tbody>
+  </table>
+</div>  

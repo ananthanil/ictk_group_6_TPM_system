@@ -127,9 +127,9 @@ addactivity(aType: ActivityTypeModel)
 //---------- tarining mode oprations end--------- 
 
 
-  //-----------training Details operation start--------
+  //-----------admin add trainer Details operation start--------
 
-  addTrainerDetails(tdetails:TrainerDetails)
+  addtrainerDetails(tdetails:TrainerDetails)
   {
     console.log('in service');
     return this.http.post<any>(`${this.server_address}/admin/trainerdetailsadd`,{"trDetails":tdetails})
@@ -141,18 +141,22 @@ addactivity(aType: ActivityTypeModel)
     console.log('in service');
     return this.http.post<any>(`${this.server_address}/admin/insertprogram`,{"program_data":ptype})
 
+
+    // return this.http.post<any>(`${this.server_address}/admin/trainerdetailsadd`,{"signup":tdetails})
+
     .subscribe((data) => {
       console.log(data);
     });
+   }
+  gettrainerDetails(){
+    return this.http.get<any[]>(`${this.server_address}/admin/TrainerDetailsview`);
   }
- 
-  gettrainerDetals(){
-    return this.http.get<any[]>(`${this.server_address}/admin/TrainerDetalsview`);
-  }
+
   getTrainerDetailsUpdate(id:any)
-  {
+ {
     return this.http.get<any>(`${this.server_address}/admin/TrainerdetailsSelect/`+id);
   }
+
   // updateTrainerDetails()
   // {
   //   return this.http.put<any>(`${this.server_address}/admin/TrainerdetailsUpdate/`,TDetails)
@@ -172,6 +176,23 @@ addactivity(aType: ActivityTypeModel)
       console.log(data);
     });
   }
+
+  updateTrainerDetails(TDetails:any)
+  {
+    return this.http.put<any>(`${this.server_address}/admin/TrainerdetailsUpdate/`,TDetails)
+    .subscribe(data => {console.log(data)})
+  }
+  removeTrainerDetails(TDetails:any){
+    
+    return this.http.put<any>(`${this.server_address}/admin/TrainerdetailsRemove/`,TDetails)
+    .subscribe(data => {console.log(data)})
+  }
+
+
+
+  //  -------admin add trainer details end----------
+
+
   packageView(){
     return this.http.get<any[]>(`${this.server_address}/admin/packageview`); 
   }

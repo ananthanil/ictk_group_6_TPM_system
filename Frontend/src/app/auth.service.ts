@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SignupModel } from './signup/signup.model';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -20,8 +21,20 @@ export class AuthService {
       console.log(data);
     });
   }
+
   loginuser(loginuser: SignupModel){
     console.log('in service');
     return this.http.post<any>(`${this.server_address}/user/login`,{"logtrainer":loginuser})
   }
+
+  // admin Add Trainer
+
+  // AddtrainerDetails(tdetails : TrainerDetails){
+  //   console.log('in service');
+  //   return this.http.post<any>(`${this.server_address}/user/trainerdetailsadd`,{"trainer":tdetails})
+  //   .subscribe((data) => {
+  //     console.log(data);
+  //   });
+
+  // }
 }

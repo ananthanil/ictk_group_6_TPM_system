@@ -15,6 +15,11 @@ app.use('/api/admin/',adminRouter);
 app.use('/api/trainer/', trainerRouter);
 app.use('/api/user/', signupRouter);
 
+app.get('/*',function(req, res){
+  res.sendFile(path.join(__dirname + './dist/frontend/index.html'));
+});
+
+var PORT = process.env.PORT || 3006
 app.listen(PORT,function(){
     console.log(`listening to port ${PORT}`);
   });

@@ -36,8 +36,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "4mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -103,10 +103,7 @@
     }
   },
   "cli": {
-<<<<<<< Updated upstream
     "analytics": "46899344-dc28-4f07-bb8b-876adf8e8998"
-=======
-    "analytics": "945274f3-6eaa-422d-b7e2-0dd10d52a45a"
->>>>>>> Stashed changes
+
   }
 }

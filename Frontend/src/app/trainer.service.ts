@@ -30,7 +30,6 @@ export class TrainerService {
 // trainer timesheet operations
 
   add_Timesheet(ts: TrainertimesheetModel){
-    console.log('in service');
     return this.http.post<any>(`${this.server_address}/trainer/inserttimesheet`,{"timesheet":ts})
     .subscribe((data) => {
       console.log(data);

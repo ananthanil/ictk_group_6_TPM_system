@@ -17,6 +17,6 @@ var TainerSignup = new Schema({
     Ustatus : Number
 });
 
-var signup = mongoose.model('signup', TainerSignup); //UserData is the model and NewBookData is the schema
+var signup = mongoose.model('signup', TainerSignup); 
 
 module.exports = signup;

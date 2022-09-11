@@ -53,7 +53,6 @@ export class TrainerAddTimesheetComponent implements OnInit {
     .subscribe({
       next: (data)=>{
         this.ProgramList = JSON.parse(JSON.stringify(data));
-        //  this.ProgramList.date = this.ProgramList.date.slice(0,10);
       },
       error: (err)=> {
         console.log(err);

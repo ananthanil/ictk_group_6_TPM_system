@@ -4,8 +4,8 @@ const category = require('../model/trainer_category');
 const activity_Type=require('../model/activityType');
 const trMode = require('../model/trainer_mode');
 const PackageDetails = require('../model/package_type');
-const signup = require('../model/signup')
-
+const signup = require('../model/signup');
+const tsheet=require('../model/timesheet');
 const adminRouter = express.Router();
 
 // ------------ Insertion operations start ------------------
@@ -170,7 +170,29 @@ adminRouter.get('/programview',function(req,res){
   });
 });
 
+
 // ------------ View operations ends ------------------
+
+ //Package view
+  adminRouter.get('/packageview',function(req,res){
+    PackageDetails.find({"packageStatus":1})
+   .then(function(package){
+        res.send(package);
+   });
+  });
+
+// admin view timesheet for approval
+  
+adminRouter.get('/time_sheetview',function(req,res){
+  tsheet.find({"tsStatus":1})
+  .then(function(timesheet){
+       res.send(timesheet);
+  });
+});
+
+// ------------ View operations ends ----------------------
+
+
 // ------------ Update operations starts ------------------
 
 // admin Update Category
@@ -199,12 +221,6 @@ adminRouter.put('/activityUpdate',(req,res)=>{
                                     })
 });
 
-                            //     {$set:{"activityType":activityType
-                            //  }})
-//                              .then(function(){
-//                                 res.send();
-//                                })
-//  });
 
  // trainer mode update
 
@@ -593,4 +609,6 @@ adminRouter.get("/TrainerdetailsSelect/:id",(req, res)=>{
 });
 // ------------ Update Selete operations ends ------------------
 
+
 module.exports = adminRouter;
+

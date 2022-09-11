@@ -12,7 +12,6 @@ var NewactivitySchema = new Schema({
     statusactivityType : Number
 });
 
-var activity_Type = mongoose.model('activityType', NewactivitySchema); //UserData is the model and NewBookData is the schema
+var activity_Type = mongoose.model('activityType', NewactivitySchema); 
 
 module.exports = activity_Type;
-// hello

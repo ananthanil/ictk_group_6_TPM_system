@@ -43,6 +43,9 @@ trainerRouter.get('/programview',function(req,res){
           res.send(programdetail);
       });
       });
+
+
+
 //  selection of activitytype
 trainerRouter.get('/activityTypeview',function(req,res){
      activityType.find({"statusactivityType":1})
@@ -50,6 +53,8 @@ trainerRouter.get('/activityTypeview',function(req,res){
           res.send(activityType);
       });
       });
+
+      
 //  selection of TrainerMode
 trainerRouter.get('/TrainerModeview',function(req,res){
      trMode.find()

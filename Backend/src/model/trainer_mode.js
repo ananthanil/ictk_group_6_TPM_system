@@ -11,7 +11,7 @@ var TrnMode = new Schema({
     statusTrainermode : Number
 });
 
-var trMode = mongoose.model('trainermode', TrnMode); //UserData is the model and NewBookData is the schema
+var trMode = mongoose.model('trainermode', TrnMode); 
 
 module.exports = trMode;
 

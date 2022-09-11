@@ -5,17 +5,26 @@
        </div>
     </div>
 </div>
-<form (ngSubmit)="singin()">
+<form #tDetails="ngForm" novalidate name="myForm" (ngSubmit)="singin()">
     <div class="col-md-6">
         <label for="inputEmail4" class="form-label">Email</label>
-        <input [(ngModel)]="user.Uemail" type="email" class="form-control" name="umail"  id="signup_inputEmail4" > 
+        <input [(ngModel)]="user.Uemail" type="email" class="form-control" name="umail"   #uemail="ngModel" required> 
+        <span class="text-danger" *ngIf="uemail.touched && uemail.errors?.['required']">
+            *Required!
+          </span>
     </div>
     <div class="col-md-6">
         <label for="inputPassword4" class="form-label">Password</label>
-        <input [(ngModel)]="user.Upassword" type="password" class="form-control" name="uPassword" >
+        <input [(ngModel)]="user.Upassword" type="password" class="form-control" name="uPassword"  #Upassword="ngModel" required minlength="8">
+        <span class="text-danger" *ngIf="Upassword.touched && Upassword.errors?.['required']">
+            *Required!
+          </span>
+          <span class="text-danger" *ngIf="Upassword.touched && Upassword.errors?.['minlength']">
+            *8 Character Minimum!
+          </span>
     </div>
     <div class="col-12">
-        <button type="submit" class="btn btn-primary">Sign In</button>
+        <button type="submit" class="btn btn-primary"  [disabled]= "!tDetails.valid">Sign In</button>
       </div>
 </form>
     <div>
